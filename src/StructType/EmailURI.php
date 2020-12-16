@@ -1,0 +1,107 @@
+<?php
+
+namespace Randock\PostNL\BulkMailApi\StructType;
+
+use \WsdlToPhp\PackageBase\AbstractStructBase;
+
+/**
+ * This class stands for EmailURI StructType
+ * Meta information extracted from the WSDL
+ * - nillable: true
+ * - type: tns:EmailURI
+ * @subpackage Structs
+ */
+class EmailURI extends AbstractStructBase
+{
+    /**
+     * The Value
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var string
+     */
+    public $Value;
+    /**
+     * The schemeID
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * - nillable: true
+     * @var string
+     */
+    public $schemeID;
+    /**
+     * Constructor method for EmailURI
+     * @uses EmailURI::setValue()
+     * @uses EmailURI::setSchemeID()
+     * @param string $value
+     * @param string $schemeID
+     */
+    public function __construct($value = null, $schemeID = null)
+    {
+        $this
+            ->setValue($value)
+            ->setSchemeID($schemeID);
+    }
+    /**
+     * Get Value value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return isset($this->Value) ? $this->Value : null;
+    }
+    /**
+     * Set Value value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $value
+     * @return \Randock\PostNL\BulkMailApi\StructType\EmailURI
+     */
+    public function setValue($value = null)
+    {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+        }
+        if (is_null($value) || (is_array($value) && empty($value))) {
+            unset($this->Value);
+        } else {
+            $this->Value = $value;
+        }
+        return $this;
+    }
+    /**
+     * Get schemeID value
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return string|null
+     */
+    public function getSchemeID()
+    {
+        return isset($this->schemeID) ? $this->schemeID : null;
+    }
+    /**
+     * Set schemeID value
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @param string $schemeID
+     * @return \Randock\PostNL\BulkMailApi\StructType\EmailURI
+     */
+    public function setSchemeID($schemeID = null)
+    {
+        // validation for constraint: string
+        if (!is_null($schemeID) && !is_string($schemeID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($schemeID, true), gettype($schemeID)), __LINE__);
+        }
+        if (is_null($schemeID) || (is_array($schemeID) && empty($schemeID))) {
+            unset($this->schemeID);
+        } else {
+            $this->schemeID = $schemeID;
+        }
+        return $this;
+    }
+}
