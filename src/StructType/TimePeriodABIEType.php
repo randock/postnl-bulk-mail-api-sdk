@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TimePeriodABIEType StructType
@@ -17,39 +20,39 @@ class TimePeriodABIEType extends AbstractStructBase
      * The InclusiveIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $InclusiveIndicator;
+    protected ?bool $InclusiveIndicator = null;
     /**
      * The InclusiveIndicatorSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $InclusiveIndicatorSpecified;
+    protected ?bool $InclusiveIndicatorSpecified = null;
     /**
      * The Item
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Item;
+    protected ?string $Item = null;
     /**
      * The ItemElementName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ItemElementName;
+    protected ?string $ItemElementName = null;
     /**
      * The StartDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $StartDateTime;
+    protected ?string $StartDateTime = null;
     /**
      * Constructor method for TimePeriodABIEType
      * @uses TimePeriodABIEType::setInclusiveIndicator()
@@ -63,7 +66,7 @@ class TimePeriodABIEType extends AbstractStructBase
      * @param string $itemElementName
      * @param string $startDateTime
      */
-    public function __construct($inclusiveIndicator = null, $inclusiveIndicatorSpecified = null, $item = null, $itemElementName = null, $startDateTime = null)
+    public function __construct(?bool $inclusiveIndicator = null, ?bool $inclusiveIndicatorSpecified = null, ?string $item = null, ?string $itemElementName = null, ?string $startDateTime = null)
     {
         $this
             ->setInclusiveIndicator($inclusiveIndicator)
@@ -76,7 +79,7 @@ class TimePeriodABIEType extends AbstractStructBase
      * Get InclusiveIndicator value
      * @return bool|null
      */
-    public function getInclusiveIndicator()
+    public function getInclusiveIndicator(): ?bool
     {
         return $this->InclusiveIndicator;
     }
@@ -85,20 +88,21 @@ class TimePeriodABIEType extends AbstractStructBase
      * @param bool $inclusiveIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodABIEType
      */
-    public function setInclusiveIndicator($inclusiveIndicator = null)
+    public function setInclusiveIndicator(?bool $inclusiveIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($inclusiveIndicator) && !is_bool($inclusiveIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inclusiveIndicator, true), gettype($inclusiveIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inclusiveIndicator, true), gettype($inclusiveIndicator)), __LINE__);
         }
         $this->InclusiveIndicator = $inclusiveIndicator;
+        
         return $this;
     }
     /**
      * Get InclusiveIndicatorSpecified value
      * @return bool|null
      */
-    public function getInclusiveIndicatorSpecified()
+    public function getInclusiveIndicatorSpecified(): ?bool
     {
         return $this->InclusiveIndicatorSpecified;
     }
@@ -107,13 +111,14 @@ class TimePeriodABIEType extends AbstractStructBase
      * @param bool $inclusiveIndicatorSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodABIEType
      */
-    public function setInclusiveIndicatorSpecified($inclusiveIndicatorSpecified = null)
+    public function setInclusiveIndicatorSpecified(?bool $inclusiveIndicatorSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($inclusiveIndicatorSpecified) && !is_bool($inclusiveIndicatorSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inclusiveIndicatorSpecified, true), gettype($inclusiveIndicatorSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inclusiveIndicatorSpecified, true), gettype($inclusiveIndicatorSpecified)), __LINE__);
         }
         $this->InclusiveIndicatorSpecified = $inclusiveIndicatorSpecified;
+        
         return $this;
     }
     /**
@@ -123,7 +128,7 @@ class TimePeriodABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getItem()
+    public function getItem(): ?string
     {
         return isset($this->Item) ? $this->Item : null;
     }
@@ -134,24 +139,25 @@ class TimePeriodABIEType extends AbstractStructBase
      * @param string $item
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodABIEType
      */
-    public function setItem($item = null)
+    public function setItem(?string $item = null): self
     {
         // validation for constraint: string
         if (!is_null($item) && !is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($item, true), gettype($item)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($item, true), gettype($item)), __LINE__);
         }
         if (is_null($item) || (is_array($item) && empty($item))) {
             unset($this->Item);
         } else {
             $this->Item = $item;
         }
+        
         return $this;
     }
     /**
      * Get ItemElementName value
      * @return string|null
      */
-    public function getItemElementName()
+    public function getItemElementName(): ?string
     {
         return $this->ItemElementName;
     }
@@ -159,17 +165,18 @@ class TimePeriodABIEType extends AbstractStructBase
      * Set ItemElementName value
      * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType::valueIsValid()
      * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $itemElementName
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodABIEType
      */
-    public function setItemElementName($itemElementName = null)
+    public function setItemElementName(?string $itemElementName = null): self
     {
         // validation for constraint: enumeration
         if (!\Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType::valueIsValid($itemElementName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType', is_array($itemElementName) ? implode(', ', $itemElementName) : var_export($itemElementName, true), implode(', ', \Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType', is_array($itemElementName) ? implode(', ', $itemElementName) : var_export($itemElementName, true), implode(', ', \Randock\PostNL\BulkMailApi\EnumType\ItemChoiceType::getValidValues())), __LINE__);
         }
         $this->ItemElementName = $itemElementName;
+        
         return $this;
     }
     /**
@@ -179,7 +186,7 @@ class TimePeriodABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): ?string
     {
         return isset($this->StartDateTime) ? $this->StartDateTime : null;
     }
@@ -190,17 +197,18 @@ class TimePeriodABIEType extends AbstractStructBase
      * @param string $startDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodABIEType
      */
-    public function setStartDateTime($startDateTime = null)
+    public function setStartDateTime(?string $startDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($startDateTime) && !is_string($startDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
         }
         if (is_null($startDateTime) || (is_array($startDateTime) && empty($startDateTime))) {
             unset($this->StartDateTime);
         } else {
             $this->StartDateTime = $startDateTime;
         }
+        
         return $this;
     }
 }

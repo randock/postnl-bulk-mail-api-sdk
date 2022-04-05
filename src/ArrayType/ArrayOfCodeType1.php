@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCodeType1 ArrayType
@@ -21,13 +24,13 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1[]
      */
-    public $CodeType1;
+    protected ?array $CodeType1 = null;
     /**
      * Constructor method for ArrayOfCodeType1
      * @uses ArrayOfCodeType1::setCodeType1()
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1[] $codeType1
      */
-    public function __construct(array $codeType1 = array())
+    public function __construct(?array $codeType1 = null)
     {
         $this
             ->setCodeType1($codeType1);
@@ -37,9 +40,9 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1[]
      */
-    public function getCodeType1()
+    public function getCodeType1(): ?array
     {
         return isset($this->CodeType1) ? $this->CodeType1 : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCodeType1ForArrayConstraintsFromSetCodeType1(array $values = array())
+    public static function validateCodeType1ForArrayConstraintsFromSetCodeType1(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfCodeType1CodeType1Item) {
@@ -63,42 +69,29 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
             $message = sprintf('The CodeType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\CodeType1, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set CodeType1 value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1[] $codeType1
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
      */
-    public function setCodeType1(array $codeType1 = array())
+    public function setCodeType1(?array $codeType1 = null): self
     {
         // validation for constraint: array
         if ('' !== ($codeType1ArrayErrorMessage = self::validateCodeType1ForArrayConstraintsFromSetCodeType1($codeType1))) {
-            throw new \InvalidArgumentException($codeType1ArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($codeType1ArrayErrorMessage, __LINE__);
         }
         if (is_null($codeType1) || (is_array($codeType1) && empty($codeType1))) {
             unset($this->CodeType1);
         } else {
             $this->CodeType1 = $codeType1;
         }
-        return $this;
-    }
-    /**
-     * Add item to CodeType1 value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
-     */
-    public function addToCodeType1(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\CodeType1) {
-            throw new \InvalidArgumentException(sprintf('The CodeType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\CodeType1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->CodeType1[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfCodeType1 extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\CodeType1) {
+            throw new InvalidArgumentException(sprintf('The CodeType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\CodeType1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CodeType1
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CodeType1';
     }

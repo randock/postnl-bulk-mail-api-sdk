@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExtraAttachmentType StructType
@@ -18,17 +21,17 @@ class ExtraAttachmentType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType
+     * @var \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType|null
      */
-    public $Attachment;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $Attachment = null;
     /**
      * The AttachmentCharacteristics
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public $AttachmentCharacteristics;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $AttachmentCharacteristics = null;
     /**
      * Constructor method for ExtraAttachmentType
      * @uses ExtraAttachmentType::setAttachment()
@@ -36,7 +39,7 @@ class ExtraAttachmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $attachmentCharacteristics
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $attachmentCharacteristics = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $attachmentCharacteristics = null)
     {
         $this
             ->setAttachment($attachment)
@@ -49,7 +52,7 @@ class ExtraAttachmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType|null
      */
-    public function getAttachment()
+    public function getAttachment(): ?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType
     {
         return isset($this->Attachment) ? $this->Attachment : null;
     }
@@ -60,13 +63,14 @@ class ExtraAttachmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment
      * @return \Randock\PostNL\BulkMailApi\StructType\ExtraAttachmentType
      */
-    public function setAttachment(\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null)
+    public function setAttachment(?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null): self
     {
         if (is_null($attachment) || (is_array($attachment) && empty($attachment))) {
             unset($this->Attachment);
         } else {
             $this->Attachment = $attachment;
         }
+        
         return $this;
     }
     /**
@@ -76,7 +80,7 @@ class ExtraAttachmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public function getAttachmentCharacteristics()
+    public function getAttachmentCharacteristics(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
     {
         return isset($this->AttachmentCharacteristics) ? $this->AttachmentCharacteristics : null;
     }
@@ -87,13 +91,14 @@ class ExtraAttachmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $attachmentCharacteristics
      * @return \Randock\PostNL\BulkMailApi\StructType\ExtraAttachmentType
      */
-    public function setAttachmentCharacteristics(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $attachmentCharacteristics = null)
+    public function setAttachmentCharacteristics(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $attachmentCharacteristics = null): self
     {
         if (is_null($attachmentCharacteristics) || (is_array($attachmentCharacteristics) && empty($attachmentCharacteristics))) {
             unset($this->AttachmentCharacteristics);
         } else {
             $this->AttachmentCharacteristics = $attachmentCharacteristics;
         }
+        
         return $this;
     }
 }

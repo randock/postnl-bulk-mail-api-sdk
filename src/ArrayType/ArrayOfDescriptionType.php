@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfDescriptionType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\DescriptionType[]
      */
-    public $DescriptionType;
+    protected ?array $DescriptionType = null;
     /**
      * Constructor method for ArrayOfDescriptionType
      * @uses ArrayOfDescriptionType::setDescriptionType()
      * @param \Randock\PostNL\BulkMailApi\StructType\DescriptionType[] $descriptionType
      */
-    public function __construct(array $descriptionType = array())
+    public function __construct(?array $descriptionType = null)
     {
         $this
             ->setDescriptionType($descriptionType);
@@ -37,9 +40,9 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType[]
      */
-    public function getDescriptionType()
+    public function getDescriptionType(): ?array
     {
         return isset($this->DescriptionType) ? $this->DescriptionType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDescriptionTypeForArrayConstraintsFromSetDescriptionType(array $values = array())
+    public static function validateDescriptionTypeForArrayConstraintsFromSetDescriptionType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfDescriptionTypeDescriptionTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
             $message = sprintf('The DescriptionType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\DescriptionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DescriptionType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\DescriptionType[] $descriptionType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
      */
-    public function setDescriptionType(array $descriptionType = array())
+    public function setDescriptionType(?array $descriptionType = null): self
     {
         // validation for constraint: array
         if ('' !== ($descriptionTypeArrayErrorMessage = self::validateDescriptionTypeForArrayConstraintsFromSetDescriptionType($descriptionType))) {
-            throw new \InvalidArgumentException($descriptionTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($descriptionTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($descriptionType) || (is_array($descriptionType) && empty($descriptionType))) {
             unset($this->DescriptionType);
         } else {
             $this->DescriptionType = $descriptionType;
         }
-        return $this;
-    }
-    /**
-     * Add item to DescriptionType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\DescriptionType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
-     */
-    public function addToDescriptionType(\Randock\PostNL\BulkMailApi\StructType\DescriptionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\DescriptionType) {
-            throw new \InvalidArgumentException(sprintf('The DescriptionType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\DescriptionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->DescriptionType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfDescriptionType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\DescriptionType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\DescriptionType) {
+            throw new InvalidArgumentException(sprintf('The DescriptionType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\DescriptionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DescriptionType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DescriptionType';
     }

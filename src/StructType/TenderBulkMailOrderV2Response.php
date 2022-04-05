@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TenderBulkMailOrderV2Response StructType
@@ -15,15 +18,15 @@ class TenderBulkMailOrderV2Response extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
+     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public $TenderBulkMailOrderV2Result;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $TenderBulkMailOrderV2Result = null;
     /**
      * Constructor method for TenderBulkMailOrderV2Response
      * @uses TenderBulkMailOrderV2Response::setTenderBulkMailOrderV2Result()
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderBulkMailOrderV2Result
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderBulkMailOrderV2Result = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderBulkMailOrderV2Result = null)
     {
         $this
             ->setTenderBulkMailOrderV2Result($tenderBulkMailOrderV2Result);
@@ -35,7 +38,7 @@ class TenderBulkMailOrderV2Response extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public function getTenderBulkMailOrderV2Result()
+    public function getTenderBulkMailOrderV2Result(): ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
     {
         return isset($this->TenderBulkMailOrderV2Result) ? $this->TenderBulkMailOrderV2Result : null;
     }
@@ -46,13 +49,14 @@ class TenderBulkMailOrderV2Response extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderBulkMailOrderV2Result
      * @return \Randock\PostNL\BulkMailApi\StructType\TenderBulkMailOrderV2Response
      */
-    public function setTenderBulkMailOrderV2Result(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderBulkMailOrderV2Result = null)
+    public function setTenderBulkMailOrderV2Result(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderBulkMailOrderV2Result = null): self
     {
         if (is_null($tenderBulkMailOrderV2Result) || (is_array($tenderBulkMailOrderV2Result) && empty($tenderBulkMailOrderV2Result))) {
             unset($this->TenderBulkMailOrderV2Result);
         } else {
             $this->TenderBulkMailOrderV2Result = $tenderBulkMailOrderV2Result;
         }
+        
         return $this;
     }
 }

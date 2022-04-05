@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Result StructType
@@ -18,17 +21,17 @@ class Result extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ErrorCode;
+    protected ?string $ErrorCode = null;
     /**
      * The ErrorMessage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ErrorMessage;
+    protected ?string $ErrorMessage = null;
     /**
      * Constructor method for Result
      * @uses Result::setErrorCode()
@@ -36,7 +39,7 @@ class Result extends AbstractStructBase
      * @param string $errorCode
      * @param string $errorMessage
      */
-    public function __construct($errorCode = null, $errorMessage = null)
+    public function __construct(?string $errorCode = null, ?string $errorMessage = null)
     {
         $this
             ->setErrorCode($errorCode)
@@ -49,7 +52,7 @@ class Result extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getErrorCode()
+    public function getErrorCode(): ?string
     {
         return isset($this->ErrorCode) ? $this->ErrorCode : null;
     }
@@ -60,17 +63,18 @@ class Result extends AbstractStructBase
      * @param string $errorCode
      * @return \Randock\PostNL\BulkMailApi\StructType\Result
      */
-    public function setErrorCode($errorCode = null)
+    public function setErrorCode(?string $errorCode = null): self
     {
         // validation for constraint: string
         if (!is_null($errorCode) && !is_string($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorCode, true), gettype($errorCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorCode, true), gettype($errorCode)), __LINE__);
         }
         if (is_null($errorCode) || (is_array($errorCode) && empty($errorCode))) {
             unset($this->ErrorCode);
         } else {
             $this->ErrorCode = $errorCode;
         }
+        
         return $this;
     }
     /**
@@ -80,7 +84,7 @@ class Result extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): ?string
     {
         return isset($this->ErrorMessage) ? $this->ErrorMessage : null;
     }
@@ -91,17 +95,18 @@ class Result extends AbstractStructBase
      * @param string $errorMessage
      * @return \Randock\PostNL\BulkMailApi\StructType\Result
      */
-    public function setErrorMessage($errorMessage = null)
+    public function setErrorMessage(?string $errorMessage = null): self
     {
         // validation for constraint: string
         if (!is_null($errorMessage) && !is_string($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
         }
         if (is_null($errorMessage) || (is_array($errorMessage) && empty($errorMessage))) {
             unset($this->ErrorMessage);
         } else {
             $this->ErrorMessage = $errorMessage;
         }
+        
         return $this;
     }
 }

@@ -1,29 +1,63 @@
 # CHANGELOG
 
-## 2.2.0 - 2020-09-11
+## 5.0.1 - 2021/02/09
+- Remove trigger_error calls since this is version 5.0 :)
+
+## 5.0.0 - 2021/02/05
+- Issue #13 - Auto initialize AbstractStructArrayBase::internArray
+- BC: read [UPGRADE-5.0.md](/UPGRADE-5.0.md)
+
+## 4.0.1 - 2021/02/05
+- Add deprecation messages for next major release 5
+
+## 4.0.0 - 2021/02/03
+- BC:
+  - `WsdlToPhp\PackageBase\AbstractStructBase::_set` has been renamed to `WsdlToPhp\PackageBase\AbstractStructBase::setPropertyValue`
+  - `WsdlToPhp\PackageBase\AbstractStructBase::_set` has been renamed to `WsdlToPhp\PackageBase\AbstractStructBase::getPropertyValue`
+- Improve `WsdlToPhp\PackageBase\AbstractStructBase::__set_state` method using `ReflectionClass`
+- Review .php_cs settings, apply PHP CS Fixer
+
+## 3.0.1 - 2021/01/28
+- Update Travis CI badge and settings
+
+## 3.0.0 - 2021/01/28
+- Issue #32 - Migrate to PHP >= 7.4
+  - use `splitbrain/phpfarm:jessie` as Docker image and fix docker image settings
+  - Code requires PHP >= 7.4
+  - Code cleaning
+  - BC:
+    - `WsdlToPhp\PackageBase\Utils::getFormatedXml` has been renamed to `WsdlToPhp\PackageBase\Utils::getFormattedXml`
+    - `WsdlToPhp\PackageBase\AbstractSoapClientBase::getFormatedXml` has been renamed to `WsdlToPhp\PackageBase\AbstractSoapClientBase::getFormattedXml`
+  - Update READMEs
+  - Update Travis CI settings
+  - Update PHPUnit settings
+  - Update LICENSE file
+  - Version 1.0 is no more maintained
+
+## 2.2.0 - 2020/09/11
 - Issue #31 - Add output headers to SoapClient in order to be able to store them
 
-## 2.1.0 - 2020-05-14
+## 2.1.0 - 2020/05/14
 - Pull request #29 - Transform HTTP headers from stream context options to array
 - Update Travis CI PHP Matrix
 - Use better Docker configuration
 - Introduce StructEnumInterface and AbstractStructEnumBase from which generated Enum classes should inherit
 - Add __toString method to AbstractStructBase and AbstractSoapClientBase classes
 
-## 2.0.3 - 2019-01-10
+## 2.0.3 - 2019/01/10
 - Issue #25 - Enhancement: Improve output from running php-cs-fixer
 - Issue #26 - Enhancement: Keep packages sorted in composer.json
 - Issue #28 - Add the URI as an option in the soapClient parameters
 
 
-## 2.0.2 - 2018-07-23
+## 2.0.2 - 2018/07/23
 - Issue #22 / Pull request #23 - Add support to invoke getLastRequest without throwing an InvalidArgumentException if the request is not executed
 
-## 2.0.1 - 2018-05-08
+## 2.0.1 - 2018/05/08
 - Issue #19 - WSDL_CACHE_WSDL does not work!
     - Code reviewed as it was not complete, default options were not taken into account properly too, it's working right from now on!
 
-## 2.0.0 - 2018-04-17
+## 2.0.0 - 2018/04/17
 - Issue #15 - AbstractSoapClientBase should not define static SoapClient instance
 
 ## 1.0.11

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConsignmentDeliveryWeekType StructType
@@ -18,17 +21,17 @@ class ConsignmentDeliveryWeekType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $WeekInYear;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $WeekInYear = null;
     /**
      * The Year
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Year;
+    protected ?string $Year = null;
     /**
      * Constructor method for ConsignmentDeliveryWeekType
      * @uses ConsignmentDeliveryWeekType::setWeekInYear()
@@ -36,7 +39,7 @@ class ConsignmentDeliveryWeekType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $weekInYear
      * @param string $year
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $weekInYear = null, $year = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $weekInYear = null, ?string $year = null)
     {
         $this
             ->setWeekInYear($weekInYear)
@@ -49,7 +52,7 @@ class ConsignmentDeliveryWeekType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getWeekInYear()
+    public function getWeekInYear(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->WeekInYear) ? $this->WeekInYear : null;
     }
@@ -60,13 +63,14 @@ class ConsignmentDeliveryWeekType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $weekInYear
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType
      */
-    public function setWeekInYear(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $weekInYear = null)
+    public function setWeekInYear(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $weekInYear = null): self
     {
         if (is_null($weekInYear) || (is_array($weekInYear) && empty($weekInYear))) {
             unset($this->WeekInYear);
         } else {
             $this->WeekInYear = $weekInYear;
         }
+        
         return $this;
     }
     /**
@@ -76,7 +80,7 @@ class ConsignmentDeliveryWeekType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getYear()
+    public function getYear(): ?string
     {
         return isset($this->Year) ? $this->Year : null;
     }
@@ -87,17 +91,18 @@ class ConsignmentDeliveryWeekType extends AbstractStructBase
      * @param string $year
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType
      */
-    public function setYear($year = null)
+    public function setYear(?string $year = null): self
     {
         // validation for constraint: string
         if (!is_null($year) && !is_string($year)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($year, true), gettype($year)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($year, true), gettype($year)), __LINE__);
         }
         if (is_null($year) || (is_array($year) && empty($year))) {
             unset($this->Year);
         } else {
             $this->Year = $year;
         }
+        
         return $this;
     }
 }

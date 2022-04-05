@@ -1,11 +1,12 @@
 {
     "name": "randock/postnl-bulk-mail-api-sdk",
-    "description": "Package generated from postnlwsdl.xml using wsdltophp/packagegenerator",
+    "description": "Package generated from https://bp-b2b.mijnpost.postnl.nl/B2BService.svc?wsdl using wsdltophp/packagegenerator",
     "require": {
-        "php": "^7.4.0",
-        "ext-soap": "*",
+        "php": ">=7.4",
+        "ext-dom": "*",
         "ext-mbstring": "*",
-        "wsdltophp/packagebase": "~2.0"
+        "ext-soap": "*",
+        "wsdltophp/packagebase": "~5.0"
     },
     "autoload": {
         "psr-4": {

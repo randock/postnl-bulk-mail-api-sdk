@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EMailAddressCommunicationType StructType
@@ -18,47 +21,47 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $EMailAddressID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $EMailAddressID = null;
     /**
      * The HTMLPreferredIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HTMLPreferredIndicator;
+    protected ?bool $HTMLPreferredIndicator = null;
     /**
      * The HTMLPreferredIndicatorSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HTMLPreferredIndicatorSpecified;
+    protected ?bool $HTMLPreferredIndicatorSpecified = null;
     /**
      * The Preference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public $Preference;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $Preference = null;
     /**
      * The UseCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $UseCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $UseCode = null;
     /**
      * The UserArea
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType
+     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public $UserArea;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $UserArea = null;
     /**
      * Constructor method for EMailAddressCommunicationType
      * @uses EMailAddressCommunicationType::setEMailAddressID()
@@ -74,7 +77,7 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $eMailAddressID = null, $hTMLPreferredIndicator = null, $hTMLPreferredIndicatorSpecified = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null, \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $eMailAddressID = null, ?bool $hTMLPreferredIndicator = null, ?bool $hTMLPreferredIndicatorSpecified = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null, ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
     {
         $this
             ->setEMailAddressID($eMailAddressID)
@@ -91,7 +94,7 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getEMailAddressID()
+    public function getEMailAddressID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->EMailAddressID) ? $this->EMailAddressID : null;
     }
@@ -102,20 +105,21 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $eMailAddressID
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
      */
-    public function setEMailAddressID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $eMailAddressID = null)
+    public function setEMailAddressID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $eMailAddressID = null): self
     {
         if (is_null($eMailAddressID) || (is_array($eMailAddressID) && empty($eMailAddressID))) {
             unset($this->EMailAddressID);
         } else {
             $this->EMailAddressID = $eMailAddressID;
         }
+        
         return $this;
     }
     /**
      * Get HTMLPreferredIndicator value
      * @return bool|null
      */
-    public function getHTMLPreferredIndicator()
+    public function getHTMLPreferredIndicator(): ?bool
     {
         return $this->HTMLPreferredIndicator;
     }
@@ -124,20 +128,21 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param bool $hTMLPreferredIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
      */
-    public function setHTMLPreferredIndicator($hTMLPreferredIndicator = null)
+    public function setHTMLPreferredIndicator(?bool $hTMLPreferredIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hTMLPreferredIndicator) && !is_bool($hTMLPreferredIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hTMLPreferredIndicator, true), gettype($hTMLPreferredIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hTMLPreferredIndicator, true), gettype($hTMLPreferredIndicator)), __LINE__);
         }
         $this->HTMLPreferredIndicator = $hTMLPreferredIndicator;
+        
         return $this;
     }
     /**
      * Get HTMLPreferredIndicatorSpecified value
      * @return bool|null
      */
-    public function getHTMLPreferredIndicatorSpecified()
+    public function getHTMLPreferredIndicatorSpecified(): ?bool
     {
         return $this->HTMLPreferredIndicatorSpecified;
     }
@@ -146,13 +151,14 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param bool $hTMLPreferredIndicatorSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
      */
-    public function setHTMLPreferredIndicatorSpecified($hTMLPreferredIndicatorSpecified = null)
+    public function setHTMLPreferredIndicatorSpecified(?bool $hTMLPreferredIndicatorSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hTMLPreferredIndicatorSpecified) && !is_bool($hTMLPreferredIndicatorSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hTMLPreferredIndicatorSpecified, true), gettype($hTMLPreferredIndicatorSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hTMLPreferredIndicatorSpecified, true), gettype($hTMLPreferredIndicatorSpecified)), __LINE__);
         }
         $this->HTMLPreferredIndicatorSpecified = $hTMLPreferredIndicatorSpecified;
+        
         return $this;
     }
     /**
@@ -162,7 +168,7 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public function getPreference()
+    public function getPreference(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
     {
         return isset($this->Preference) ? $this->Preference : null;
     }
@@ -173,13 +179,14 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
      */
-    public function setPreference(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null)
+    public function setPreference(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null): self
     {
         if (is_null($preference) || (is_array($preference) && empty($preference))) {
             unset($this->Preference);
         } else {
             $this->Preference = $preference;
         }
+        
         return $this;
     }
     /**
@@ -189,7 +196,7 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getUseCode()
+    public function getUseCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->UseCode) ? $this->UseCode : null;
     }
@@ -200,13 +207,14 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
      */
-    public function setUseCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null)
+    public function setUseCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null): self
     {
         if (is_null($useCode) || (is_array($useCode) && empty($useCode))) {
             unset($this->UseCode);
         } else {
             $this->UseCode = $useCode;
         }
+        
         return $this;
     }
     /**
@@ -216,7 +224,7 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public function getUserArea()
+    public function getUserArea(): ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType
     {
         return isset($this->UserArea) ? $this->UserArea : null;
     }
@@ -227,13 +235,14 @@ class EMailAddressCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
      */
-    public function setUserArea(\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function setUserArea(?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null): self
     {
         if (is_null($userArea) || (is_array($userArea) && empty($userArea))) {
             unset($this->UserArea);
         } else {
             $this->UserArea = $userArea;
         }
+        
         return $this;
     }
 }

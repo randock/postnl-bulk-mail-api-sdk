@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddressAttachmentType StructType
@@ -18,65 +21,65 @@ class AddressAttachmentType extends HeaderType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType
+     * @var \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType|null
      */
-    public $BillToParty;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $BillToParty = null;
     /**
      * The Consignment
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType|null
      */
-    public $Consignment;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $Consignment = null;
     /**
      * The CustomerParty
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType
+     * @var \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType|null
      */
-    public $CustomerParty;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $CustomerParty = null;
     /**
      * The ExtraAttachment
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType|null
      */
-    public $ExtraAttachment;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType $ExtraAttachment = null;
     /**
      * The ProcessCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $ProcessCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $ProcessCode = null;
     /**
      * The ProcessedInputCharacteristics
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public $ProcessedInputCharacteristics;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $ProcessedInputCharacteristics = null;
     /**
      * The ProcessedResultCharacteristics
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public $ProcessedResultCharacteristics;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $ProcessedResultCharacteristics = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType|null
      */
-    public $Status;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $Status = null;
     /**
      * Constructor method for AddressAttachmentType
      * @uses AddressAttachmentType::setBillToParty()
@@ -96,7 +99,7 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedResultCharacteristics
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $billToParty = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null, \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType $extraAttachment = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $processCode = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedInputCharacteristics = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedResultCharacteristics = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $billToParty = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null, ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType $extraAttachment = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $processCode = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedInputCharacteristics = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedResultCharacteristics = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null)
     {
         $this
             ->setBillToParty($billToParty)
@@ -115,7 +118,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType|null
      */
-    public function getBillToParty()
+    public function getBillToParty(): ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType
     {
         return isset($this->BillToParty) ? $this->BillToParty : null;
     }
@@ -126,13 +129,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $billToParty
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setBillToParty(\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $billToParty = null)
+    public function setBillToParty(?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $billToParty = null): self
     {
         if (is_null($billToParty) || (is_array($billToParty) && empty($billToParty))) {
             unset($this->BillToParty);
         } else {
             $this->BillToParty = $billToParty;
         }
+        
         return $this;
     }
     /**
@@ -142,7 +146,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType|null
      */
-    public function getConsignment()
+    public function getConsignment(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
     {
         return isset($this->Consignment) ? $this->Consignment : null;
     }
@@ -153,13 +157,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setConsignment(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null)
+    public function setConsignment(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null): self
     {
         if (is_null($consignment) || (is_array($consignment) && empty($consignment))) {
             unset($this->Consignment);
         } else {
             $this->Consignment = $consignment;
         }
+        
         return $this;
     }
     /**
@@ -169,7 +174,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType|null
      */
-    public function getCustomerParty()
+    public function getCustomerParty(): ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType
     {
         return isset($this->CustomerParty) ? $this->CustomerParty : null;
     }
@@ -180,13 +185,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setCustomerParty(\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null)
+    public function setCustomerParty(?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null): self
     {
         if (is_null($customerParty) || (is_array($customerParty) && empty($customerParty))) {
             unset($this->CustomerParty);
         } else {
             $this->CustomerParty = $customerParty;
         }
+        
         return $this;
     }
     /**
@@ -196,7 +202,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType|null
      */
-    public function getExtraAttachment()
+    public function getExtraAttachment(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType
     {
         return isset($this->ExtraAttachment) ? $this->ExtraAttachment : null;
     }
@@ -207,13 +213,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType $extraAttachment
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setExtraAttachment(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType $extraAttachment = null)
+    public function setExtraAttachment(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfExtraAttachmentType $extraAttachment = null): self
     {
         if (is_null($extraAttachment) || (is_array($extraAttachment) && empty($extraAttachment))) {
             unset($this->ExtraAttachment);
         } else {
             $this->ExtraAttachment = $extraAttachment;
         }
+        
         return $this;
     }
     /**
@@ -223,7 +230,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getProcessCode()
+    public function getProcessCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->ProcessCode) ? $this->ProcessCode : null;
     }
@@ -234,13 +241,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $processCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setProcessCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $processCode = null)
+    public function setProcessCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $processCode = null): self
     {
         if (is_null($processCode) || (is_array($processCode) && empty($processCode))) {
             unset($this->ProcessCode);
         } else {
             $this->ProcessCode = $processCode;
         }
+        
         return $this;
     }
     /**
@@ -250,7 +258,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public function getProcessedInputCharacteristics()
+    public function getProcessedInputCharacteristics(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
     {
         return isset($this->ProcessedInputCharacteristics) ? $this->ProcessedInputCharacteristics : null;
     }
@@ -261,13 +269,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedInputCharacteristics
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setProcessedInputCharacteristics(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedInputCharacteristics = null)
+    public function setProcessedInputCharacteristics(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedInputCharacteristics = null): self
     {
         if (is_null($processedInputCharacteristics) || (is_array($processedInputCharacteristics) && empty($processedInputCharacteristics))) {
             unset($this->ProcessedInputCharacteristics);
         } else {
             $this->ProcessedInputCharacteristics = $processedInputCharacteristics;
         }
+        
         return $this;
     }
     /**
@@ -277,7 +286,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public function getProcessedResultCharacteristics()
+    public function getProcessedResultCharacteristics(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
     {
         return isset($this->ProcessedResultCharacteristics) ? $this->ProcessedResultCharacteristics : null;
     }
@@ -288,13 +297,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedResultCharacteristics
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setProcessedResultCharacteristics(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedResultCharacteristics = null)
+    public function setProcessedResultCharacteristics(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $processedResultCharacteristics = null): self
     {
         if (is_null($processedResultCharacteristics) || (is_array($processedResultCharacteristics) && empty($processedResultCharacteristics))) {
             unset($this->ProcessedResultCharacteristics);
         } else {
             $this->ProcessedResultCharacteristics = $processedResultCharacteristics;
         }
+        
         return $this;
     }
     /**
@@ -304,7 +314,7 @@ class AddressAttachmentType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType|null
      */
-    public function getStatus()
+    public function getStatus(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
     {
         return isset($this->Status) ? $this->Status : null;
     }
@@ -315,13 +325,14 @@ class AddressAttachmentType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
      */
-    public function setStatus(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null)
+    public function setStatus(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null): self
     {
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->Status);
         } else {
             $this->Status = $status;
         }
+        
         return $this;
     }
 }

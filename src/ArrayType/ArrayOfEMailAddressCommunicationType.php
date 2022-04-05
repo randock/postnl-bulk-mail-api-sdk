@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfEMailAddressCommunicationType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType[]
      */
-    public $EMailAddressCommunicationType;
+    protected ?array $EMailAddressCommunicationType = null;
     /**
      * Constructor method for ArrayOfEMailAddressCommunicationType
      * @uses ArrayOfEMailAddressCommunicationType::setEMailAddressCommunicationType()
      * @param \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType[] $eMailAddressCommunicationType
      */
-    public function __construct(array $eMailAddressCommunicationType = array())
+    public function __construct(?array $eMailAddressCommunicationType = null)
     {
         $this
             ->setEMailAddressCommunicationType($eMailAddressCommunicationType);
@@ -37,9 +40,9 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType[]
      */
-    public function getEMailAddressCommunicationType()
+    public function getEMailAddressCommunicationType(): ?array
     {
         return isset($this->EMailAddressCommunicationType) ? $this->EMailAddressCommunicationType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateEMailAddressCommunicationTypeForArrayConstraintsFromSetEMailAddressCommunicationType(array $values = array())
+    public static function validateEMailAddressCommunicationTypeForArrayConstraintsFromSetEMailAddressCommunicationType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfEMailAddressCommunicationTypeEMailAddressCommunicationTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
             $message = sprintf('The EMailAddressCommunicationType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set EMailAddressCommunicationType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType[] $eMailAddressCommunicationType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType
      */
-    public function setEMailAddressCommunicationType(array $eMailAddressCommunicationType = array())
+    public function setEMailAddressCommunicationType(?array $eMailAddressCommunicationType = null): self
     {
         // validation for constraint: array
         if ('' !== ($eMailAddressCommunicationTypeArrayErrorMessage = self::validateEMailAddressCommunicationTypeForArrayConstraintsFromSetEMailAddressCommunicationType($eMailAddressCommunicationType))) {
-            throw new \InvalidArgumentException($eMailAddressCommunicationTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($eMailAddressCommunicationTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($eMailAddressCommunicationType) || (is_array($eMailAddressCommunicationType) && empty($eMailAddressCommunicationType))) {
             unset($this->EMailAddressCommunicationType);
         } else {
             $this->EMailAddressCommunicationType = $eMailAddressCommunicationType;
         }
-        return $this;
-    }
-    /**
-     * Add item to EMailAddressCommunicationType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType
-     */
-    public function addToEMailAddressCommunicationType(\Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType) {
-            throw new \InvalidArgumentException(sprintf('The EMailAddressCommunicationType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->EMailAddressCommunicationType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfEMailAddressCommunicationType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType) {
+            throw new InvalidArgumentException(sprintf('The EMailAddressCommunicationType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\EMailAddressCommunicationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string EMailAddressCommunicationType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'EMailAddressCommunicationType';
     }

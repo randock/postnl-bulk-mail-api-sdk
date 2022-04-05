@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MessageHeaderType StructType
@@ -18,15 +21,15 @@ class MessageHeaderType extends BusinessDocumentMessageHeader
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\Message
+     * @var \Randock\PostNL\BulkMailApi\StructType\Message|null
      */
-    public $Message;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\Message $Message = null;
     /**
      * Constructor method for MessageHeaderType
      * @uses MessageHeaderType::setMessage()
      * @param \Randock\PostNL\BulkMailApi\StructType\Message $message
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\Message $message = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\Message $message = null)
     {
         $this
             ->setMessage($message);
@@ -38,7 +41,7 @@ class MessageHeaderType extends BusinessDocumentMessageHeader
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\Message|null
      */
-    public function getMessage()
+    public function getMessage(): ?\Randock\PostNL\BulkMailApi\StructType\Message
     {
         return isset($this->Message) ? $this->Message : null;
     }
@@ -49,13 +52,14 @@ class MessageHeaderType extends BusinessDocumentMessageHeader
      * @param \Randock\PostNL\BulkMailApi\StructType\Message $message
      * @return \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType
      */
-    public function setMessage(\Randock\PostNL\BulkMailApi\StructType\Message $message = null)
+    public function setMessage(?\Randock\PostNL\BulkMailApi\StructType\Message $message = null): self
     {
         if (is_null($message) || (is_array($message) && empty($message))) {
             unset($this->Message);
         } else {
             $this->Message = $message;
         }
+        
         return $this;
     }
 }

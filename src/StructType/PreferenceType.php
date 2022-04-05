@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PreferenceType StructType
@@ -18,25 +21,25 @@ class PreferenceType extends PreferenceABIEType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType|null
      */
-    public $Description;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $Description = null;
     /**
      * The Note
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType|null
      */
-    public $Note;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $Note = null;
     /**
      * The UserArea
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType
+     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public $UserArea;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $UserArea = null;
     /**
      * Constructor method for PreferenceType
      * @uses PreferenceType::setDescription()
@@ -46,7 +49,7 @@ class PreferenceType extends PreferenceABIEType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null, \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null, ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
     {
         $this
             ->setDescription($description)
@@ -60,7 +63,7 @@ class PreferenceType extends PreferenceABIEType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType|null
      */
-    public function getDescription()
+    public function getDescription(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
     {
         return isset($this->Description) ? $this->Description : null;
     }
@@ -71,13 +74,14 @@ class PreferenceType extends PreferenceABIEType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceType
      */
-    public function setDescription(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null)
+    public function setDescription(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null): self
     {
         if (is_null($description) || (is_array($description) && empty($description))) {
             unset($this->Description);
         } else {
             $this->Description = $description;
         }
+        
         return $this;
     }
     /**
@@ -87,7 +91,7 @@ class PreferenceType extends PreferenceABIEType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType|null
      */
-    public function getNote()
+    public function getNote(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
     {
         return isset($this->Note) ? $this->Note : null;
     }
@@ -98,13 +102,14 @@ class PreferenceType extends PreferenceABIEType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceType
      */
-    public function setNote(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null)
+    public function setNote(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null): self
     {
         if (is_null($note) || (is_array($note) && empty($note))) {
             unset($this->Note);
         } else {
             $this->Note = $note;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class PreferenceType extends PreferenceABIEType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public function getUserArea()
+    public function getUserArea(): ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType
     {
         return isset($this->UserArea) ? $this->UserArea : null;
     }
@@ -125,13 +130,14 @@ class PreferenceType extends PreferenceABIEType
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceType
      */
-    public function setUserArea(\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function setUserArea(?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null): self
     {
         if (is_null($userArea) || (is_array($userArea) && empty($userArea))) {
             unset($this->UserArea);
         } else {
             $this->UserArea = $userArea;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DescriptionType StructType
@@ -18,15 +21,15 @@ class DescriptionType extends TextType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var string|null
      */
-    public $type;
+    protected ?string $type = null;
     /**
      * Constructor method for DescriptionType
      * @uses DescriptionType::setType()
-     * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type
+     * @param string $type
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null)
+    public function __construct(?string $type = null)
     {
         $this
             ->setType($type);
@@ -36,9 +39,9 @@ class DescriptionType extends TextType
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
+     * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return isset($this->type) ? $this->type : null;
     }
@@ -46,16 +49,21 @@ class DescriptionType extends TextType
      * Set type value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type
+     * @param string $type
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType
      */
-    public function setType(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null)
+    public function setType(?string $type = null): self
     {
+        // validation for constraint: string
+        if (!is_null($type) && !is_string($type)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
+        }
         if (is_null($type) || (is_array($type) && empty($type))) {
             unset($this->type);
         } else {
             $this->type = $type;
         }
+        
         return $this;
     }
 }

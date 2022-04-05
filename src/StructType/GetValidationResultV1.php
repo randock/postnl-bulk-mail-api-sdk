@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetValidationResultV1 StructType
@@ -15,15 +18,15 @@ class GetValidationResultV1 extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
+     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public $request;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request = null;
     /**
      * Constructor method for GetValidationResultV1
      * @uses GetValidationResultV1::setRequest()
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request = null)
     {
         $this
             ->setRequest($request);
@@ -35,7 +38,7 @@ class GetValidationResultV1 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public function getRequest()
+    public function getRequest(): ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
     {
         return isset($this->request) ? $this->request : null;
     }
@@ -46,13 +49,14 @@ class GetValidationResultV1 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request
      * @return \Randock\PostNL\BulkMailApi\StructType\GetValidationResultV1
      */
-    public function setRequest(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request = null)
+    public function setRequest(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $request = null): self
     {
         if (is_null($request) || (is_array($request) && empty($request))) {
             unset($this->request);
         } else {
             $this->request = $request;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfIdentifierType1 ArrayType
@@ -21,13 +24,13 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1[]
      */
-    public $IdentifierType1;
+    protected ?array $IdentifierType1 = null;
     /**
      * Constructor method for ArrayOfIdentifierType1
      * @uses ArrayOfIdentifierType1::setIdentifierType1()
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1[] $identifierType1
      */
-    public function __construct(array $identifierType1 = array())
+    public function __construct(?array $identifierType1 = null)
     {
         $this
             ->setIdentifierType1($identifierType1);
@@ -37,9 +40,9 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1[]
      */
-    public function getIdentifierType1()
+    public function getIdentifierType1(): ?array
     {
         return isset($this->IdentifierType1) ? $this->IdentifierType1 : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateIdentifierType1ForArrayConstraintsFromSetIdentifierType1(array $values = array())
+    public static function validateIdentifierType1ForArrayConstraintsFromSetIdentifierType1(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfIdentifierType1IdentifierType1Item) {
@@ -63,42 +69,29 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
             $message = sprintf('The IdentifierType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\IdentifierType1, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set IdentifierType1 value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1[] $identifierType1
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
      */
-    public function setIdentifierType1(array $identifierType1 = array())
+    public function setIdentifierType1(?array $identifierType1 = null): self
     {
         // validation for constraint: array
         if ('' !== ($identifierType1ArrayErrorMessage = self::validateIdentifierType1ForArrayConstraintsFromSetIdentifierType1($identifierType1))) {
-            throw new \InvalidArgumentException($identifierType1ArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($identifierType1ArrayErrorMessage, __LINE__);
         }
         if (is_null($identifierType1) || (is_array($identifierType1) && empty($identifierType1))) {
             unset($this->IdentifierType1);
         } else {
             $this->IdentifierType1 = $identifierType1;
         }
-        return $this;
-    }
-    /**
-     * Add item to IdentifierType1 value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
-     */
-    public function addToIdentifierType1(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\IdentifierType1) {
-            throw new \InvalidArgumentException(sprintf('The IdentifierType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\IdentifierType1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->IdentifierType1[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfIdentifierType1 extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\IdentifierType1) {
+            throw new InvalidArgumentException(sprintf('The IdentifierType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\IdentifierType1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string IdentifierType1
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'IdentifierType1';
     }

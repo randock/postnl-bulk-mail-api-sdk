@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserAreaType StructType
@@ -18,15 +21,15 @@ class UserAreaType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement|null
      */
-    public $Any;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $Any = null;
     /**
      * Constructor method for UserAreaType
      * @uses UserAreaType::setAny()
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $any
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $any = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $any = null)
     {
         $this
             ->setAny($any);
@@ -38,7 +41,7 @@ class UserAreaType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement|null
      */
-    public function getAny()
+    public function getAny(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement
     {
         return isset($this->Any) ? $this->Any : null;
     }
@@ -49,13 +52,14 @@ class UserAreaType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $any
      * @return \Randock\PostNL\BulkMailApi\StructType\UserAreaType
      */
-    public function setAny(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $any = null)
+    public function setAny(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfXmlElement $any = null): self
     {
         if (is_null($any) || (is_array($any) && empty($any))) {
             unset($this->Any);
         } else {
             $this->Any = $any;
         }
+        
         return $this;
     }
 }

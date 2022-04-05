@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\EnumType;
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ItemsChoiceType1 EnumType
@@ -131,9 +133,9 @@ class ItemsChoiceType1 extends AbstractStructEnumBase
      * @uses self::VALUE_UNIT
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_BUILDING_NAME,
             self::VALUE_BUILDING_NUMBER,
             self::VALUE_BUILDING_NUMBER_DESIGNATION,
@@ -153,6 +155,6 @@ class ItemsChoiceType1 extends AbstractStructEnumBase
             self::VALUE_STREET_NAME,
             self::VALUE_STREET_NAME_SHORT,
             self::VALUE_UNIT,
-        );
+        ];
     }
 }

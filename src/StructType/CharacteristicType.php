@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CharacteristicType StructType
@@ -18,17 +21,17 @@ class CharacteristicType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $CharacteristicName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $CharacteristicName = null;
     /**
      * The CharacteristicValue
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $CharacteristicValue;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $CharacteristicValue = null;
     /**
      * Constructor method for CharacteristicType
      * @uses CharacteristicType::setCharacteristicName()
@@ -36,7 +39,7 @@ class CharacteristicType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null)
     {
         $this
             ->setCharacteristicName($characteristicName)
@@ -49,7 +52,7 @@ class CharacteristicType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getCharacteristicName()
+    public function getCharacteristicName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->CharacteristicName) ? $this->CharacteristicName : null;
     }
@@ -60,13 +63,14 @@ class CharacteristicType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName
      * @return \Randock\PostNL\BulkMailApi\StructType\CharacteristicType
      */
-    public function setCharacteristicName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null)
+    public function setCharacteristicName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null): self
     {
         if (is_null($characteristicName) || (is_array($characteristicName) && empty($characteristicName))) {
             unset($this->CharacteristicName);
         } else {
             $this->CharacteristicName = $characteristicName;
         }
+        
         return $this;
     }
     /**
@@ -76,7 +80,7 @@ class CharacteristicType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getCharacteristicValue()
+    public function getCharacteristicValue(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->CharacteristicValue) ? $this->CharacteristicValue : null;
     }
@@ -87,13 +91,14 @@ class CharacteristicType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue
      * @return \Randock\PostNL\BulkMailApi\StructType\CharacteristicType
      */
-    public function setCharacteristicValue(\Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null)
+    public function setCharacteristicValue(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null): self
     {
         if (is_null($characteristicValue) || (is_array($characteristicValue) && empty($characteristicValue))) {
             unset($this->CharacteristicValue);
         } else {
             $this->CharacteristicValue = $characteristicValue;
         }
+        
         return $this;
     }
 }

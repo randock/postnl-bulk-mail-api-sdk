@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfanyType ArrayType
@@ -19,15 +22,15 @@ class ArrayOfanyType extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var mixed[]
+     * @var string[]
      */
-    public $anyType;
+    protected ?array $anyType = null;
     /**
      * Constructor method for ArrayOfanyType
      * @uses ArrayOfanyType::setAnyType()
-     * @param mixed[] $anyType
+     * @param string[] $anyType
      */
-    public function __construct(array $anyType = array())
+    public function __construct(?array $anyType = null)
     {
         $this
             ->setAnyType($anyType);
@@ -37,9 +40,9 @@ class ArrayOfanyType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return mixed[]|null
+     * @return string[]
      */
-    public function getAnyType()
+    public function getAnyType(): ?array
     {
         return isset($this->anyType) ? $this->anyType : null;
     }
@@ -49,64 +52,54 @@ class ArrayOfanyType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAnyTypeForArrayConstraintsFromSetAnyType(array $values = array())
+    public static function validateAnyTypeForArrayConstraintsFromSetAnyType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfanyTypeAnyTypeItem) {
             // validation for constraint: itemType
-            if (false) {
+            if (!is_string($arrayOfanyTypeAnyTypeItem)) {
                 $invalidValues[] = is_object($arrayOfanyTypeAnyTypeItem) ? get_class($arrayOfanyTypeAnyTypeItem) : sprintf('%s(%s)', gettype($arrayOfanyTypeAnyTypeItem), var_export($arrayOfanyTypeAnyTypeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The anyType property can only contain items of type anyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The anyType property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set anyType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
-     * @param mixed[] $anyType
+     * @throws InvalidArgumentException
+     * @param string[] $anyType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType
      */
-    public function setAnyType(array $anyType = array())
+    public function setAnyType(?array $anyType = null): self
     {
         // validation for constraint: array
         if ('' !== ($anyTypeArrayErrorMessage = self::validateAnyTypeForArrayConstraintsFromSetAnyType($anyType))) {
-            throw new \InvalidArgumentException($anyTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($anyTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($anyType) || (is_array($anyType) && empty($anyType))) {
             unset($this->anyType);
         } else {
             $this->anyType = $anyType;
         }
-        return $this;
-    }
-    /**
-     * Add item to anyType value
-     * @throws \InvalidArgumentException
-     * @param mixed $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType
-     */
-    public function addToAnyType($item)
-    {
-        // validation for constraint: itemType
-        if (false) {
-            throw new \InvalidArgumentException(sprintf('The anyType property can only contain items of type anyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->anyType[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return mixed|null
+     * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -114,27 +107,27 @@ class ArrayOfanyType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return mixed|null
+     * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return mixed|null
+     * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return mixed|null
+     * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -142,9 +135,9 @@ class ArrayOfanyType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return mixed|null
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -153,7 +146,7 @@ class ArrayOfanyType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string anyType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'anyType';
     }

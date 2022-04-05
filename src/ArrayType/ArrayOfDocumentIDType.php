@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfDocumentIDType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\DocumentIDType[]
      */
-    public $DocumentIDType;
+    protected ?array $DocumentIDType = null;
     /**
      * Constructor method for ArrayOfDocumentIDType
      * @uses ArrayOfDocumentIDType::setDocumentIDType()
      * @param \Randock\PostNL\BulkMailApi\StructType\DocumentIDType[] $documentIDType
      */
-    public function __construct(array $documentIDType = array())
+    public function __construct(?array $documentIDType = null)
     {
         $this
             ->setDocumentIDType($documentIDType);
@@ -37,9 +40,9 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType[]
      */
-    public function getDocumentIDType()
+    public function getDocumentIDType(): ?array
     {
         return isset($this->DocumentIDType) ? $this->DocumentIDType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDocumentIDTypeForArrayConstraintsFromSetDocumentIDType(array $values = array())
+    public static function validateDocumentIDTypeForArrayConstraintsFromSetDocumentIDType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfDocumentIDTypeDocumentIDTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
             $message = sprintf('The DocumentIDType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\DocumentIDType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DocumentIDType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\DocumentIDType[] $documentIDType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType
      */
-    public function setDocumentIDType(array $documentIDType = array())
+    public function setDocumentIDType(?array $documentIDType = null): self
     {
         // validation for constraint: array
         if ('' !== ($documentIDTypeArrayErrorMessage = self::validateDocumentIDTypeForArrayConstraintsFromSetDocumentIDType($documentIDType))) {
-            throw new \InvalidArgumentException($documentIDTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($documentIDTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($documentIDType) || (is_array($documentIDType) && empty($documentIDType))) {
             unset($this->DocumentIDType);
         } else {
             $this->DocumentIDType = $documentIDType;
         }
-        return $this;
-    }
-    /**
-     * Add item to DocumentIDType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\DocumentIDType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType
-     */
-    public function addToDocumentIDType(\Randock\PostNL\BulkMailApi\StructType\DocumentIDType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\DocumentIDType) {
-            throw new \InvalidArgumentException(sprintf('The DocumentIDType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\DocumentIDType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->DocumentIDType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfDocumentIDType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\DocumentIDType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\DocumentIDType) {
+            throw new InvalidArgumentException(sprintf('The DocumentIDType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\DocumentIDType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DocumentIDType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DocumentIDType';
     }

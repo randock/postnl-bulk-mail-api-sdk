@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConsignmentAdministrativeReferencesType StructType
@@ -18,25 +21,25 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $CharacteristicName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $CharacteristicName = null;
     /**
      * The CharacteristicValue
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $CharacteristicValue;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $CharacteristicValue = null;
     /**
      * The ID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ID = null;
     /**
      * Constructor method for ConsignmentAdministrativeReferencesType
      * @uses ConsignmentAdministrativeReferencesType::setCharacteristicName()
@@ -46,7 +49,7 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null)
     {
         $this
             ->setCharacteristicName($characteristicName)
@@ -60,7 +63,7 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getCharacteristicName()
+    public function getCharacteristicName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->CharacteristicName) ? $this->CharacteristicName : null;
     }
@@ -71,13 +74,14 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
      */
-    public function setCharacteristicName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null)
+    public function setCharacteristicName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $characteristicName = null): self
     {
         if (is_null($characteristicName) || (is_array($characteristicName) && empty($characteristicName))) {
             unset($this->CharacteristicName);
         } else {
             $this->CharacteristicName = $characteristicName;
         }
+        
         return $this;
     }
     /**
@@ -87,7 +91,7 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getCharacteristicValue()
+    public function getCharacteristicValue(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->CharacteristicValue) ? $this->CharacteristicValue : null;
     }
@@ -98,13 +102,14 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
      */
-    public function setCharacteristicValue(\Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null)
+    public function setCharacteristicValue(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $characteristicValue = null): self
     {
         if (is_null($characteristicValue) || (is_array($characteristicValue) && empty($characteristicValue))) {
             unset($this->CharacteristicValue);
         } else {
             $this->CharacteristicValue = $characteristicValue;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -125,13 +130,14 @@ class ConsignmentAdministrativeReferencesType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
      */
-    public function setID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TelephoneCommunicationType StructType
@@ -18,73 +21,73 @@ class TelephoneCommunicationType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $Access;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $Access = null;
     /**
      * The AreaDialing
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $AreaDialing;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $AreaDialing = null;
     /**
      * The CountryDialing
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $CountryDialing;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $CountryDialing = null;
     /**
      * The DialNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $DialNumber;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $DialNumber = null;
     /**
      * The Extension
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $Extension;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $Extension = null;
     /**
      * The FormatedNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $FormatedNumber;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $FormatedNumber = null;
     /**
      * The Preference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public $Preference;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $Preference = null;
     /**
      * The UseCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $UseCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $UseCode = null;
     /**
      * The UserArea
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType
+     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public $UserArea;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $UserArea = null;
     /**
      * Constructor method for TelephoneCommunicationType
      * @uses TelephoneCommunicationType::setAccess()
@@ -106,7 +109,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\TextType1 $access = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $areaDialing = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $countryDialing = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $dialNumber = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $extension = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $formatedNumber = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null, \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $access = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $areaDialing = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $countryDialing = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $dialNumber = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $extension = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $formatedNumber = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null, ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
     {
         $this
             ->setAccess($access)
@@ -126,7 +129,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getAccess()
+    public function getAccess(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->Access) ? $this->Access : null;
     }
@@ -137,13 +140,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $access
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setAccess(\Randock\PostNL\BulkMailApi\StructType\TextType1 $access = null)
+    public function setAccess(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $access = null): self
     {
         if (is_null($access) || (is_array($access) && empty($access))) {
             unset($this->Access);
         } else {
             $this->Access = $access;
         }
+        
         return $this;
     }
     /**
@@ -153,7 +157,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getAreaDialing()
+    public function getAreaDialing(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->AreaDialing) ? $this->AreaDialing : null;
     }
@@ -164,13 +168,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $areaDialing
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setAreaDialing(\Randock\PostNL\BulkMailApi\StructType\TextType1 $areaDialing = null)
+    public function setAreaDialing(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $areaDialing = null): self
     {
         if (is_null($areaDialing) || (is_array($areaDialing) && empty($areaDialing))) {
             unset($this->AreaDialing);
         } else {
             $this->AreaDialing = $areaDialing;
         }
+        
         return $this;
     }
     /**
@@ -180,7 +185,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getCountryDialing()
+    public function getCountryDialing(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->CountryDialing) ? $this->CountryDialing : null;
     }
@@ -191,13 +196,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $countryDialing
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setCountryDialing(\Randock\PostNL\BulkMailApi\StructType\TextType1 $countryDialing = null)
+    public function setCountryDialing(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $countryDialing = null): self
     {
         if (is_null($countryDialing) || (is_array($countryDialing) && empty($countryDialing))) {
             unset($this->CountryDialing);
         } else {
             $this->CountryDialing = $countryDialing;
         }
+        
         return $this;
     }
     /**
@@ -207,7 +213,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getDialNumber()
+    public function getDialNumber(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->DialNumber) ? $this->DialNumber : null;
     }
@@ -218,13 +224,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $dialNumber
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setDialNumber(\Randock\PostNL\BulkMailApi\StructType\TextType1 $dialNumber = null)
+    public function setDialNumber(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $dialNumber = null): self
     {
         if (is_null($dialNumber) || (is_array($dialNumber) && empty($dialNumber))) {
             unset($this->DialNumber);
         } else {
             $this->DialNumber = $dialNumber;
         }
+        
         return $this;
     }
     /**
@@ -234,7 +241,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getExtension()
+    public function getExtension(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->Extension) ? $this->Extension : null;
     }
@@ -245,13 +252,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $extension
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setExtension(\Randock\PostNL\BulkMailApi\StructType\TextType1 $extension = null)
+    public function setExtension(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $extension = null): self
     {
         if (is_null($extension) || (is_array($extension) && empty($extension))) {
             unset($this->Extension);
         } else {
             $this->Extension = $extension;
         }
+        
         return $this;
     }
     /**
@@ -261,7 +269,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getFormatedNumber()
+    public function getFormatedNumber(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->FormatedNumber) ? $this->FormatedNumber : null;
     }
@@ -272,13 +280,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $formatedNumber
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setFormatedNumber(\Randock\PostNL\BulkMailApi\StructType\TextType1 $formatedNumber = null)
+    public function setFormatedNumber(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $formatedNumber = null): self
     {
         if (is_null($formatedNumber) || (is_array($formatedNumber) && empty($formatedNumber))) {
             unset($this->FormatedNumber);
         } else {
             $this->FormatedNumber = $formatedNumber;
         }
+        
         return $this;
     }
     /**
@@ -288,7 +297,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public function getPreference()
+    public function getPreference(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
     {
         return isset($this->Preference) ? $this->Preference : null;
     }
@@ -299,13 +308,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setPreference(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null)
+    public function setPreference(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null): self
     {
         if (is_null($preference) || (is_array($preference) && empty($preference))) {
             unset($this->Preference);
         } else {
             $this->Preference = $preference;
         }
+        
         return $this;
     }
     /**
@@ -315,7 +325,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getUseCode()
+    public function getUseCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->UseCode) ? $this->UseCode : null;
     }
@@ -326,13 +336,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setUseCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null)
+    public function setUseCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null): self
     {
         if (is_null($useCode) || (is_array($useCode) && empty($useCode))) {
             unset($this->UseCode);
         } else {
             $this->UseCode = $useCode;
         }
+        
         return $this;
     }
     /**
@@ -342,7 +353,7 @@ class TelephoneCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public function getUserArea()
+    public function getUserArea(): ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType
     {
         return isset($this->UserArea) ? $this->UserArea : null;
     }
@@ -353,13 +364,14 @@ class TelephoneCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      * @return \Randock\PostNL\BulkMailApi\StructType\TelephoneCommunicationType
      */
-    public function setUserArea(\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function setUserArea(?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null): self
     {
         if (is_null($userArea) || (is_array($userArea) && empty($userArea))) {
             unset($this->UserArea);
         } else {
             $this->UserArea = $userArea;
         }
+        
         return $this;
     }
 }

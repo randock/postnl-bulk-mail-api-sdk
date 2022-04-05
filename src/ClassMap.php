@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi;
 
 /**
  * Class which returns the class map definition
- * @package
  */
 class ClassMap
 {
@@ -13,24 +14,13 @@ class ClassMap
      * This array is sent to the \SoapClient when calling the WS
      * @return string[]
      */
-    final public static function get()
+    final public static function get(): array
     {
-        return array(
-            'TenderBulkMailOrderV2' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\TenderBulkMailOrderV2',
-            'TenderBulkMailOrderV2Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\TenderBulkMailOrderV2Response',
-            'PreAdviceBulkMailOrderV2' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreAdviceBulkMailOrderV2',
-            'PreAdviceBulkMailOrderV2Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreAdviceBulkMailOrderV2Response',
-            'ValidateAddressAttachmentV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAddressAttachmentV1',
-            'ValidateAddressAttachmentV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAddressAttachmentV1Response',
-            'GetValidationResultV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationResultV1',
-            'GetValidationResultV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationResultV1Response',
-            'ValidateAndSortAddressAttachmentV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAndSortAddressAttachmentV1',
-            'ValidateAndSortAddressAttachmentV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAndSortAddressAttachmentV1Response',
-            'GetValidationAndSortingResultV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationAndSortingResultV1',
-            'GetValidationAndSortingResultV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationAndSortingResultV1Response',
-            'GetPackagingInformationV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetPackagingInformationV1',
-            'GetPackagingInformationV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetPackagingInformationV1Response',
-            'Business2BusinessContainerV2' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\Business2BusinessContainerV2',
+        return [
+            'ArrayOfXmlElement' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfXmlElement',
+            'XmlElement' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\XmlElement',
+            'ArrayOfanyType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfanyType',
+            'ArrayOfstring' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfstring',
             'ArrayOfBulkmailOrderType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfBulkmailOrderType',
             'BulkmailOrderType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\BulkmailOrderType',
             'HeaderType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\HeaderType',
@@ -44,8 +34,6 @@ class ClassMap
             'ArrayOfDescriptionType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfDescriptionType',
             'DescriptionType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\DescriptionType',
             'TextType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\TextType',
-            'CodeType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CodeType1',
-            'CodeType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CodeType',
             'BinaryObjectType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\BinaryObjectType1',
             'BinaryObjectType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\BinaryObjectType',
             'NameType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\NameType1',
@@ -53,6 +41,8 @@ class ClassMap
             'QuantityType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\QuantityType1',
             'QuantityType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\QuantityType',
             'ArrayOfCodeType1' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfCodeType1',
+            'CodeType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CodeType1',
+            'CodeType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CodeType',
             'ArrayOfNoteType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfNoteType',
             'NoteType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\NoteType',
             'ArrayOfTextType1' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfTextType1',
@@ -60,6 +50,12 @@ class ClassMap
             'UserAreaType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\UserAreaType',
             'ArrayOfConsignmentType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfConsignmentType',
             'ConsignmentType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentType',
+            'CommercialProductType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CommercialProductType',
+            'ArrayOfProductItemType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfProductItemType',
+            'ProductItemType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ProductItemType',
+            'ArrayOfCommercialServiceType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfCommercialServiceType',
+            'CommercialServiceType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CommercialServiceType',
+            'ServiceLevelType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ServiceLevelType',
             'ConsignmentContractType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentContractType',
             'ConsignmentPhysicalDataType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentPhysicalDataType',
             'MeasureType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\MeasureType1',
@@ -79,6 +75,14 @@ class ClassMap
             'ConsignmentAdministrativeReferencesType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentAdministrativeReferencesType',
             'ArrayOfItemIDType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfItemIDType',
             'ItemIDType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ItemIDType',
+            'ReturnToPartyType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ReturnToPartyType',
+            'ContactType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ContactType1',
+            'EMailAddressCommunicationType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\EMailAddressCommunicationType',
+            'ArrayOfPreferenceType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfPreferenceType',
+            'PreferenceType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreferenceType',
+            'PreferenceABIEType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreferenceABIEType',
+            'LocationType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\LocationType1',
+            'AddressType1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\AddressType1',
             'CustomerPartyType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CustomerPartyType',
             'PayerPartyBaseType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PayerPartyBaseType',
             'PartyBaseType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PartyBaseType',
@@ -93,16 +97,12 @@ class ClassMap
             'ArrayOfCountrySubDivisionCodeType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfCountrySubDivisionCodeType',
             'CountrySubDivisionCodeType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\CountrySubDivisionCodeType',
             'ArrayOfItemsChoiceType1' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfItemsChoiceType1',
-            'ArrayOfPreferenceType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfPreferenceType',
-            'PreferenceType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreferenceType',
-            'PreferenceABIEType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreferenceABIEType',
             'StatusType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\StatusType',
             'StatusABIEType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\StatusABIEType',
             'StatusBasisType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\StatusBasisType',
             'ArrayOfSequencedTextType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfSequencedTextType',
             'SequencedTextType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\SequencedTextType',
             'ArrayOfEMailAddressCommunicationType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfEMailAddressCommunicationType',
-            'EMailAddressCommunicationType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\EMailAddressCommunicationType',
             'ArrayOfTelephoneCommunicationType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfTelephoneCommunicationType',
             'TelephoneCommunicationType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\TelephoneCommunicationType',
             'ArrayOfElectronicCommunicationType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfElectronicCommunicationType',
@@ -154,11 +154,22 @@ class ClassMap
             'AddressAttachmentType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\AddressAttachmentType',
             'ArrayOfExtraAttachmentType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfExtraAttachmentType',
             'ExtraAttachmentType' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ExtraAttachmentType',
-            'ArrayOfXmlElement' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfXmlElement',
-            'XmlElement' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\XmlElement',
-            'ArrayOfanyType' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfanyType',
-            'ArrayOfstring' => '\\Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfstring',
+            'Business2BusinessContainerV2' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\Business2BusinessContainerV2',
             'B2BAddressContainerV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\B2BAddressContainerV1',
-        );
+            'TenderBulkMailOrderV2' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\TenderBulkMailOrderV2',
+            'TenderBulkMailOrderV2Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\TenderBulkMailOrderV2Response',
+            'PreAdviceBulkMailOrderV2' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreAdviceBulkMailOrderV2',
+            'PreAdviceBulkMailOrderV2Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\PreAdviceBulkMailOrderV2Response',
+            'ValidateAddressAttachmentV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAddressAttachmentV1',
+            'ValidateAddressAttachmentV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAddressAttachmentV1Response',
+            'GetValidationResultV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationResultV1',
+            'GetValidationResultV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationResultV1Response',
+            'ValidateAndSortAddressAttachmentV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAndSortAddressAttachmentV1',
+            'ValidateAndSortAddressAttachmentV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\ValidateAndSortAddressAttachmentV1Response',
+            'GetValidationAndSortingResultV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationAndSortingResultV1',
+            'GetValidationAndSortingResultV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetValidationAndSortingResultV1Response',
+            'GetPackagingInformationV1' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetPackagingInformationV1',
+            'GetPackagingInformationV1Response' => '\\Randock\\PostNL\\BulkMailApi\\StructType\\GetPackagingInformationV1Response',
+        ];
     }
 }

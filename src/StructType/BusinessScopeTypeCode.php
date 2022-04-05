@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BusinessScopeTypeCode StructType
@@ -18,49 +21,49 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The listAgencyID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listAgencyID;
+    protected ?string $listAgencyID = null;
     /**
      * The listAgencySchemeAgencyID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listAgencySchemeAgencyID;
+    protected ?string $listAgencySchemeAgencyID = null;
     /**
      * The listAgencySchemeID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listAgencySchemeID;
+    protected ?string $listAgencySchemeID = null;
     /**
      * The listID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listID;
+    protected ?string $listID = null;
     /**
      * The listVersionID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listVersionID;
+    protected ?string $listVersionID = null;
     /**
      * Constructor method for BusinessScopeTypeCode
      * @uses BusinessScopeTypeCode::setValue()
@@ -76,7 +79,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $listID
      * @param string $listVersionID
      */
-    public function __construct($value = null, $listAgencyID = null, $listAgencySchemeAgencyID = null, $listAgencySchemeID = null, $listID = null, $listVersionID = null)
+    public function __construct(?string $value = null, ?string $listAgencyID = null, ?string $listAgencySchemeAgencyID = null, ?string $listAgencySchemeID = null, ?string $listID = null, ?string $listVersionID = null)
     {
         $this
             ->setValue($value)
@@ -93,7 +96,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -104,17 +107,18 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $value
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
@@ -124,7 +128,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListAgencyID()
+    public function getListAgencyID(): ?string
     {
         return isset($this->listAgencyID) ? $this->listAgencyID : null;
     }
@@ -135,17 +139,18 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $listAgencyID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
      */
-    public function setListAgencyID($listAgencyID = null)
+    public function setListAgencyID(?string $listAgencyID = null): self
     {
         // validation for constraint: string
         if (!is_null($listAgencyID) && !is_string($listAgencyID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencyID, true), gettype($listAgencyID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencyID, true), gettype($listAgencyID)), __LINE__);
         }
         if (is_null($listAgencyID) || (is_array($listAgencyID) && empty($listAgencyID))) {
             unset($this->listAgencyID);
         } else {
             $this->listAgencyID = $listAgencyID;
         }
+        
         return $this;
     }
     /**
@@ -155,7 +160,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListAgencySchemeAgencyID()
+    public function getListAgencySchemeAgencyID(): ?string
     {
         return isset($this->listAgencySchemeAgencyID) ? $this->listAgencySchemeAgencyID : null;
     }
@@ -166,17 +171,18 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $listAgencySchemeAgencyID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
      */
-    public function setListAgencySchemeAgencyID($listAgencySchemeAgencyID = null)
+    public function setListAgencySchemeAgencyID(?string $listAgencySchemeAgencyID = null): self
     {
         // validation for constraint: string
         if (!is_null($listAgencySchemeAgencyID) && !is_string($listAgencySchemeAgencyID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencySchemeAgencyID, true), gettype($listAgencySchemeAgencyID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencySchemeAgencyID, true), gettype($listAgencySchemeAgencyID)), __LINE__);
         }
         if (is_null($listAgencySchemeAgencyID) || (is_array($listAgencySchemeAgencyID) && empty($listAgencySchemeAgencyID))) {
             unset($this->listAgencySchemeAgencyID);
         } else {
             $this->listAgencySchemeAgencyID = $listAgencySchemeAgencyID;
         }
+        
         return $this;
     }
     /**
@@ -186,7 +192,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListAgencySchemeID()
+    public function getListAgencySchemeID(): ?string
     {
         return isset($this->listAgencySchemeID) ? $this->listAgencySchemeID : null;
     }
@@ -197,17 +203,18 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $listAgencySchemeID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
      */
-    public function setListAgencySchemeID($listAgencySchemeID = null)
+    public function setListAgencySchemeID(?string $listAgencySchemeID = null): self
     {
         // validation for constraint: string
         if (!is_null($listAgencySchemeID) && !is_string($listAgencySchemeID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencySchemeID, true), gettype($listAgencySchemeID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencySchemeID, true), gettype($listAgencySchemeID)), __LINE__);
         }
         if (is_null($listAgencySchemeID) || (is_array($listAgencySchemeID) && empty($listAgencySchemeID))) {
             unset($this->listAgencySchemeID);
         } else {
             $this->listAgencySchemeID = $listAgencySchemeID;
         }
+        
         return $this;
     }
     /**
@@ -217,7 +224,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListID()
+    public function getListID(): ?string
     {
         return isset($this->listID) ? $this->listID : null;
     }
@@ -228,17 +235,18 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $listID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
      */
-    public function setListID($listID = null)
+    public function setListID(?string $listID = null): self
     {
         // validation for constraint: string
         if (!is_null($listID) && !is_string($listID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listID, true), gettype($listID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listID, true), gettype($listID)), __LINE__);
         }
         if (is_null($listID) || (is_array($listID) && empty($listID))) {
             unset($this->listID);
         } else {
             $this->listID = $listID;
         }
+        
         return $this;
     }
     /**
@@ -248,7 +256,7 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListVersionID()
+    public function getListVersionID(): ?string
     {
         return isset($this->listVersionID) ? $this->listVersionID : null;
     }
@@ -259,17 +267,18 @@ class BusinessScopeTypeCode extends AbstractStructBase
      * @param string $listVersionID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
      */
-    public function setListVersionID($listVersionID = null)
+    public function setListVersionID(?string $listVersionID = null): self
     {
         // validation for constraint: string
         if (!is_null($listVersionID) && !is_string($listVersionID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listVersionID, true), gettype($listVersionID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listVersionID, true), gettype($listVersionID)), __LINE__);
         }
         if (is_null($listVersionID) || (is_array($listVersionID) && empty($listVersionID))) {
             unset($this->listVersionID);
         } else {
             $this->listVersionID = $listVersionID;
         }
+        
         return $this;
     }
 }

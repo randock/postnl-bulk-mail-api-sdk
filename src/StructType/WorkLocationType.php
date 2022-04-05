@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WorkLocationType StructType
@@ -18,87 +21,87 @@ class WorkLocationType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType|null
      */
-    public $ContactPerson;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType $ContactPerson = null;
     /**
      * The ExternalReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $ExternalReference;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $ExternalReference = null;
     /**
      * The InternalManagementIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $InternalManagementIndicator;
+    protected ?bool $InternalManagementIndicator = null;
     /**
      * The InternalManagementIndicatorSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $InternalManagementIndicatorSpecified;
+    protected ?bool $InternalManagementIndicatorSpecified = null;
     /**
      * The LocationId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $LocationId;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $LocationId = null;
     /**
      * The LocationMDMoldCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $LocationMDMoldCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $LocationMDMoldCode = null;
     /**
      * The LocationName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $LocationName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $LocationName = null;
     /**
      * The LocationShortName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $LocationShortName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $LocationShortName = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType|null
      */
-    public $Status;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $Status = null;
     /**
      * The WorkLocationAddress
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType|null
      */
-    public $WorkLocationAddress;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $WorkLocationAddress = null;
     /**
      * The WorkLocationType1
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType
+     * @var \Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType|null
      */
-    public $WorkLocationType1;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $WorkLocationType1 = null;
     /**
      * Constructor method for WorkLocationType
      * @uses WorkLocationType::setContactPerson()
@@ -124,7 +127,7 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $workLocationAddress
      * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $workLocationType1
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType $contactPerson = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $externalReference = null, $internalManagementIndicator = null, $internalManagementIndicatorSpecified = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $locationId = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $locationMDMoldCode = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $locationName = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $locationShortName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $workLocationAddress = null, \Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $workLocationType1 = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType $contactPerson = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $externalReference = null, ?bool $internalManagementIndicator = null, ?bool $internalManagementIndicatorSpecified = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $locationId = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $locationMDMoldCode = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $locationName = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $locationShortName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $workLocationAddress = null, ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $workLocationType1 = null)
     {
         $this
             ->setContactPerson($contactPerson)
@@ -146,7 +149,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType|null
      */
-    public function getContactPerson()
+    public function getContactPerson(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType
     {
         return isset($this->ContactPerson) ? $this->ContactPerson : null;
     }
@@ -157,13 +160,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType $contactPerson
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setContactPerson(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType $contactPerson = null)
+    public function setContactPerson(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactPersonType $contactPerson = null): self
     {
         if (is_null($contactPerson) || (is_array($contactPerson) && empty($contactPerson))) {
             unset($this->ContactPerson);
         } else {
             $this->ContactPerson = $contactPerson;
         }
+        
         return $this;
     }
     /**
@@ -173,7 +177,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getExternalReference()
+    public function getExternalReference(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->ExternalReference) ? $this->ExternalReference : null;
     }
@@ -184,20 +188,21 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $externalReference
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setExternalReference(\Randock\PostNL\BulkMailApi\StructType\TextType1 $externalReference = null)
+    public function setExternalReference(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $externalReference = null): self
     {
         if (is_null($externalReference) || (is_array($externalReference) && empty($externalReference))) {
             unset($this->ExternalReference);
         } else {
             $this->ExternalReference = $externalReference;
         }
+        
         return $this;
     }
     /**
      * Get InternalManagementIndicator value
      * @return bool|null
      */
-    public function getInternalManagementIndicator()
+    public function getInternalManagementIndicator(): ?bool
     {
         return $this->InternalManagementIndicator;
     }
@@ -206,20 +211,21 @@ class WorkLocationType extends AbstractStructBase
      * @param bool $internalManagementIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setInternalManagementIndicator($internalManagementIndicator = null)
+    public function setInternalManagementIndicator(?bool $internalManagementIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($internalManagementIndicator) && !is_bool($internalManagementIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($internalManagementIndicator, true), gettype($internalManagementIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($internalManagementIndicator, true), gettype($internalManagementIndicator)), __LINE__);
         }
         $this->InternalManagementIndicator = $internalManagementIndicator;
+        
         return $this;
     }
     /**
      * Get InternalManagementIndicatorSpecified value
      * @return bool|null
      */
-    public function getInternalManagementIndicatorSpecified()
+    public function getInternalManagementIndicatorSpecified(): ?bool
     {
         return $this->InternalManagementIndicatorSpecified;
     }
@@ -228,13 +234,14 @@ class WorkLocationType extends AbstractStructBase
      * @param bool $internalManagementIndicatorSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setInternalManagementIndicatorSpecified($internalManagementIndicatorSpecified = null)
+    public function setInternalManagementIndicatorSpecified(?bool $internalManagementIndicatorSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($internalManagementIndicatorSpecified) && !is_bool($internalManagementIndicatorSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($internalManagementIndicatorSpecified, true), gettype($internalManagementIndicatorSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($internalManagementIndicatorSpecified, true), gettype($internalManagementIndicatorSpecified)), __LINE__);
         }
         $this->InternalManagementIndicatorSpecified = $internalManagementIndicatorSpecified;
+        
         return $this;
     }
     /**
@@ -244,7 +251,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getLocationId()
+    public function getLocationId(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->LocationId) ? $this->LocationId : null;
     }
@@ -255,13 +262,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $locationId
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setLocationId(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $locationId = null)
+    public function setLocationId(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $locationId = null): self
     {
         if (is_null($locationId) || (is_array($locationId) && empty($locationId))) {
             unset($this->LocationId);
         } else {
             $this->LocationId = $locationId;
         }
+        
         return $this;
     }
     /**
@@ -271,7 +279,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getLocationMDMoldCode()
+    public function getLocationMDMoldCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->LocationMDMoldCode) ? $this->LocationMDMoldCode : null;
     }
@@ -282,13 +290,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $locationMDMoldCode
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setLocationMDMoldCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $locationMDMoldCode = null)
+    public function setLocationMDMoldCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $locationMDMoldCode = null): self
     {
         if (is_null($locationMDMoldCode) || (is_array($locationMDMoldCode) && empty($locationMDMoldCode))) {
             unset($this->LocationMDMoldCode);
         } else {
             $this->LocationMDMoldCode = $locationMDMoldCode;
         }
+        
         return $this;
     }
     /**
@@ -298,7 +307,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getLocationName()
+    public function getLocationName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->LocationName) ? $this->LocationName : null;
     }
@@ -309,13 +318,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $locationName
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setLocationName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $locationName = null)
+    public function setLocationName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $locationName = null): self
     {
         if (is_null($locationName) || (is_array($locationName) && empty($locationName))) {
             unset($this->LocationName);
         } else {
             $this->LocationName = $locationName;
         }
+        
         return $this;
     }
     /**
@@ -325,7 +335,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getLocationShortName()
+    public function getLocationShortName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->LocationShortName) ? $this->LocationShortName : null;
     }
@@ -336,13 +346,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $locationShortName
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setLocationShortName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $locationShortName = null)
+    public function setLocationShortName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $locationShortName = null): self
     {
         if (is_null($locationShortName) || (is_array($locationShortName) && empty($locationShortName))) {
             unset($this->LocationShortName);
         } else {
             $this->LocationShortName = $locationShortName;
         }
+        
         return $this;
     }
     /**
@@ -352,7 +363,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType|null
      */
-    public function getStatus()
+    public function getStatus(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
     {
         return isset($this->Status) ? $this->Status : null;
     }
@@ -363,13 +374,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setStatus(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null)
+    public function setStatus(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null): self
     {
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->Status);
         } else {
             $this->Status = $status;
         }
+        
         return $this;
     }
     /**
@@ -379,7 +391,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType|null
      */
-    public function getWorkLocationAddress()
+    public function getWorkLocationAddress(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType
     {
         return isset($this->WorkLocationAddress) ? $this->WorkLocationAddress : null;
     }
@@ -390,13 +402,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $workLocationAddress
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setWorkLocationAddress(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $workLocationAddress = null)
+    public function setWorkLocationAddress(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType $workLocationAddress = null): self
     {
         if (is_null($workLocationAddress) || (is_array($workLocationAddress) && empty($workLocationAddress))) {
             unset($this->WorkLocationAddress);
         } else {
             $this->WorkLocationAddress = $workLocationAddress;
         }
+        
         return $this;
     }
     /**
@@ -406,7 +419,7 @@ class WorkLocationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType|null
      */
-    public function getWorkLocationType1()
+    public function getWorkLocationType1(): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType
     {
         return isset($this->WorkLocationType1) ? $this->WorkLocationType1 : null;
     }
@@ -417,13 +430,14 @@ class WorkLocationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $workLocationType1
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
      */
-    public function setWorkLocationType1(\Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $workLocationType1 = null)
+    public function setWorkLocationType1(?\Randock\PostNL\BulkMailApi\StructType\WorkLocationTypeType $workLocationType1 = null): self
     {
         if (is_null($workLocationType1) || (is_array($workLocationType1) && empty($workLocationType1))) {
             unset($this->WorkLocationType1);
         } else {
             $this->WorkLocationType1 = $workLocationType1;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for HeaderType StructType
@@ -18,57 +21,57 @@ class HeaderType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType|null
      */
-    public $AlternateDocumentID;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType $AlternateDocumentID = null;
     /**
      * The Attachment
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType
+     * @var \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType|null
      */
-    public $Attachment;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $Attachment = null;
     /**
      * The Description
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType|null
      */
-    public $Description;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $Description = null;
     /**
      * The DocumentDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $DocumentDateTime;
+    protected ?string $DocumentDateTime = null;
     /**
      * The DocumentID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\DocumentIDType
+     * @var \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public $DocumentID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType $DocumentID = null;
     /**
      * The LastModificationDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $LastModificationDateTime;
+    protected ?string $LastModificationDateTime = null;
     /**
      * The Note
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType|null
      */
-    public $Note;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $Note = null;
     /**
      * Constructor method for HeaderType
      * @uses HeaderType::setAlternateDocumentID()
@@ -86,7 +89,7 @@ class HeaderType extends AbstractStructBase
      * @param string $lastModificationDateTime
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType $alternateDocumentID = null, \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null, $documentDateTime = null, \Randock\PostNL\BulkMailApi\StructType\DocumentIDType $documentID = null, $lastModificationDateTime = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType $alternateDocumentID = null, ?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null, ?string $documentDateTime = null, ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType $documentID = null, ?string $lastModificationDateTime = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null)
     {
         $this
             ->setAlternateDocumentID($alternateDocumentID)
@@ -104,7 +107,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType|null
      */
-    public function getAlternateDocumentID()
+    public function getAlternateDocumentID(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType
     {
         return isset($this->AlternateDocumentID) ? $this->AlternateDocumentID : null;
     }
@@ -115,13 +118,14 @@ class HeaderType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType $alternateDocumentID
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setAlternateDocumentID(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType $alternateDocumentID = null)
+    public function setAlternateDocumentID(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDocumentIDType $alternateDocumentID = null): self
     {
         if (is_null($alternateDocumentID) || (is_array($alternateDocumentID) && empty($alternateDocumentID))) {
             unset($this->AlternateDocumentID);
         } else {
             $this->AlternateDocumentID = $alternateDocumentID;
         }
+        
         return $this;
     }
     /**
@@ -131,7 +135,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType|null
      */
-    public function getAttachment()
+    public function getAttachment(): ?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType
     {
         return isset($this->Attachment) ? $this->Attachment : null;
     }
@@ -142,13 +146,14 @@ class HeaderType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setAttachment(\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null)
+    public function setAttachment(?\Randock\PostNL\BulkMailApi\StructType\OpenAttachmentType $attachment = null): self
     {
         if (is_null($attachment) || (is_array($attachment) && empty($attachment))) {
             unset($this->Attachment);
         } else {
             $this->Attachment = $attachment;
         }
+        
         return $this;
     }
     /**
@@ -158,7 +163,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType|null
      */
-    public function getDescription()
+    public function getDescription(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
     {
         return isset($this->Description) ? $this->Description : null;
     }
@@ -169,13 +174,14 @@ class HeaderType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setDescription(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null)
+    public function setDescription(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null): self
     {
         if (is_null($description) || (is_array($description) && empty($description))) {
             unset($this->Description);
         } else {
             $this->Description = $description;
         }
+        
         return $this;
     }
     /**
@@ -185,7 +191,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getDocumentDateTime()
+    public function getDocumentDateTime(): ?string
     {
         return isset($this->DocumentDateTime) ? $this->DocumentDateTime : null;
     }
@@ -196,17 +202,18 @@ class HeaderType extends AbstractStructBase
      * @param string $documentDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setDocumentDateTime($documentDateTime = null)
+    public function setDocumentDateTime(?string $documentDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($documentDateTime) && !is_string($documentDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($documentDateTime, true), gettype($documentDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($documentDateTime, true), gettype($documentDateTime)), __LINE__);
         }
         if (is_null($documentDateTime) || (is_array($documentDateTime) && empty($documentDateTime))) {
             unset($this->DocumentDateTime);
         } else {
             $this->DocumentDateTime = $documentDateTime;
         }
+        
         return $this;
     }
     /**
@@ -216,7 +223,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType|null
      */
-    public function getDocumentID()
+    public function getDocumentID(): ?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType
     {
         return isset($this->DocumentID) ? $this->DocumentID : null;
     }
@@ -227,13 +234,14 @@ class HeaderType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\DocumentIDType $documentID
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setDocumentID(\Randock\PostNL\BulkMailApi\StructType\DocumentIDType $documentID = null)
+    public function setDocumentID(?\Randock\PostNL\BulkMailApi\StructType\DocumentIDType $documentID = null): self
     {
         if (is_null($documentID) || (is_array($documentID) && empty($documentID))) {
             unset($this->DocumentID);
         } else {
             $this->DocumentID = $documentID;
         }
+        
         return $this;
     }
     /**
@@ -243,7 +251,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLastModificationDateTime()
+    public function getLastModificationDateTime(): ?string
     {
         return isset($this->LastModificationDateTime) ? $this->LastModificationDateTime : null;
     }
@@ -254,17 +262,18 @@ class HeaderType extends AbstractStructBase
      * @param string $lastModificationDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setLastModificationDateTime($lastModificationDateTime = null)
+    public function setLastModificationDateTime(?string $lastModificationDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastModificationDateTime) && !is_string($lastModificationDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModificationDateTime, true), gettype($lastModificationDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModificationDateTime, true), gettype($lastModificationDateTime)), __LINE__);
         }
         if (is_null($lastModificationDateTime) || (is_array($lastModificationDateTime) && empty($lastModificationDateTime))) {
             unset($this->LastModificationDateTime);
         } else {
             $this->LastModificationDateTime = $lastModificationDateTime;
         }
+        
         return $this;
     }
     /**
@@ -274,7 +283,7 @@ class HeaderType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType|null
      */
-    public function getNote()
+    public function getNote(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
     {
         return isset($this->Note) ? $this->Note : null;
     }
@@ -285,13 +294,14 @@ class HeaderType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note
      * @return \Randock\PostNL\BulkMailApi\StructType\HeaderType
      */
-    public function setNote(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null)
+    public function setNote(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null): self
     {
         if (is_null($note) || (is_array($note) && empty($note))) {
             unset($this->Note);
         } else {
             $this->Note = $note;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ServiceType;
 
-use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
+use SoapFault;
+use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * This class stands for Get ServiceType
@@ -14,7 +17,6 @@ class Get extends AbstractSoapClientBase
      * Method to call the operation originally named GetValidationResultV1
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \Randock\PostNL\BulkMailApi\StructType\GetValidationResultV1 $parameters
      * @return \Randock\PostNL\BulkMailApi\StructType\GetValidationResultV1Response|bool
@@ -22,12 +24,14 @@ class Get extends AbstractSoapClientBase
     public function GetValidationResultV1(\Randock\PostNL\BulkMailApi\StructType\GetValidationResultV1 $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('GetValidationResultV1', array(
+            $this->setResult($resultGetValidationResultV1 = $this->getSoapClient()->__soapCall('GetValidationResultV1', [
                 $parameters,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultGetValidationResultV1;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -35,7 +39,6 @@ class Get extends AbstractSoapClientBase
      * Method to call the operation originally named GetValidationAndSortingResultV1
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \Randock\PostNL\BulkMailApi\StructType\GetValidationAndSortingResultV1 $parameters
      * @return \Randock\PostNL\BulkMailApi\StructType\GetValidationAndSortingResultV1Response|bool
@@ -43,12 +46,14 @@ class Get extends AbstractSoapClientBase
     public function GetValidationAndSortingResultV1(\Randock\PostNL\BulkMailApi\StructType\GetValidationAndSortingResultV1 $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('GetValidationAndSortingResultV1', array(
+            $this->setResult($resultGetValidationAndSortingResultV1 = $this->getSoapClient()->__soapCall('GetValidationAndSortingResultV1', [
                 $parameters,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultGetValidationAndSortingResultV1;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -56,7 +61,6 @@ class Get extends AbstractSoapClientBase
      * Method to call the operation originally named GetPackagingInformationV1
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \Randock\PostNL\BulkMailApi\StructType\GetPackagingInformationV1 $parameters
      * @return \Randock\PostNL\BulkMailApi\StructType\GetPackagingInformationV1Response|bool
@@ -64,12 +68,14 @@ class Get extends AbstractSoapClientBase
     public function GetPackagingInformationV1(\Randock\PostNL\BulkMailApi\StructType\GetPackagingInformationV1 $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('GetPackagingInformationV1', array(
+            $this->setResult($resultGetPackagingInformationV1 = $this->getSoapClient()->__soapCall('GetPackagingInformationV1', [
                 $parameters,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultGetPackagingInformationV1;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }

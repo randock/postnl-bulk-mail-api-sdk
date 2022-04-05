@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CustomerConsignmentType StructType
@@ -18,65 +21,65 @@ class CustomerConsignmentType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType|null
      */
-    public $ConsignmentAdministrativeReferences;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType $ConsignmentAdministrativeReferences = null;
     /**
      * The ConsignmentAuthorizationNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $ConsignmentAuthorizationNumber;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $ConsignmentAuthorizationNumber = null;
     /**
      * The ConsignmentCharacteristics
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public $ConsignmentCharacteristics;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $ConsignmentCharacteristics = null;
     /**
      * The ConsignmentIssueNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $ConsignmentIssueNumber;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $ConsignmentIssueNumber = null;
     /**
      * The ConsignmentPeriodicalName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $ConsignmentPeriodicalName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $ConsignmentPeriodicalName = null;
     /**
      * The CustomerPriceReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public $CustomerPriceReference;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $CustomerPriceReference = null;
     /**
      * The InsuredUnitsQuantity
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\QuantityType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\QuantityType1|null
      */
-    public $InsuredUnitsQuantity;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $InsuredUnitsQuantity = null;
     /**
      * The IssueID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $IssueID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $IssueID = null;
     /**
      * Constructor method for CustomerConsignmentType
      * @uses CustomerConsignmentType::setConsignmentAdministrativeReferences()
@@ -96,7 +99,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\QuantityType1 $insuredUnitsQuantity
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $issueID
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType $consignmentAdministrativeReferences = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentAuthorizationNumber = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentCharacteristics = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentIssueNumber = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $consignmentPeriodicalName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $customerPriceReference = null, \Randock\PostNL\BulkMailApi\StructType\QuantityType1 $insuredUnitsQuantity = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $issueID = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType $consignmentAdministrativeReferences = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentAuthorizationNumber = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentCharacteristics = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentIssueNumber = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $consignmentPeriodicalName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $customerPriceReference = null, ?\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $insuredUnitsQuantity = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $issueID = null)
     {
         $this
             ->setConsignmentAdministrativeReferences($consignmentAdministrativeReferences)
@@ -115,7 +118,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType|null
      */
-    public function getConsignmentAdministrativeReferences()
+    public function getConsignmentAdministrativeReferences(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType
     {
         return isset($this->ConsignmentAdministrativeReferences) ? $this->ConsignmentAdministrativeReferences : null;
     }
@@ -126,13 +129,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType $consignmentAdministrativeReferences
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setConsignmentAdministrativeReferences(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType $consignmentAdministrativeReferences = null)
+    public function setConsignmentAdministrativeReferences(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType $consignmentAdministrativeReferences = null): self
     {
         if (is_null($consignmentAdministrativeReferences) || (is_array($consignmentAdministrativeReferences) && empty($consignmentAdministrativeReferences))) {
             unset($this->ConsignmentAdministrativeReferences);
         } else {
             $this->ConsignmentAdministrativeReferences = $consignmentAdministrativeReferences;
         }
+        
         return $this;
     }
     /**
@@ -142,7 +146,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getConsignmentAuthorizationNumber()
+    public function getConsignmentAuthorizationNumber(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->ConsignmentAuthorizationNumber) ? $this->ConsignmentAuthorizationNumber : null;
     }
@@ -153,13 +157,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentAuthorizationNumber
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setConsignmentAuthorizationNumber(\Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentAuthorizationNumber = null)
+    public function setConsignmentAuthorizationNumber(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentAuthorizationNumber = null): self
     {
         if (is_null($consignmentAuthorizationNumber) || (is_array($consignmentAuthorizationNumber) && empty($consignmentAuthorizationNumber))) {
             unset($this->ConsignmentAuthorizationNumber);
         } else {
             $this->ConsignmentAuthorizationNumber = $consignmentAuthorizationNumber;
         }
+        
         return $this;
     }
     /**
@@ -169,7 +174,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public function getConsignmentCharacteristics()
+    public function getConsignmentCharacteristics(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
     {
         return isset($this->ConsignmentCharacteristics) ? $this->ConsignmentCharacteristics : null;
     }
@@ -180,13 +185,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentCharacteristics
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setConsignmentCharacteristics(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentCharacteristics = null)
+    public function setConsignmentCharacteristics(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentCharacteristics = null): self
     {
         if (is_null($consignmentCharacteristics) || (is_array($consignmentCharacteristics) && empty($consignmentCharacteristics))) {
             unset($this->ConsignmentCharacteristics);
         } else {
             $this->ConsignmentCharacteristics = $consignmentCharacteristics;
         }
+        
         return $this;
     }
     /**
@@ -196,7 +202,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getConsignmentIssueNumber()
+    public function getConsignmentIssueNumber(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->ConsignmentIssueNumber) ? $this->ConsignmentIssueNumber : null;
     }
@@ -207,13 +213,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentIssueNumber
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setConsignmentIssueNumber(\Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentIssueNumber = null)
+    public function setConsignmentIssueNumber(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $consignmentIssueNumber = null): self
     {
         if (is_null($consignmentIssueNumber) || (is_array($consignmentIssueNumber) && empty($consignmentIssueNumber))) {
             unset($this->ConsignmentIssueNumber);
         } else {
             $this->ConsignmentIssueNumber = $consignmentIssueNumber;
         }
+        
         return $this;
     }
     /**
@@ -223,7 +230,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getConsignmentPeriodicalName()
+    public function getConsignmentPeriodicalName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->ConsignmentPeriodicalName) ? $this->ConsignmentPeriodicalName : null;
     }
@@ -234,13 +241,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $consignmentPeriodicalName
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setConsignmentPeriodicalName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $consignmentPeriodicalName = null)
+    public function setConsignmentPeriodicalName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $consignmentPeriodicalName = null): self
     {
         if (is_null($consignmentPeriodicalName) || (is_array($consignmentPeriodicalName) && empty($consignmentPeriodicalName))) {
             unset($this->ConsignmentPeriodicalName);
         } else {
             $this->ConsignmentPeriodicalName = $consignmentPeriodicalName;
         }
+        
         return $this;
     }
     /**
@@ -250,7 +258,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public function getCustomerPriceReference()
+    public function getCustomerPriceReference(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
     {
         return isset($this->CustomerPriceReference) ? $this->CustomerPriceReference : null;
     }
@@ -261,13 +269,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $customerPriceReference
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setCustomerPriceReference(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $customerPriceReference = null)
+    public function setCustomerPriceReference(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $customerPriceReference = null): self
     {
         if (is_null($customerPriceReference) || (is_array($customerPriceReference) && empty($customerPriceReference))) {
             unset($this->CustomerPriceReference);
         } else {
             $this->CustomerPriceReference = $customerPriceReference;
         }
+        
         return $this;
     }
     /**
@@ -277,7 +286,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\QuantityType1|null
      */
-    public function getInsuredUnitsQuantity()
+    public function getInsuredUnitsQuantity(): ?\Randock\PostNL\BulkMailApi\StructType\QuantityType1
     {
         return isset($this->InsuredUnitsQuantity) ? $this->InsuredUnitsQuantity : null;
     }
@@ -288,13 +297,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\QuantityType1 $insuredUnitsQuantity
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setInsuredUnitsQuantity(\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $insuredUnitsQuantity = null)
+    public function setInsuredUnitsQuantity(?\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $insuredUnitsQuantity = null): self
     {
         if (is_null($insuredUnitsQuantity) || (is_array($insuredUnitsQuantity) && empty($insuredUnitsQuantity))) {
             unset($this->InsuredUnitsQuantity);
         } else {
             $this->InsuredUnitsQuantity = $insuredUnitsQuantity;
         }
+        
         return $this;
     }
     /**
@@ -304,7 +314,7 @@ class CustomerConsignmentType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getIssueID()
+    public function getIssueID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->IssueID) ? $this->IssueID : null;
     }
@@ -315,13 +325,14 @@ class CustomerConsignmentType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $issueID
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerConsignmentType
      */
-    public function setIssueID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $issueID = null)
+    public function setIssueID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $issueID = null): self
     {
         if (is_null($issueID) || (is_array($issueID) && empty($issueID))) {
             unset($this->IssueID);
         } else {
             $this->IssueID = $issueID;
         }
+        
         return $this;
     }
 }

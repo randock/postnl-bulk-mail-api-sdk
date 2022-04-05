@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SemanticAttachmentType StructType
@@ -18,15 +21,15 @@ class SemanticAttachmentType extends AttachmentBaseType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType
+     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public $UserArea;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $UserArea = null;
     /**
      * Constructor method for SemanticAttachmentType
      * @uses SemanticAttachmentType::setUserArea()
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
     {
         $this
             ->setUserArea($userArea);
@@ -38,7 +41,7 @@ class SemanticAttachmentType extends AttachmentBaseType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public function getUserArea()
+    public function getUserArea(): ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType
     {
         return isset($this->UserArea) ? $this->UserArea : null;
     }
@@ -49,13 +52,14 @@ class SemanticAttachmentType extends AttachmentBaseType
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      * @return \Randock\PostNL\BulkMailApi\StructType\SemanticAttachmentType
      */
-    public function setUserArea(\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function setUserArea(?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null): self
     {
         if (is_null($userArea) || (is_array($userArea) && empty($userArea))) {
             unset($this->UserArea);
         } else {
             $this->UserArea = $userArea;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PhoneNumber StructType
@@ -18,49 +21,49 @@ class PhoneNumber extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $AreaID;
+    protected ?string $AreaID = null;
     /**
      * The CountryCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CountryCode;
+    protected ?string $CountryCode = null;
     /**
      * The CountryDiallingCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $CountryDiallingCode;
+    protected ?string $CountryDiallingCode = null;
     /**
      * The CountryName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name
+     * @var \Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name|null
      */
-    public $CountryName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name $CountryName = null;
     /**
      * The ExtensionID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $ExtensionID;
+    protected ?string $ExtensionID = null;
     /**
      * The SubscriberID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SubscriberID;
+    protected ?string $SubscriberID = null;
     /**
      * Constructor method for PhoneNumber
      * @uses PhoneNumber::setAreaID()
@@ -76,7 +79,7 @@ class PhoneNumber extends AbstractStructBase
      * @param string $extensionID
      * @param string $subscriberID
      */
-    public function __construct($areaID = null, $countryCode = null, $countryDiallingCode = null, \Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name $countryName = null, $extensionID = null, $subscriberID = null)
+    public function __construct(?string $areaID = null, ?string $countryCode = null, ?string $countryDiallingCode = null, ?\Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name $countryName = null, ?string $extensionID = null, ?string $subscriberID = null)
     {
         $this
             ->setAreaID($areaID)
@@ -93,7 +96,7 @@ class PhoneNumber extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getAreaID()
+    public function getAreaID(): ?string
     {
         return isset($this->AreaID) ? $this->AreaID : null;
     }
@@ -104,17 +107,18 @@ class PhoneNumber extends AbstractStructBase
      * @param string $areaID
      * @return \Randock\PostNL\BulkMailApi\StructType\PhoneNumber
      */
-    public function setAreaID($areaID = null)
+    public function setAreaID(?string $areaID = null): self
     {
         // validation for constraint: string
         if (!is_null($areaID) && !is_string($areaID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($areaID, true), gettype($areaID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($areaID, true), gettype($areaID)), __LINE__);
         }
         if (is_null($areaID) || (is_array($areaID) && empty($areaID))) {
             unset($this->AreaID);
         } else {
             $this->AreaID = $areaID;
         }
+        
         return $this;
     }
     /**
@@ -124,7 +128,7 @@ class PhoneNumber extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?string
     {
         return isset($this->CountryCode) ? $this->CountryCode : null;
     }
@@ -135,17 +139,18 @@ class PhoneNumber extends AbstractStructBase
      * @param string $countryCode
      * @return \Randock\PostNL\BulkMailApi\StructType\PhoneNumber
      */
-    public function setCountryCode($countryCode = null)
+    public function setCountryCode(?string $countryCode = null): self
     {
         // validation for constraint: string
         if (!is_null($countryCode) && !is_string($countryCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($countryCode, true), gettype($countryCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($countryCode, true), gettype($countryCode)), __LINE__);
         }
         if (is_null($countryCode) || (is_array($countryCode) && empty($countryCode))) {
             unset($this->CountryCode);
         } else {
             $this->CountryCode = $countryCode;
         }
+        
         return $this;
     }
     /**
@@ -155,7 +160,7 @@ class PhoneNumber extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCountryDiallingCode()
+    public function getCountryDiallingCode(): ?string
     {
         return isset($this->CountryDiallingCode) ? $this->CountryDiallingCode : null;
     }
@@ -166,17 +171,18 @@ class PhoneNumber extends AbstractStructBase
      * @param string $countryDiallingCode
      * @return \Randock\PostNL\BulkMailApi\StructType\PhoneNumber
      */
-    public function setCountryDiallingCode($countryDiallingCode = null)
+    public function setCountryDiallingCode(?string $countryDiallingCode = null): self
     {
         // validation for constraint: string
         if (!is_null($countryDiallingCode) && !is_string($countryDiallingCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($countryDiallingCode, true), gettype($countryDiallingCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($countryDiallingCode, true), gettype($countryDiallingCode)), __LINE__);
         }
         if (is_null($countryDiallingCode) || (is_array($countryDiallingCode) && empty($countryDiallingCode))) {
             unset($this->CountryDiallingCode);
         } else {
             $this->CountryDiallingCode = $countryDiallingCode;
         }
+        
         return $this;
     }
     /**
@@ -186,7 +192,7 @@ class PhoneNumber extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name|null
      */
-    public function getCountryName()
+    public function getCountryName(): ?\Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name
     {
         return isset($this->CountryName) ? $this->CountryName : null;
     }
@@ -197,13 +203,14 @@ class PhoneNumber extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name $countryName
      * @return \Randock\PostNL\BulkMailApi\StructType\PhoneNumber
      */
-    public function setCountryName(\Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name $countryName = null)
+    public function setCountryName(?\Randock\PostNL\BulkMailApi\StructType\MEDIUM_Name $countryName = null): self
     {
         if (is_null($countryName) || (is_array($countryName) && empty($countryName))) {
             unset($this->CountryName);
         } else {
             $this->CountryName = $countryName;
         }
+        
         return $this;
     }
     /**
@@ -213,7 +220,7 @@ class PhoneNumber extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getExtensionID()
+    public function getExtensionID(): ?string
     {
         return isset($this->ExtensionID) ? $this->ExtensionID : null;
     }
@@ -224,17 +231,18 @@ class PhoneNumber extends AbstractStructBase
      * @param string $extensionID
      * @return \Randock\PostNL\BulkMailApi\StructType\PhoneNumber
      */
-    public function setExtensionID($extensionID = null)
+    public function setExtensionID(?string $extensionID = null): self
     {
         // validation for constraint: string
         if (!is_null($extensionID) && !is_string($extensionID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionID, true), gettype($extensionID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionID, true), gettype($extensionID)), __LINE__);
         }
         if (is_null($extensionID) || (is_array($extensionID) && empty($extensionID))) {
             unset($this->ExtensionID);
         } else {
             $this->ExtensionID = $extensionID;
         }
+        
         return $this;
     }
     /**
@@ -244,7 +252,7 @@ class PhoneNumber extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSubscriberID()
+    public function getSubscriberID(): ?string
     {
         return isset($this->SubscriberID) ? $this->SubscriberID : null;
     }
@@ -255,17 +263,18 @@ class PhoneNumber extends AbstractStructBase
      * @param string $subscriberID
      * @return \Randock\PostNL\BulkMailApi\StructType\PhoneNumber
      */
-    public function setSubscriberID($subscriberID = null)
+    public function setSubscriberID(?string $subscriberID = null): self
     {
         // validation for constraint: string
         if (!is_null($subscriberID) && !is_string($subscriberID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subscriberID, true), gettype($subscriberID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subscriberID, true), gettype($subscriberID)), __LINE__);
         }
         if (is_null($subscriberID) || (is_array($subscriberID) && empty($subscriberID))) {
             unset($this->SubscriberID);
         } else {
             $this->SubscriberID = $subscriberID;
         }
+        
         return $this;
     }
 }

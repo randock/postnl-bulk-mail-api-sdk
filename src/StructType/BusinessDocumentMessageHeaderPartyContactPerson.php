@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BusinessDocumentMessageHeaderPartyContactPerson StructType
@@ -18,49 +21,49 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI|null
      */
-    public $EmailURI;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI $EmailURI = null;
     /**
      * The FaxNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber|null
      */
-    public $FaxNumber;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $FaxNumber = null;
     /**
      * The InternalID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID
+     * @var \Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID|null
      */
-    public $InternalID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID $InternalID = null;
     /**
      * The OrganisationFormattedName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring|null
      */
-    public $OrganisationFormattedName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $OrganisationFormattedName = null;
     /**
      * The PersonFormattedName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring|null
      */
-    public $PersonFormattedName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $PersonFormattedName = null;
     /**
      * The PhoneNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber|null
      */
-    public $PhoneNumber;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $PhoneNumber = null;
     /**
      * Constructor method for BusinessDocumentMessageHeaderPartyContactPerson
      * @uses BusinessDocumentMessageHeaderPartyContactPerson::setEmailURI()
@@ -76,7 +79,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $personFormattedName
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $phoneNumber
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI $emailURI = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $faxNumber = null, \Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID $internalID = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $organisationFormattedName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $personFormattedName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $phoneNumber = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI $emailURI = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $faxNumber = null, ?\Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID $internalID = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $organisationFormattedName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $personFormattedName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $phoneNumber = null)
     {
         $this
             ->setEmailURI($emailURI)
@@ -93,7 +96,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI|null
      */
-    public function getEmailURI()
+    public function getEmailURI(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI
     {
         return isset($this->EmailURI) ? $this->EmailURI : null;
     }
@@ -104,13 +107,14 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI $emailURI
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
      */
-    public function setEmailURI(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI $emailURI = null)
+    public function setEmailURI(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEmailURI $emailURI = null): self
     {
         if (is_null($emailURI) || (is_array($emailURI) && empty($emailURI))) {
             unset($this->EmailURI);
         } else {
             $this->EmailURI = $emailURI;
         }
+        
         return $this;
     }
     /**
@@ -120,7 +124,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber|null
      */
-    public function getFaxNumber()
+    public function getFaxNumber(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber
     {
         return isset($this->FaxNumber) ? $this->FaxNumber : null;
     }
@@ -131,13 +135,14 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $faxNumber
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
      */
-    public function setFaxNumber(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $faxNumber = null)
+    public function setFaxNumber(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $faxNumber = null): self
     {
         if (is_null($faxNumber) || (is_array($faxNumber) && empty($faxNumber))) {
             unset($this->FaxNumber);
         } else {
             $this->FaxNumber = $faxNumber;
         }
+        
         return $this;
     }
     /**
@@ -147,7 +152,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID|null
      */
-    public function getInternalID()
+    public function getInternalID(): ?\Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID
     {
         return isset($this->InternalID) ? $this->InternalID : null;
     }
@@ -158,13 +163,14 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID $internalID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
      */
-    public function setInternalID(\Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID $internalID = null)
+    public function setInternalID(?\Randock\PostNL\BulkMailApi\StructType\ContactPersonInternalID $internalID = null): self
     {
         if (is_null($internalID) || (is_array($internalID) && empty($internalID))) {
             unset($this->InternalID);
         } else {
             $this->InternalID = $internalID;
         }
+        
         return $this;
     }
     /**
@@ -174,7 +180,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring|null
      */
-    public function getOrganisationFormattedName()
+    public function getOrganisationFormattedName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring
     {
         return isset($this->OrganisationFormattedName) ? $this->OrganisationFormattedName : null;
     }
@@ -185,13 +191,14 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $organisationFormattedName
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
      */
-    public function setOrganisationFormattedName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $organisationFormattedName = null)
+    public function setOrganisationFormattedName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $organisationFormattedName = null): self
     {
         if (is_null($organisationFormattedName) || (is_array($organisationFormattedName) && empty($organisationFormattedName))) {
             unset($this->OrganisationFormattedName);
         } else {
             $this->OrganisationFormattedName = $organisationFormattedName;
         }
+        
         return $this;
     }
     /**
@@ -201,7 +208,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring|null
      */
-    public function getPersonFormattedName()
+    public function getPersonFormattedName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring
     {
         return isset($this->PersonFormattedName) ? $this->PersonFormattedName : null;
     }
@@ -212,13 +219,14 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $personFormattedName
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
      */
-    public function setPersonFormattedName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $personFormattedName = null)
+    public function setPersonFormattedName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfstring $personFormattedName = null): self
     {
         if (is_null($personFormattedName) || (is_array($personFormattedName) && empty($personFormattedName))) {
             unset($this->PersonFormattedName);
         } else {
             $this->PersonFormattedName = $personFormattedName;
         }
+        
         return $this;
     }
     /**
@@ -228,7 +236,7 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber
     {
         return isset($this->PhoneNumber) ? $this->PhoneNumber : null;
     }
@@ -239,13 +247,14 @@ class BusinessDocumentMessageHeaderPartyContactPerson extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $phoneNumber
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
      */
-    public function setPhoneNumber(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $phoneNumber = null)
+    public function setPhoneNumber(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPhoneNumber $phoneNumber = null): self
     {
         if (is_null($phoneNumber) || (is_array($phoneNumber) && empty($phoneNumber))) {
             unset($this->PhoneNumber);
         } else {
             $this->PhoneNumber = $phoneNumber;
         }
+        
         return $this;
     }
 }

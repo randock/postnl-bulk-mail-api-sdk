@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConsignmentContractType StructType
@@ -18,25 +21,25 @@ class ConsignmentContractType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $ContractDescription;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $ContractDescription = null;
     /**
      * The ContractID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ContractID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ContractID = null;
     /**
      * The ContractPositionID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ContractPositionID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ContractPositionID = null;
     /**
      * Constructor method for ConsignmentContractType
      * @uses ConsignmentContractType::setContractDescription()
@@ -46,7 +49,7 @@ class ConsignmentContractType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractID
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractPositionID
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\TextType1 $contractDescription = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractID = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractPositionID = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $contractDescription = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractID = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractPositionID = null)
     {
         $this
             ->setContractDescription($contractDescription)
@@ -60,7 +63,7 @@ class ConsignmentContractType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getContractDescription()
+    public function getContractDescription(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->ContractDescription) ? $this->ContractDescription : null;
     }
@@ -71,13 +74,14 @@ class ConsignmentContractType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $contractDescription
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentContractType
      */
-    public function setContractDescription(\Randock\PostNL\BulkMailApi\StructType\TextType1 $contractDescription = null)
+    public function setContractDescription(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $contractDescription = null): self
     {
         if (is_null($contractDescription) || (is_array($contractDescription) && empty($contractDescription))) {
             unset($this->ContractDescription);
         } else {
             $this->ContractDescription = $contractDescription;
         }
+        
         return $this;
     }
     /**
@@ -87,7 +91,7 @@ class ConsignmentContractType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getContractID()
+    public function getContractID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ContractID) ? $this->ContractID : null;
     }
@@ -98,13 +102,14 @@ class ConsignmentContractType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractID
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentContractType
      */
-    public function setContractID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractID = null)
+    public function setContractID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractID = null): self
     {
         if (is_null($contractID) || (is_array($contractID) && empty($contractID))) {
             unset($this->ContractID);
         } else {
             $this->ContractID = $contractID;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class ConsignmentContractType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getContractPositionID()
+    public function getContractPositionID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ContractPositionID) ? $this->ContractPositionID : null;
     }
@@ -125,13 +130,14 @@ class ConsignmentContractType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractPositionID
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentContractType
      */
-    public function setContractPositionID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractPositionID = null)
+    public function setContractPositionID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contractPositionID = null): self
     {
         if (is_null($contractPositionID) || (is_array($contractPositionID) && empty($contractPositionID))) {
             unset($this->ContractPositionID);
         } else {
             $this->ContractPositionID = $contractPositionID;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfNoteType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\NoteType[]
      */
-    public $NoteType;
+    protected ?array $NoteType = null;
     /**
      * Constructor method for ArrayOfNoteType
      * @uses ArrayOfNoteType::setNoteType()
      * @param \Randock\PostNL\BulkMailApi\StructType\NoteType[] $noteType
      */
-    public function __construct(array $noteType = array())
+    public function __construct(?array $noteType = null)
     {
         $this
             ->setNoteType($noteType);
@@ -37,9 +40,9 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\NoteType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\NoteType[]
      */
-    public function getNoteType()
+    public function getNoteType(): ?array
     {
         return isset($this->NoteType) ? $this->NoteType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateNoteTypeForArrayConstraintsFromSetNoteType(array $values = array())
+    public static function validateNoteTypeForArrayConstraintsFromSetNoteType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfNoteTypeNoteTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfNoteType extends AbstractStructArrayBase
             $message = sprintf('The NoteType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\NoteType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set NoteType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\NoteType[] $noteType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
      */
-    public function setNoteType(array $noteType = array())
+    public function setNoteType(?array $noteType = null): self
     {
         // validation for constraint: array
         if ('' !== ($noteTypeArrayErrorMessage = self::validateNoteTypeForArrayConstraintsFromSetNoteType($noteType))) {
-            throw new \InvalidArgumentException($noteTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($noteTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($noteType) || (is_array($noteType) && empty($noteType))) {
             unset($this->NoteType);
         } else {
             $this->NoteType = $noteType;
         }
-        return $this;
-    }
-    /**
-     * Add item to NoteType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\NoteType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
-     */
-    public function addToNoteType(\Randock\PostNL\BulkMailApi\StructType\NoteType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\NoteType) {
-            throw new \InvalidArgumentException(sprintf('The NoteType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\NoteType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->NoteType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\NoteType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\NoteType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\NoteType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\NoteType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfNoteType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\NoteType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\NoteType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\NoteType) {
+            throw new InvalidArgumentException(sprintf('The NoteType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\NoteType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string NoteType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'NoteType';
     }

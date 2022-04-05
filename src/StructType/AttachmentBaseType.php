@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttachmentBaseType StructType
@@ -18,88 +21,88 @@ class AttachmentBaseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType|null
      */
-    public $Description;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $Description = null;
     /**
      * The DocumentDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $DocumentDateTime;
+    protected ?string $DocumentDateTime = null;
     /**
      * The EmbeddedData
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1|null
      */
-    public $EmbeddedData;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1 $EmbeddedData = null;
     /**
      * The FileName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $FileName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $FileName = null;
     /**
      * The FileSizeQuantity
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\QuantityType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\QuantityType1|null
      */
-    public $FileSizeQuantity;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $FileSizeQuantity = null;
     /**
      * The FileType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1|null
      */
-    public $FileType;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $FileType = null;
     /**
      * The ISBN
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ISBN;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ISBN = null;
     /**
      * The Note
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType|null
      */
-    public $Note;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $Note = null;
     /**
      * The Title
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public $Title;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $Title = null;
     /**
      * The URI
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $URI;
+    protected ?string $URI = null;
     /**
      * The inline
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $inline;
+    protected ?bool $inline = null;
     /**
      * Constructor method for AttachmentBaseType
      * @uses AttachmentBaseType::setDescription()
@@ -125,7 +128,7 @@ class AttachmentBaseType extends AbstractStructBase
      * @param string $uRI
      * @param bool $inline
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null, $documentDateTime = null, \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1 $embeddedData = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $fileName = null, \Randock\PostNL\BulkMailApi\StructType\QuantityType1 $fileSizeQuantity = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $fileType = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iSBN = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null, $uRI = null, $inline = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null, ?string $documentDateTime = null, ?\Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1 $embeddedData = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $fileName = null, ?\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $fileSizeQuantity = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $fileType = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iSBN = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null, ?string $uRI = null, ?bool $inline = null)
     {
         $this
             ->setDescription($description)
@@ -147,7 +150,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType|null
      */
-    public function getDescription()
+    public function getDescription(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType
     {
         return isset($this->Description) ? $this->Description : null;
     }
@@ -158,13 +161,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setDescription(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null)
+    public function setDescription(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfDescriptionType $description = null): self
     {
         if (is_null($description) || (is_array($description) && empty($description))) {
             unset($this->Description);
         } else {
             $this->Description = $description;
         }
+        
         return $this;
     }
     /**
@@ -174,7 +178,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getDocumentDateTime()
+    public function getDocumentDateTime(): ?string
     {
         return isset($this->DocumentDateTime) ? $this->DocumentDateTime : null;
     }
@@ -185,17 +189,18 @@ class AttachmentBaseType extends AbstractStructBase
      * @param string $documentDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setDocumentDateTime($documentDateTime = null)
+    public function setDocumentDateTime(?string $documentDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($documentDateTime) && !is_string($documentDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($documentDateTime, true), gettype($documentDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($documentDateTime, true), gettype($documentDateTime)), __LINE__);
         }
         if (is_null($documentDateTime) || (is_array($documentDateTime) && empty($documentDateTime))) {
             unset($this->DocumentDateTime);
         } else {
             $this->DocumentDateTime = $documentDateTime;
         }
+        
         return $this;
     }
     /**
@@ -205,7 +210,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1|null
      */
-    public function getEmbeddedData()
+    public function getEmbeddedData(): ?\Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1
     {
         return isset($this->EmbeddedData) ? $this->EmbeddedData : null;
     }
@@ -216,13 +221,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1 $embeddedData
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setEmbeddedData(\Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1 $embeddedData = null)
+    public function setEmbeddedData(?\Randock\PostNL\BulkMailApi\StructType\BinaryObjectType1 $embeddedData = null): self
     {
         if (is_null($embeddedData) || (is_array($embeddedData) && empty($embeddedData))) {
             unset($this->EmbeddedData);
         } else {
             $this->EmbeddedData = $embeddedData;
         }
+        
         return $this;
     }
     /**
@@ -232,7 +238,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getFileName()
+    public function getFileName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->FileName) ? $this->FileName : null;
     }
@@ -243,13 +249,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $fileName
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setFileName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $fileName = null)
+    public function setFileName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $fileName = null): self
     {
         if (is_null($fileName) || (is_array($fileName) && empty($fileName))) {
             unset($this->FileName);
         } else {
             $this->FileName = $fileName;
         }
+        
         return $this;
     }
     /**
@@ -259,7 +266,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\QuantityType1|null
      */
-    public function getFileSizeQuantity()
+    public function getFileSizeQuantity(): ?\Randock\PostNL\BulkMailApi\StructType\QuantityType1
     {
         return isset($this->FileSizeQuantity) ? $this->FileSizeQuantity : null;
     }
@@ -270,13 +277,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\QuantityType1 $fileSizeQuantity
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setFileSizeQuantity(\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $fileSizeQuantity = null)
+    public function setFileSizeQuantity(?\Randock\PostNL\BulkMailApi\StructType\QuantityType1 $fileSizeQuantity = null): self
     {
         if (is_null($fileSizeQuantity) || (is_array($fileSizeQuantity) && empty($fileSizeQuantity))) {
             unset($this->FileSizeQuantity);
         } else {
             $this->FileSizeQuantity = $fileSizeQuantity;
         }
+        
         return $this;
     }
     /**
@@ -286,7 +294,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1|null
      */
-    public function getFileType()
+    public function getFileType(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
     {
         return isset($this->FileType) ? $this->FileType : null;
     }
@@ -297,13 +305,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $fileType
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setFileType(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $fileType = null)
+    public function setFileType(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $fileType = null): self
     {
         if (is_null($fileType) || (is_array($fileType) && empty($fileType))) {
             unset($this->FileType);
         } else {
             $this->FileType = $fileType;
         }
+        
         return $this;
     }
     /**
@@ -313,7 +322,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getISBN()
+    public function getISBN(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ISBN) ? $this->ISBN : null;
     }
@@ -324,13 +333,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iSBN
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setISBN(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iSBN = null)
+    public function setISBN(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iSBN = null): self
     {
         if (is_null($iSBN) || (is_array($iSBN) && empty($iSBN))) {
             unset($this->ISBN);
         } else {
             $this->ISBN = $iSBN;
         }
+        
         return $this;
     }
     /**
@@ -340,7 +350,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType|null
      */
-    public function getNote()
+    public function getNote(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType
     {
         return isset($this->Note) ? $this->Note : null;
     }
@@ -351,13 +361,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setNote(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null)
+    public function setNote(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNoteType $note = null): self
     {
         if (is_null($note) || (is_array($note) && empty($note))) {
             unset($this->Note);
         } else {
             $this->Note = $note;
         }
+        
         return $this;
     }
     /**
@@ -367,7 +378,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public function getTitle()
+    public function getTitle(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
     {
         return isset($this->Title) ? $this->Title : null;
     }
@@ -378,13 +389,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setTitle(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null)
+    public function setTitle(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null): self
     {
         if (is_null($title) || (is_array($title) && empty($title))) {
             unset($this->Title);
         } else {
             $this->Title = $title;
         }
+        
         return $this;
     }
     /**
@@ -394,7 +406,7 @@ class AttachmentBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getURI()
+    public function getURI(): ?string
     {
         return isset($this->URI) ? $this->URI : null;
     }
@@ -405,24 +417,25 @@ class AttachmentBaseType extends AbstractStructBase
      * @param string $uRI
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setURI($uRI = null)
+    public function setURI(?string $uRI = null): self
     {
         // validation for constraint: string
         if (!is_null($uRI) && !is_string($uRI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uRI, true), gettype($uRI)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uRI, true), gettype($uRI)), __LINE__);
         }
         if (is_null($uRI) || (is_array($uRI) && empty($uRI))) {
             unset($this->URI);
         } else {
             $this->URI = $uRI;
         }
+        
         return $this;
     }
     /**
      * Get inline value
      * @return bool|null
      */
-    public function getInline()
+    public function getInline(): ?bool
     {
         return $this->inline;
     }
@@ -431,13 +444,14 @@ class AttachmentBaseType extends AbstractStructBase
      * @param bool $inline
      * @return \Randock\PostNL\BulkMailApi\StructType\AttachmentBaseType
      */
-    public function setInline($inline = null)
+    public function setInline(?bool $inline = null): self
     {
         // validation for constraint: boolean
         if (!is_null($inline) && !is_bool($inline)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inline, true), gettype($inline)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inline, true), gettype($inline)), __LINE__);
         }
         $this->inline = $inline;
+        
         return $this;
     }
 }

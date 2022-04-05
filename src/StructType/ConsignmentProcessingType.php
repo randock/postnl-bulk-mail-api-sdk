@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConsignmentProcessingType StructType
@@ -17,77 +20,84 @@ class ConsignmentProcessingType extends AbstractStructBase
      * The ConsignmentDeliveryDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ConsignmentDeliveryDate;
+    protected ?string $ConsignmentDeliveryDate = null;
     /**
      * The ConsignmentDeliveryDateSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ConsignmentDeliveryDateSpecified;
+    protected ?bool $ConsignmentDeliveryDateSpecified = null;
     /**
      * The ConsignmentDeliveryTimePeriod
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TimePeriodType
+     * @var \Randock\PostNL\BulkMailApi\StructType\TimePeriodType|null
      */
-    public $ConsignmentDeliveryTimePeriod;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $ConsignmentDeliveryTimePeriod = null;
     /**
      * The ConsignmentDeliveryWeek
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType
+     * @var \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType|null
      */
-    public $ConsignmentDeliveryWeek;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType $ConsignmentDeliveryWeek = null;
     /**
      * The ConsignmentProcessingCharacteristics
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public $ConsignmentProcessingCharacteristics;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $ConsignmentProcessingCharacteristics = null;
     /**
      * The ConsignmentShippingDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ConsignmentShippingDate;
+    protected ?string $ConsignmentShippingDate = null;
     /**
      * The ConsignmentShippingDateSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ConsignmentShippingDateSpecified;
+    protected ?bool $ConsignmentShippingDateSpecified = null;
     /**
      * The DestinationCountryCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
+     * @var \Randock\PostNL\BulkMailApi\StructType\CountryCodeType|null
      */
-    public $DestinationCountryCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $DestinationCountryCode = null;
     /**
      * The DestinationZone
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $DestinationZone;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $DestinationZone = null;
     /**
      * The KIXIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $KIXIndicator;
+    protected ?bool $KIXIndicator = null;
+    /**
+     * The KIXIndicatorSpecified
+     * Meta information extracted from the WSDL
+     * - minOccurs: 0
+     * @var bool|null
+     */
+    protected ?bool $KIXIndicatorSpecified = null;
     /**
      * Constructor method for ConsignmentProcessingType
      * @uses ConsignmentProcessingType::setConsignmentDeliveryDate()
@@ -100,6 +110,7 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @uses ConsignmentProcessingType::setDestinationCountryCode()
      * @uses ConsignmentProcessingType::setDestinationZone()
      * @uses ConsignmentProcessingType::setKIXIndicator()
+     * @uses ConsignmentProcessingType::setKIXIndicatorSpecified()
      * @param string $consignmentDeliveryDate
      * @param bool $consignmentDeliveryDateSpecified
      * @param \Randock\PostNL\BulkMailApi\StructType\TimePeriodType $consignmentDeliveryTimePeriod
@@ -110,8 +121,9 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CountryCodeType $destinationCountryCode
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $destinationZone
      * @param bool $kIXIndicator
+     * @param bool $kIXIndicatorSpecified
      */
-    public function __construct($consignmentDeliveryDate = null, $consignmentDeliveryDateSpecified = null, \Randock\PostNL\BulkMailApi\StructType\TimePeriodType $consignmentDeliveryTimePeriod = null, \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType $consignmentDeliveryWeek = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentProcessingCharacteristics = null, $consignmentShippingDate = null, $consignmentShippingDateSpecified = null, \Randock\PostNL\BulkMailApi\StructType\CountryCodeType $destinationCountryCode = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $destinationZone = null, $kIXIndicator = null)
+    public function __construct(?string $consignmentDeliveryDate = null, ?bool $consignmentDeliveryDateSpecified = null, ?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $consignmentDeliveryTimePeriod = null, ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType $consignmentDeliveryWeek = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentProcessingCharacteristics = null, ?string $consignmentShippingDate = null, ?bool $consignmentShippingDateSpecified = null, ?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $destinationCountryCode = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $destinationZone = null, ?bool $kIXIndicator = null, ?bool $kIXIndicatorSpecified = null)
     {
         $this
             ->setConsignmentDeliveryDate($consignmentDeliveryDate)
@@ -123,13 +135,14 @@ class ConsignmentProcessingType extends AbstractStructBase
             ->setConsignmentShippingDateSpecified($consignmentShippingDateSpecified)
             ->setDestinationCountryCode($destinationCountryCode)
             ->setDestinationZone($destinationZone)
-            ->setKIXIndicator($kIXIndicator);
+            ->setKIXIndicator($kIXIndicator)
+            ->setKIXIndicatorSpecified($kIXIndicatorSpecified);
     }
     /**
      * Get ConsignmentDeliveryDate value
      * @return string|null
      */
-    public function getConsignmentDeliveryDate()
+    public function getConsignmentDeliveryDate(): ?string
     {
         return $this->ConsignmentDeliveryDate;
     }
@@ -138,20 +151,21 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param string $consignmentDeliveryDate
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentDeliveryDate($consignmentDeliveryDate = null)
+    public function setConsignmentDeliveryDate(?string $consignmentDeliveryDate = null): self
     {
         // validation for constraint: string
         if (!is_null($consignmentDeliveryDate) && !is_string($consignmentDeliveryDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($consignmentDeliveryDate, true), gettype($consignmentDeliveryDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($consignmentDeliveryDate, true), gettype($consignmentDeliveryDate)), __LINE__);
         }
         $this->ConsignmentDeliveryDate = $consignmentDeliveryDate;
+        
         return $this;
     }
     /**
      * Get ConsignmentDeliveryDateSpecified value
      * @return bool|null
      */
-    public function getConsignmentDeliveryDateSpecified()
+    public function getConsignmentDeliveryDateSpecified(): ?bool
     {
         return $this->ConsignmentDeliveryDateSpecified;
     }
@@ -160,13 +174,14 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param bool $consignmentDeliveryDateSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentDeliveryDateSpecified($consignmentDeliveryDateSpecified = null)
+    public function setConsignmentDeliveryDateSpecified(?bool $consignmentDeliveryDateSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($consignmentDeliveryDateSpecified) && !is_bool($consignmentDeliveryDateSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($consignmentDeliveryDateSpecified, true), gettype($consignmentDeliveryDateSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($consignmentDeliveryDateSpecified, true), gettype($consignmentDeliveryDateSpecified)), __LINE__);
         }
         $this->ConsignmentDeliveryDateSpecified = $consignmentDeliveryDateSpecified;
+        
         return $this;
     }
     /**
@@ -176,7 +191,7 @@ class ConsignmentProcessingType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodType|null
      */
-    public function getConsignmentDeliveryTimePeriod()
+    public function getConsignmentDeliveryTimePeriod(): ?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType
     {
         return isset($this->ConsignmentDeliveryTimePeriod) ? $this->ConsignmentDeliveryTimePeriod : null;
     }
@@ -187,13 +202,14 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TimePeriodType $consignmentDeliveryTimePeriod
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentDeliveryTimePeriod(\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $consignmentDeliveryTimePeriod = null)
+    public function setConsignmentDeliveryTimePeriod(?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $consignmentDeliveryTimePeriod = null): self
     {
         if (is_null($consignmentDeliveryTimePeriod) || (is_array($consignmentDeliveryTimePeriod) && empty($consignmentDeliveryTimePeriod))) {
             unset($this->ConsignmentDeliveryTimePeriod);
         } else {
             $this->ConsignmentDeliveryTimePeriod = $consignmentDeliveryTimePeriod;
         }
+        
         return $this;
     }
     /**
@@ -203,7 +219,7 @@ class ConsignmentProcessingType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType|null
      */
-    public function getConsignmentDeliveryWeek()
+    public function getConsignmentDeliveryWeek(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType
     {
         return isset($this->ConsignmentDeliveryWeek) ? $this->ConsignmentDeliveryWeek : null;
     }
@@ -214,13 +230,14 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType $consignmentDeliveryWeek
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentDeliveryWeek(\Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType $consignmentDeliveryWeek = null)
+    public function setConsignmentDeliveryWeek(?\Randock\PostNL\BulkMailApi\StructType\ConsignmentDeliveryWeekType $consignmentDeliveryWeek = null): self
     {
         if (is_null($consignmentDeliveryWeek) || (is_array($consignmentDeliveryWeek) && empty($consignmentDeliveryWeek))) {
             unset($this->ConsignmentDeliveryWeek);
         } else {
             $this->ConsignmentDeliveryWeek = $consignmentDeliveryWeek;
         }
+        
         return $this;
     }
     /**
@@ -230,7 +247,7 @@ class ConsignmentProcessingType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType|null
      */
-    public function getConsignmentProcessingCharacteristics()
+    public function getConsignmentProcessingCharacteristics(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType
     {
         return isset($this->ConsignmentProcessingCharacteristics) ? $this->ConsignmentProcessingCharacteristics : null;
     }
@@ -241,20 +258,21 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentProcessingCharacteristics
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentProcessingCharacteristics(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentProcessingCharacteristics = null)
+    public function setConsignmentProcessingCharacteristics(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCharacteristicType $consignmentProcessingCharacteristics = null): self
     {
         if (is_null($consignmentProcessingCharacteristics) || (is_array($consignmentProcessingCharacteristics) && empty($consignmentProcessingCharacteristics))) {
             unset($this->ConsignmentProcessingCharacteristics);
         } else {
             $this->ConsignmentProcessingCharacteristics = $consignmentProcessingCharacteristics;
         }
+        
         return $this;
     }
     /**
      * Get ConsignmentShippingDate value
      * @return string|null
      */
-    public function getConsignmentShippingDate()
+    public function getConsignmentShippingDate(): ?string
     {
         return $this->ConsignmentShippingDate;
     }
@@ -263,20 +281,21 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param string $consignmentShippingDate
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentShippingDate($consignmentShippingDate = null)
+    public function setConsignmentShippingDate(?string $consignmentShippingDate = null): self
     {
         // validation for constraint: string
         if (!is_null($consignmentShippingDate) && !is_string($consignmentShippingDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($consignmentShippingDate, true), gettype($consignmentShippingDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($consignmentShippingDate, true), gettype($consignmentShippingDate)), __LINE__);
         }
         $this->ConsignmentShippingDate = $consignmentShippingDate;
+        
         return $this;
     }
     /**
      * Get ConsignmentShippingDateSpecified value
      * @return bool|null
      */
-    public function getConsignmentShippingDateSpecified()
+    public function getConsignmentShippingDateSpecified(): ?bool
     {
         return $this->ConsignmentShippingDateSpecified;
     }
@@ -285,13 +304,14 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param bool $consignmentShippingDateSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setConsignmentShippingDateSpecified($consignmentShippingDateSpecified = null)
+    public function setConsignmentShippingDateSpecified(?bool $consignmentShippingDateSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($consignmentShippingDateSpecified) && !is_bool($consignmentShippingDateSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($consignmentShippingDateSpecified, true), gettype($consignmentShippingDateSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($consignmentShippingDateSpecified, true), gettype($consignmentShippingDateSpecified)), __LINE__);
         }
         $this->ConsignmentShippingDateSpecified = $consignmentShippingDateSpecified;
+        
         return $this;
     }
     /**
@@ -301,7 +321,7 @@ class ConsignmentProcessingType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType|null
      */
-    public function getDestinationCountryCode()
+    public function getDestinationCountryCode(): ?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType
     {
         return isset($this->DestinationCountryCode) ? $this->DestinationCountryCode : null;
     }
@@ -312,13 +332,14 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CountryCodeType $destinationCountryCode
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setDestinationCountryCode(\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $destinationCountryCode = null)
+    public function setDestinationCountryCode(?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $destinationCountryCode = null): self
     {
         if (is_null($destinationCountryCode) || (is_array($destinationCountryCode) && empty($destinationCountryCode))) {
             unset($this->DestinationCountryCode);
         } else {
             $this->DestinationCountryCode = $destinationCountryCode;
         }
+        
         return $this;
     }
     /**
@@ -328,7 +349,7 @@ class ConsignmentProcessingType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getDestinationZone()
+    public function getDestinationZone(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->DestinationZone) ? $this->DestinationZone : null;
     }
@@ -339,20 +360,21 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $destinationZone
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setDestinationZone(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $destinationZone = null)
+    public function setDestinationZone(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $destinationZone = null): self
     {
         if (is_null($destinationZone) || (is_array($destinationZone) && empty($destinationZone))) {
             unset($this->DestinationZone);
         } else {
             $this->DestinationZone = $destinationZone;
         }
+        
         return $this;
     }
     /**
      * Get KIXIndicator value
      * @return bool|null
      */
-    public function getKIXIndicator()
+    public function getKIXIndicator(): ?bool
     {
         return $this->KIXIndicator;
     }
@@ -361,13 +383,37 @@ class ConsignmentProcessingType extends AbstractStructBase
      * @param bool $kIXIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
      */
-    public function setKIXIndicator($kIXIndicator = null)
+    public function setKIXIndicator(?bool $kIXIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($kIXIndicator) && !is_bool($kIXIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($kIXIndicator, true), gettype($kIXIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($kIXIndicator, true), gettype($kIXIndicator)), __LINE__);
         }
         $this->KIXIndicator = $kIXIndicator;
+        
+        return $this;
+    }
+    /**
+     * Get KIXIndicatorSpecified value
+     * @return bool|null
+     */
+    public function getKIXIndicatorSpecified(): ?bool
+    {
+        return $this->KIXIndicatorSpecified;
+    }
+    /**
+     * Set KIXIndicatorSpecified value
+     * @param bool $kIXIndicatorSpecified
+     * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentProcessingType
+     */
+    public function setKIXIndicatorSpecified(?bool $kIXIndicatorSpecified = null): self
+    {
+        // validation for constraint: boolean
+        if (!is_null($kIXIndicatorSpecified) && !is_bool($kIXIndicatorSpecified)) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($kIXIndicatorSpecified, true), gettype($kIXIndicatorSpecified)), __LINE__);
+        }
+        $this->KIXIndicatorSpecified = $kIXIndicatorSpecified;
+        
         return $this;
     }
 }

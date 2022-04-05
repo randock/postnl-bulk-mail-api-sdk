@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateAddressAttachmentV1Response StructType
@@ -15,15 +18,15 @@ class ValidateAddressAttachmentV1Response extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
+     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public $ValidateAddressAttachmentV1Result;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $ValidateAddressAttachmentV1Result = null;
     /**
      * Constructor method for ValidateAddressAttachmentV1Response
      * @uses ValidateAddressAttachmentV1Response::setValidateAddressAttachmentV1Result()
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $validateAddressAttachmentV1Result
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $validateAddressAttachmentV1Result = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $validateAddressAttachmentV1Result = null)
     {
         $this
             ->setValidateAddressAttachmentV1Result($validateAddressAttachmentV1Result);
@@ -35,7 +38,7 @@ class ValidateAddressAttachmentV1Response extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public function getValidateAddressAttachmentV1Result()
+    public function getValidateAddressAttachmentV1Result(): ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
     {
         return isset($this->ValidateAddressAttachmentV1Result) ? $this->ValidateAddressAttachmentV1Result : null;
     }
@@ -46,13 +49,14 @@ class ValidateAddressAttachmentV1Response extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $validateAddressAttachmentV1Result
      * @return \Randock\PostNL\BulkMailApi\StructType\ValidateAddressAttachmentV1Response
      */
-    public function setValidateAddressAttachmentV1Result(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $validateAddressAttachmentV1Result = null)
+    public function setValidateAddressAttachmentV1Result(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $validateAddressAttachmentV1Result = null): self
     {
         if (is_null($validateAddressAttachmentV1Result) || (is_array($validateAddressAttachmentV1Result) && empty($validateAddressAttachmentV1Result))) {
             unset($this->ValidateAddressAttachmentV1Result);
         } else {
             $this->ValidateAddressAttachmentV1Result = $validateAddressAttachmentV1Result;
         }
+        
         return $this;
     }
 }

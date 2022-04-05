@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TenderBulkMailOrderV2 StructType
@@ -15,15 +18,15 @@ class TenderBulkMailOrderV2 extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
+     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public $tenderMessage;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage = null;
     /**
      * Constructor method for TenderBulkMailOrderV2
      * @uses TenderBulkMailOrderV2::setTenderMessage()
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage = null)
     {
         $this
             ->setTenderMessage($tenderMessage);
@@ -35,7 +38,7 @@ class TenderBulkMailOrderV2 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public function getTenderMessage()
+    public function getTenderMessage(): ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
     {
         return isset($this->tenderMessage) ? $this->tenderMessage : null;
     }
@@ -46,13 +49,14 @@ class TenderBulkMailOrderV2 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage
      * @return \Randock\PostNL\BulkMailApi\StructType\TenderBulkMailOrderV2
      */
-    public function setTenderMessage(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage = null)
+    public function setTenderMessage(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $tenderMessage = null): self
     {
         if (is_null($tenderMessage) || (is_array($tenderMessage) && empty($tenderMessage))) {
             unset($this->tenderMessage);
         } else {
             $this->tenderMessage = $tenderMessage;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NoteType StructType
@@ -18,25 +21,25 @@ class NoteType extends DescriptionType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $author;
+    protected ?string $author = null;
     /**
      * The entryDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $entryDateTime;
+    protected ?string $entryDateTime = null;
     /**
      * The status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $status;
+    protected ?string $status = null;
     /**
      * Constructor method for NoteType
      * @uses NoteType::setAuthor()
@@ -46,7 +49,7 @@ class NoteType extends DescriptionType
      * @param string $entryDateTime
      * @param string $status
      */
-    public function __construct($author = null, $entryDateTime = null, $status = null)
+    public function __construct(?string $author = null, ?string $entryDateTime = null, ?string $status = null)
     {
         $this
             ->setAuthor($author)
@@ -60,7 +63,7 @@ class NoteType extends DescriptionType
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getAuthor()
+    public function getAuthor(): ?string
     {
         return isset($this->author) ? $this->author : null;
     }
@@ -71,17 +74,18 @@ class NoteType extends DescriptionType
      * @param string $author
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType
      */
-    public function setAuthor($author = null)
+    public function setAuthor(?string $author = null): self
     {
         // validation for constraint: string
         if (!is_null($author) && !is_string($author)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($author, true), gettype($author)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($author, true), gettype($author)), __LINE__);
         }
         if (is_null($author) || (is_array($author) && empty($author))) {
             unset($this->author);
         } else {
             $this->author = $author;
         }
+        
         return $this;
     }
     /**
@@ -91,7 +95,7 @@ class NoteType extends DescriptionType
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEntryDateTime()
+    public function getEntryDateTime(): ?string
     {
         return isset($this->entryDateTime) ? $this->entryDateTime : null;
     }
@@ -102,17 +106,18 @@ class NoteType extends DescriptionType
      * @param string $entryDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType
      */
-    public function setEntryDateTime($entryDateTime = null)
+    public function setEntryDateTime(?string $entryDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($entryDateTime) && !is_string($entryDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($entryDateTime, true), gettype($entryDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($entryDateTime, true), gettype($entryDateTime)), __LINE__);
         }
         if (is_null($entryDateTime) || (is_array($entryDateTime) && empty($entryDateTime))) {
             unset($this->entryDateTime);
         } else {
             $this->entryDateTime = $entryDateTime;
         }
+        
         return $this;
     }
     /**
@@ -122,7 +127,7 @@ class NoteType extends DescriptionType
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return isset($this->status) ? $this->status : null;
     }
@@ -133,17 +138,18 @@ class NoteType extends DescriptionType
      * @param string $status
      * @return \Randock\PostNL\BulkMailApi\StructType\NoteType
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status = null): self
     {
         // validation for constraint: string
         if (!is_null($status) && !is_string($status)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($status, true), gettype($status)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($status, true), gettype($status)), __LINE__);
         }
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->status);
         } else {
             $this->status = $status;
         }
+        
         return $this;
     }
 }

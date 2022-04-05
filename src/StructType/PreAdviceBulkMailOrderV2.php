@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PreAdviceBulkMailOrderV2 StructType
@@ -15,15 +18,15 @@ class PreAdviceBulkMailOrderV2 extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
+     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public $preAdviceMessage;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage = null;
     /**
      * Constructor method for PreAdviceBulkMailOrderV2
      * @uses PreAdviceBulkMailOrderV2::setPreAdviceMessage()
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage = null)
     {
         $this
             ->setPreAdviceMessage($preAdviceMessage);
@@ -35,7 +38,7 @@ class PreAdviceBulkMailOrderV2 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public function getPreAdviceMessage()
+    public function getPreAdviceMessage(): ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
     {
         return isset($this->preAdviceMessage) ? $this->preAdviceMessage : null;
     }
@@ -46,13 +49,14 @@ class PreAdviceBulkMailOrderV2 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage
      * @return \Randock\PostNL\BulkMailApi\StructType\PreAdviceBulkMailOrderV2
      */
-    public function setPreAdviceMessage(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage = null)
+    public function setPreAdviceMessage(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceMessage = null): self
     {
         if (is_null($preAdviceMessage) || (is_array($preAdviceMessage) && empty($preAdviceMessage))) {
             unset($this->preAdviceMessage);
         } else {
             $this->preAdviceMessage = $preAdviceMessage;
         }
+        
         return $this;
     }
 }

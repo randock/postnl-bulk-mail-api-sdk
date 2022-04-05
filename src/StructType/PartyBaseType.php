@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PartyBaseType StructType
@@ -18,49 +21,49 @@ class PartyBaseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $AccountID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $AccountID = null;
     /**
      * The Contact
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType|null
      */
-    public $Contact;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType $Contact = null;
     /**
      * The Items
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType|null
      */
-    public $Items;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $Items = null;
     /**
      * The Location
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType|null
      */
-    public $Location;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType $Location = null;
     /**
      * The PartyIDs
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\PartyIDsType
+     * @var \Randock\PostNL\BulkMailApi\StructType\PartyIDsType|null
      */
-    public $PartyIDs;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\PartyIDsType $PartyIDs = null;
     /**
      * The category
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $category;
+    protected ?string $category = null;
     /**
      * Constructor method for PartyBaseType
      * @uses PartyBaseType::setAccountID()
@@ -76,7 +79,7 @@ class PartyBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\PartyIDsType $partyIDs
      * @param string $category
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $accountID = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType $contact = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType $location = null, \Randock\PostNL\BulkMailApi\StructType\PartyIDsType $partyIDs = null, $category = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $accountID = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType $contact = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType $location = null, ?\Randock\PostNL\BulkMailApi\StructType\PartyIDsType $partyIDs = null, ?string $category = null)
     {
         $this
             ->setAccountID($accountID)
@@ -93,7 +96,7 @@ class PartyBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getAccountID()
+    public function getAccountID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->AccountID) ? $this->AccountID : null;
     }
@@ -104,13 +107,14 @@ class PartyBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $accountID
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyBaseType
      */
-    public function setAccountID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $accountID = null)
+    public function setAccountID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $accountID = null): self
     {
         if (is_null($accountID) || (is_array($accountID) && empty($accountID))) {
             unset($this->AccountID);
         } else {
             $this->AccountID = $accountID;
         }
+        
         return $this;
     }
     /**
@@ -120,7 +124,7 @@ class PartyBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType|null
      */
-    public function getContact()
+    public function getContact(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType
     {
         return isset($this->Contact) ? $this->Contact : null;
     }
@@ -131,13 +135,14 @@ class PartyBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType $contact
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyBaseType
      */
-    public function setContact(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType $contact = null)
+    public function setContact(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfContactType $contact = null): self
     {
         if (is_null($contact) || (is_array($contact) && empty($contact))) {
             unset($this->Contact);
         } else {
             $this->Contact = $contact;
         }
+        
         return $this;
     }
     /**
@@ -147,7 +152,7 @@ class PartyBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType|null
      */
-    public function getItems()
+    public function getItems(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType
     {
         return isset($this->Items) ? $this->Items : null;
     }
@@ -158,13 +163,14 @@ class PartyBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyBaseType
      */
-    public function setItems(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null)
+    public function setItems(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null): self
     {
         if (is_null($items) || (is_array($items) && empty($items))) {
             unset($this->Items);
         } else {
             $this->Items = $items;
         }
+        
         return $this;
     }
     /**
@@ -174,7 +180,7 @@ class PartyBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType|null
      */
-    public function getLocation()
+    public function getLocation(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType
     {
         return isset($this->Location) ? $this->Location : null;
     }
@@ -185,13 +191,14 @@ class PartyBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType $location
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyBaseType
      */
-    public function setLocation(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType $location = null)
+    public function setLocation(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType $location = null): self
     {
         if (is_null($location) || (is_array($location) && empty($location))) {
             unset($this->Location);
         } else {
             $this->Location = $location;
         }
+        
         return $this;
     }
     /**
@@ -201,7 +208,7 @@ class PartyBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyIDsType|null
      */
-    public function getPartyIDs()
+    public function getPartyIDs(): ?\Randock\PostNL\BulkMailApi\StructType\PartyIDsType
     {
         return isset($this->PartyIDs) ? $this->PartyIDs : null;
     }
@@ -212,13 +219,14 @@ class PartyBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\PartyIDsType $partyIDs
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyBaseType
      */
-    public function setPartyIDs(\Randock\PostNL\BulkMailApi\StructType\PartyIDsType $partyIDs = null)
+    public function setPartyIDs(?\Randock\PostNL\BulkMailApi\StructType\PartyIDsType $partyIDs = null): self
     {
         if (is_null($partyIDs) || (is_array($partyIDs) && empty($partyIDs))) {
             unset($this->PartyIDs);
         } else {
             $this->PartyIDs = $partyIDs;
         }
+        
         return $this;
     }
     /**
@@ -228,7 +236,7 @@ class PartyBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCategory()
+    public function getCategory(): ?string
     {
         return isset($this->category) ? $this->category : null;
     }
@@ -239,17 +247,18 @@ class PartyBaseType extends AbstractStructBase
      * @param string $category
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyBaseType
      */
-    public function setCategory($category = null)
+    public function setCategory(?string $category = null): self
     {
         // validation for constraint: string
         if (!is_null($category) && !is_string($category)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($category, true), gettype($category)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($category, true), gettype($category)), __LINE__);
         }
         if (is_null($category) || (is_array($category) && empty($category))) {
             unset($this->category);
         } else {
             $this->category = $category;
         }
+        
         return $this;
     }
 }

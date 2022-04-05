@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CountryCodeType StructType
@@ -18,81 +21,81 @@ class CountryCodeType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The languageID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $languageID;
+    protected ?string $languageID = null;
     /**
      * The listAgencyID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listAgencyID;
+    protected ?string $listAgencyID = null;
     /**
      * The listAgencyName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listAgencyName;
+    protected ?string $listAgencyName = null;
     /**
      * The listID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listID;
+    protected ?string $listID = null;
     /**
      * The listName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listName;
+    protected ?string $listName = null;
     /**
      * The listSchemeURI
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listSchemeURI;
+    protected ?string $listSchemeURI = null;
     /**
      * The listURI
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listURI;
+    protected ?string $listURI = null;
     /**
      * The listVersionID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $listVersionID;
+    protected ?string $listVersionID = null;
     /**
      * The name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $name;
+    protected ?string $name = null;
     /**
      * Constructor method for CountryCodeType
      * @uses CountryCodeType::setValue()
@@ -116,7 +119,7 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listVersionID
      * @param string $name
      */
-    public function __construct($value = null, $languageID = null, $listAgencyID = null, $listAgencyName = null, $listID = null, $listName = null, $listSchemeURI = null, $listURI = null, $listVersionID = null, $name = null)
+    public function __construct(?string $value = null, ?string $languageID = null, ?string $listAgencyID = null, ?string $listAgencyName = null, ?string $listID = null, ?string $listName = null, ?string $listSchemeURI = null, ?string $listURI = null, ?string $listVersionID = null, ?string $name = null)
     {
         $this
             ->setValue($value)
@@ -137,7 +140,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -148,17 +151,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $value
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
@@ -168,7 +172,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLanguageID()
+    public function getLanguageID(): ?string
     {
         return isset($this->languageID) ? $this->languageID : null;
     }
@@ -179,17 +183,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $languageID
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setLanguageID($languageID = null)
+    public function setLanguageID(?string $languageID = null): self
     {
         // validation for constraint: string
         if (!is_null($languageID) && !is_string($languageID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageID, true), gettype($languageID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageID, true), gettype($languageID)), __LINE__);
         }
         if (is_null($languageID) || (is_array($languageID) && empty($languageID))) {
             unset($this->languageID);
         } else {
             $this->languageID = $languageID;
         }
+        
         return $this;
     }
     /**
@@ -199,7 +204,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListAgencyID()
+    public function getListAgencyID(): ?string
     {
         return isset($this->listAgencyID) ? $this->listAgencyID : null;
     }
@@ -210,17 +215,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listAgencyID
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListAgencyID($listAgencyID = null)
+    public function setListAgencyID(?string $listAgencyID = null): self
     {
         // validation for constraint: string
         if (!is_null($listAgencyID) && !is_string($listAgencyID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencyID, true), gettype($listAgencyID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencyID, true), gettype($listAgencyID)), __LINE__);
         }
         if (is_null($listAgencyID) || (is_array($listAgencyID) && empty($listAgencyID))) {
             unset($this->listAgencyID);
         } else {
             $this->listAgencyID = $listAgencyID;
         }
+        
         return $this;
     }
     /**
@@ -230,7 +236,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListAgencyName()
+    public function getListAgencyName(): ?string
     {
         return isset($this->listAgencyName) ? $this->listAgencyName : null;
     }
@@ -241,17 +247,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listAgencyName
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListAgencyName($listAgencyName = null)
+    public function setListAgencyName(?string $listAgencyName = null): self
     {
         // validation for constraint: string
         if (!is_null($listAgencyName) && !is_string($listAgencyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencyName, true), gettype($listAgencyName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listAgencyName, true), gettype($listAgencyName)), __LINE__);
         }
         if (is_null($listAgencyName) || (is_array($listAgencyName) && empty($listAgencyName))) {
             unset($this->listAgencyName);
         } else {
             $this->listAgencyName = $listAgencyName;
         }
+        
         return $this;
     }
     /**
@@ -261,7 +268,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListID()
+    public function getListID(): ?string
     {
         return isset($this->listID) ? $this->listID : null;
     }
@@ -272,17 +279,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listID
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListID($listID = null)
+    public function setListID(?string $listID = null): self
     {
         // validation for constraint: string
         if (!is_null($listID) && !is_string($listID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listID, true), gettype($listID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listID, true), gettype($listID)), __LINE__);
         }
         if (is_null($listID) || (is_array($listID) && empty($listID))) {
             unset($this->listID);
         } else {
             $this->listID = $listID;
         }
+        
         return $this;
     }
     /**
@@ -292,7 +300,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListName()
+    public function getListName(): ?string
     {
         return isset($this->listName) ? $this->listName : null;
     }
@@ -303,17 +311,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listName
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListName($listName = null)
+    public function setListName(?string $listName = null): self
     {
         // validation for constraint: string
         if (!is_null($listName) && !is_string($listName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listName, true), gettype($listName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listName, true), gettype($listName)), __LINE__);
         }
         if (is_null($listName) || (is_array($listName) && empty($listName))) {
             unset($this->listName);
         } else {
             $this->listName = $listName;
         }
+        
         return $this;
     }
     /**
@@ -323,7 +332,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListSchemeURI()
+    public function getListSchemeURI(): ?string
     {
         return isset($this->listSchemeURI) ? $this->listSchemeURI : null;
     }
@@ -334,17 +343,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listSchemeURI
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListSchemeURI($listSchemeURI = null)
+    public function setListSchemeURI(?string $listSchemeURI = null): self
     {
         // validation for constraint: string
         if (!is_null($listSchemeURI) && !is_string($listSchemeURI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listSchemeURI, true), gettype($listSchemeURI)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listSchemeURI, true), gettype($listSchemeURI)), __LINE__);
         }
         if (is_null($listSchemeURI) || (is_array($listSchemeURI) && empty($listSchemeURI))) {
             unset($this->listSchemeURI);
         } else {
             $this->listSchemeURI = $listSchemeURI;
         }
+        
         return $this;
     }
     /**
@@ -354,7 +364,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListURI()
+    public function getListURI(): ?string
     {
         return isset($this->listURI) ? $this->listURI : null;
     }
@@ -365,17 +375,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listURI
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListURI($listURI = null)
+    public function setListURI(?string $listURI = null): self
     {
         // validation for constraint: string
         if (!is_null($listURI) && !is_string($listURI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listURI, true), gettype($listURI)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listURI, true), gettype($listURI)), __LINE__);
         }
         if (is_null($listURI) || (is_array($listURI) && empty($listURI))) {
             unset($this->listURI);
         } else {
             $this->listURI = $listURI;
         }
+        
         return $this;
     }
     /**
@@ -385,7 +396,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getListVersionID()
+    public function getListVersionID(): ?string
     {
         return isset($this->listVersionID) ? $this->listVersionID : null;
     }
@@ -396,17 +407,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $listVersionID
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setListVersionID($listVersionID = null)
+    public function setListVersionID(?string $listVersionID = null): self
     {
         // validation for constraint: string
         if (!is_null($listVersionID) && !is_string($listVersionID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listVersionID, true), gettype($listVersionID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($listVersionID, true), gettype($listVersionID)), __LINE__);
         }
         if (is_null($listVersionID) || (is_array($listVersionID) && empty($listVersionID))) {
             unset($this->listVersionID);
         } else {
             $this->listVersionID = $listVersionID;
         }
+        
         return $this;
     }
     /**
@@ -416,7 +428,7 @@ class CountryCodeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return isset($this->name) ? $this->name : null;
     }
@@ -427,17 +439,18 @@ class CountryCodeType extends AbstractStructBase
      * @param string $name
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->name);
         } else {
             $this->name = $name;
         }
+        
         return $this;
     }
 }

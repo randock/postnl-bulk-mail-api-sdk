@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for B2BAddressContainerV1 StructType
@@ -18,17 +21,17 @@ class B2BAddressContainerV1 extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
+     * @var \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType|null
      */
-    public $AddressAttachment;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $AddressAttachment = null;
     /**
      * The MessageHeader
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType
+     * @var \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType|null
      */
-    public $MessageHeader;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $MessageHeader = null;
     /**
      * Constructor method for B2BAddressContainerV1
      * @uses B2BAddressContainerV1::setAddressAttachment()
@@ -36,7 +39,7 @@ class B2BAddressContainerV1 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $addressAttachment
      * @param \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $addressAttachment = null, \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $addressAttachment = null, ?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null)
     {
         $this
             ->setAddressAttachment($addressAttachment)
@@ -49,7 +52,7 @@ class B2BAddressContainerV1 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType|null
      */
-    public function getAddressAttachment()
+    public function getAddressAttachment(): ?\Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType
     {
         return isset($this->AddressAttachment) ? $this->AddressAttachment : null;
     }
@@ -60,13 +63,14 @@ class B2BAddressContainerV1 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $addressAttachment
      * @return \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
      */
-    public function setAddressAttachment(\Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $addressAttachment = null)
+    public function setAddressAttachment(?\Randock\PostNL\BulkMailApi\StructType\AddressAttachmentType $addressAttachment = null): self
     {
         if (is_null($addressAttachment) || (is_array($addressAttachment) && empty($addressAttachment))) {
             unset($this->AddressAttachment);
         } else {
             $this->AddressAttachment = $addressAttachment;
         }
+        
         return $this;
     }
     /**
@@ -76,7 +80,7 @@ class B2BAddressContainerV1 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType|null
      */
-    public function getMessageHeader()
+    public function getMessageHeader(): ?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType
     {
         return isset($this->MessageHeader) ? $this->MessageHeader : null;
     }
@@ -87,13 +91,14 @@ class B2BAddressContainerV1 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader
      * @return \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
      */
-    public function setMessageHeader(\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null)
+    public function setMessageHeader(?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null): self
     {
         if (is_null($messageHeader) || (is_array($messageHeader) && empty($messageHeader))) {
             unset($this->MessageHeader);
         } else {
             $this->MessageHeader = $messageHeader;
         }
+        
         return $this;
     }
 }

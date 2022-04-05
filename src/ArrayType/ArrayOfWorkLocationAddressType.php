@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfWorkLocationAddressType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType[]
      */
-    public $WorkLocationAddressType;
+    protected ?array $WorkLocationAddressType = null;
     /**
      * Constructor method for ArrayOfWorkLocationAddressType
      * @uses ArrayOfWorkLocationAddressType::setWorkLocationAddressType()
      * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType[] $workLocationAddressType
      */
-    public function __construct(array $workLocationAddressType = array())
+    public function __construct(?array $workLocationAddressType = null)
     {
         $this
             ->setWorkLocationAddressType($workLocationAddressType);
@@ -37,9 +40,9 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType[]
      */
-    public function getWorkLocationAddressType()
+    public function getWorkLocationAddressType(): ?array
     {
         return isset($this->WorkLocationAddressType) ? $this->WorkLocationAddressType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateWorkLocationAddressTypeForArrayConstraintsFromSetWorkLocationAddressType(array $values = array())
+    public static function validateWorkLocationAddressTypeForArrayConstraintsFromSetWorkLocationAddressType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfWorkLocationAddressTypeWorkLocationAddressTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
             $message = sprintf('The WorkLocationAddressType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set WorkLocationAddressType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType[] $workLocationAddressType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType
      */
-    public function setWorkLocationAddressType(array $workLocationAddressType = array())
+    public function setWorkLocationAddressType(?array $workLocationAddressType = null): self
     {
         // validation for constraint: array
         if ('' !== ($workLocationAddressTypeArrayErrorMessage = self::validateWorkLocationAddressTypeForArrayConstraintsFromSetWorkLocationAddressType($workLocationAddressType))) {
-            throw new \InvalidArgumentException($workLocationAddressTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($workLocationAddressTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($workLocationAddressType) || (is_array($workLocationAddressType) && empty($workLocationAddressType))) {
             unset($this->WorkLocationAddressType);
         } else {
             $this->WorkLocationAddressType = $workLocationAddressType;
         }
-        return $this;
-    }
-    /**
-     * Add item to WorkLocationAddressType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType
-     */
-    public function addToWorkLocationAddressType(\Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType) {
-            throw new \InvalidArgumentException(sprintf('The WorkLocationAddressType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->WorkLocationAddressType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfWorkLocationAddressType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfWorkLocationAddressType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType) {
+            throw new InvalidArgumentException(sprintf('The WorkLocationAddressType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\WorkLocationAddressType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string WorkLocationAddressType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'WorkLocationAddressType';
     }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DocumentIDType StructType
@@ -18,33 +21,33 @@ class DocumentIDType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ID = null;
     /**
      * The RevisionID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $RevisionID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $RevisionID = null;
     /**
      * The VariationID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $VariationID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $VariationID = null;
     /**
      * The agencyRole
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $agencyRole;
+    protected ?string $agencyRole = null;
     /**
      * Constructor method for DocumentIDType
      * @uses DocumentIDType::setID()
@@ -56,7 +59,7 @@ class DocumentIDType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $variationID
      * @param string $agencyRole
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $revisionID = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $variationID = null, $agencyRole = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $revisionID = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $variationID = null, ?string $agencyRole = null)
     {
         $this
             ->setID($iD)
@@ -71,7 +74,7 @@ class DocumentIDType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -82,13 +85,14 @@ class DocumentIDType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType
      */
-    public function setID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
     /**
@@ -98,7 +102,7 @@ class DocumentIDType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getRevisionID()
+    public function getRevisionID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->RevisionID) ? $this->RevisionID : null;
     }
@@ -109,13 +113,14 @@ class DocumentIDType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $revisionID
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType
      */
-    public function setRevisionID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $revisionID = null)
+    public function setRevisionID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $revisionID = null): self
     {
         if (is_null($revisionID) || (is_array($revisionID) && empty($revisionID))) {
             unset($this->RevisionID);
         } else {
             $this->RevisionID = $revisionID;
         }
+        
         return $this;
     }
     /**
@@ -125,7 +130,7 @@ class DocumentIDType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getVariationID()
+    public function getVariationID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->VariationID) ? $this->VariationID : null;
     }
@@ -136,13 +141,14 @@ class DocumentIDType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $variationID
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType
      */
-    public function setVariationID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $variationID = null)
+    public function setVariationID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $variationID = null): self
     {
         if (is_null($variationID) || (is_array($variationID) && empty($variationID))) {
             unset($this->VariationID);
         } else {
             $this->VariationID = $variationID;
         }
+        
         return $this;
     }
     /**
@@ -152,7 +158,7 @@ class DocumentIDType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getAgencyRole()
+    public function getAgencyRole(): ?string
     {
         return isset($this->agencyRole) ? $this->agencyRole : null;
     }
@@ -163,17 +169,18 @@ class DocumentIDType extends AbstractStructBase
      * @param string $agencyRole
      * @return \Randock\PostNL\BulkMailApi\StructType\DocumentIDType
      */
-    public function setAgencyRole($agencyRole = null)
+    public function setAgencyRole(?string $agencyRole = null): self
     {
         // validation for constraint: string
         if (!is_null($agencyRole) && !is_string($agencyRole)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($agencyRole, true), gettype($agencyRole)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($agencyRole, true), gettype($agencyRole)), __LINE__);
         }
         if (is_null($agencyRole) || (is_array($agencyRole) && empty($agencyRole))) {
             unset($this->agencyRole);
         } else {
             $this->agencyRole = $agencyRole;
         }
+        
         return $this;
     }
 }

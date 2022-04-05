@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BusinessDocumentMessageHeader StructType
@@ -18,94 +21,94 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope|null
      */
-    public $BusinessScope;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope $BusinessScope = null;
     /**
      * The CreationDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CreationDateTime;
+    protected ?string $CreationDateTime = null;
     /**
      * The ID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $ID = null;
     /**
      * The RecipientBusinessSystemID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $RecipientBusinessSystemID;
+    protected ?string $RecipientBusinessSystemID = null;
     /**
      * The RecipientParty
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty|null
      */
-    public $RecipientParty;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty $RecipientParty = null;
     /**
      * The ReconciliationIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ReconciliationIndicator;
+    protected ?bool $ReconciliationIndicator = null;
     /**
      * The ReferenceID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID|null
      */
-    public $ReferenceID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $ReferenceID = null;
     /**
      * The ReferenceUUID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UUID
+     * @var \Randock\PostNL\BulkMailApi\StructType\UUID|null
      */
-    public $ReferenceUUID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UUID $ReferenceUUID = null;
     /**
      * The SenderBusinessSystemID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $SenderBusinessSystemID;
+    protected ?string $SenderBusinessSystemID = null;
     /**
      * The SenderParty
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public $SenderParty;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $SenderParty = null;
     /**
      * The TestDataIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $TestDataIndicator;
+    protected ?bool $TestDataIndicator = null;
     /**
      * The UUID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UUID
+     * @var \Randock\PostNL\BulkMailApi\StructType\UUID|null
      */
-    public $UUID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UUID $UUID = null;
     /**
      * Constructor method for BusinessDocumentMessageHeader
      * @uses BusinessDocumentMessageHeader::setBusinessScope()
@@ -133,7 +136,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param bool $testDataIndicator
      * @param \Randock\PostNL\BulkMailApi\StructType\UUID $uUID
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope $businessScope = null, $creationDateTime = null, \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $iD = null, $recipientBusinessSystemID = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty $recipientParty = null, $reconciliationIndicator = null, \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $referenceID = null, \Randock\PostNL\BulkMailApi\StructType\UUID $referenceUUID = null, $senderBusinessSystemID = null, \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $senderParty = null, $testDataIndicator = null, \Randock\PostNL\BulkMailApi\StructType\UUID $uUID = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope $businessScope = null, ?string $creationDateTime = null, ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $iD = null, ?string $recipientBusinessSystemID = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty $recipientParty = null, ?bool $reconciliationIndicator = null, ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $referenceID = null, ?\Randock\PostNL\BulkMailApi\StructType\UUID $referenceUUID = null, ?string $senderBusinessSystemID = null, ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $senderParty = null, ?bool $testDataIndicator = null, ?\Randock\PostNL\BulkMailApi\StructType\UUID $uUID = null)
     {
         $this
             ->setBusinessScope($businessScope)
@@ -156,7 +159,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope|null
      */
-    public function getBusinessScope()
+    public function getBusinessScope(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope
     {
         return isset($this->BusinessScope) ? $this->BusinessScope : null;
     }
@@ -167,20 +170,21 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope $businessScope
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setBusinessScope(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope $businessScope = null)
+    public function setBusinessScope(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessScope $businessScope = null): self
     {
         if (is_null($businessScope) || (is_array($businessScope) && empty($businessScope))) {
             unset($this->BusinessScope);
         } else {
             $this->BusinessScope = $businessScope;
         }
+        
         return $this;
     }
     /**
      * Get CreationDateTime value
      * @return string|null
      */
-    public function getCreationDateTime()
+    public function getCreationDateTime(): ?string
     {
         return $this->CreationDateTime;
     }
@@ -189,13 +193,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param string $creationDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setCreationDateTime($creationDateTime = null)
+    public function setCreationDateTime(?string $creationDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($creationDateTime) && !is_string($creationDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($creationDateTime, true), gettype($creationDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($creationDateTime, true), gettype($creationDateTime)), __LINE__);
         }
         $this->CreationDateTime = $creationDateTime;
+        
         return $this;
     }
     /**
@@ -205,7 +210,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -216,13 +221,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setID(\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
     /**
@@ -232,7 +238,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getRecipientBusinessSystemID()
+    public function getRecipientBusinessSystemID(): ?string
     {
         return isset($this->RecipientBusinessSystemID) ? $this->RecipientBusinessSystemID : null;
     }
@@ -243,17 +249,18 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param string $recipientBusinessSystemID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setRecipientBusinessSystemID($recipientBusinessSystemID = null)
+    public function setRecipientBusinessSystemID(?string $recipientBusinessSystemID = null): self
     {
         // validation for constraint: string
         if (!is_null($recipientBusinessSystemID) && !is_string($recipientBusinessSystemID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($recipientBusinessSystemID, true), gettype($recipientBusinessSystemID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($recipientBusinessSystemID, true), gettype($recipientBusinessSystemID)), __LINE__);
         }
         if (is_null($recipientBusinessSystemID) || (is_array($recipientBusinessSystemID) && empty($recipientBusinessSystemID))) {
             unset($this->RecipientBusinessSystemID);
         } else {
             $this->RecipientBusinessSystemID = $recipientBusinessSystemID;
         }
+        
         return $this;
     }
     /**
@@ -263,7 +270,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty|null
      */
-    public function getRecipientParty()
+    public function getRecipientParty(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty
     {
         return isset($this->RecipientParty) ? $this->RecipientParty : null;
     }
@@ -274,20 +281,21 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty $recipientParty
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setRecipientParty(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty $recipientParty = null)
+    public function setRecipientParty(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty $recipientParty = null): self
     {
         if (is_null($recipientParty) || (is_array($recipientParty) && empty($recipientParty))) {
             unset($this->RecipientParty);
         } else {
             $this->RecipientParty = $recipientParty;
         }
+        
         return $this;
     }
     /**
      * Get ReconciliationIndicator value
      * @return bool|null
      */
-    public function getReconciliationIndicator()
+    public function getReconciliationIndicator(): ?bool
     {
         return $this->ReconciliationIndicator;
     }
@@ -296,13 +304,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param bool $reconciliationIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setReconciliationIndicator($reconciliationIndicator = null)
+    public function setReconciliationIndicator(?bool $reconciliationIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($reconciliationIndicator) && !is_bool($reconciliationIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($reconciliationIndicator, true), gettype($reconciliationIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($reconciliationIndicator, true), gettype($reconciliationIndicator)), __LINE__);
         }
         $this->ReconciliationIndicator = $reconciliationIndicator;
+        
         return $this;
     }
     /**
@@ -312,7 +321,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID|null
      */
-    public function getReferenceID()
+    public function getReferenceID(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID
     {
         return isset($this->ReferenceID) ? $this->ReferenceID : null;
     }
@@ -323,13 +332,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $referenceID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setReferenceID(\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $referenceID = null)
+    public function setReferenceID(?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageID $referenceID = null): self
     {
         if (is_null($referenceID) || (is_array($referenceID) && empty($referenceID))) {
             unset($this->ReferenceID);
         } else {
             $this->ReferenceID = $referenceID;
         }
+        
         return $this;
     }
     /**
@@ -339,7 +349,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UUID|null
      */
-    public function getReferenceUUID()
+    public function getReferenceUUID(): ?\Randock\PostNL\BulkMailApi\StructType\UUID
     {
         return isset($this->ReferenceUUID) ? $this->ReferenceUUID : null;
     }
@@ -350,13 +360,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\UUID $referenceUUID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setReferenceUUID(\Randock\PostNL\BulkMailApi\StructType\UUID $referenceUUID = null)
+    public function setReferenceUUID(?\Randock\PostNL\BulkMailApi\StructType\UUID $referenceUUID = null): self
     {
         if (is_null($referenceUUID) || (is_array($referenceUUID) && empty($referenceUUID))) {
             unset($this->ReferenceUUID);
         } else {
             $this->ReferenceUUID = $referenceUUID;
         }
+        
         return $this;
     }
     /**
@@ -366,7 +377,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSenderBusinessSystemID()
+    public function getSenderBusinessSystemID(): ?string
     {
         return isset($this->SenderBusinessSystemID) ? $this->SenderBusinessSystemID : null;
     }
@@ -377,17 +388,18 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param string $senderBusinessSystemID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setSenderBusinessSystemID($senderBusinessSystemID = null)
+    public function setSenderBusinessSystemID(?string $senderBusinessSystemID = null): self
     {
         // validation for constraint: string
         if (!is_null($senderBusinessSystemID) && !is_string($senderBusinessSystemID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($senderBusinessSystemID, true), gettype($senderBusinessSystemID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($senderBusinessSystemID, true), gettype($senderBusinessSystemID)), __LINE__);
         }
         if (is_null($senderBusinessSystemID) || (is_array($senderBusinessSystemID) && empty($senderBusinessSystemID))) {
             unset($this->SenderBusinessSystemID);
         } else {
             $this->SenderBusinessSystemID = $senderBusinessSystemID;
         }
+        
         return $this;
     }
     /**
@@ -397,7 +409,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public function getSenderParty()
+    public function getSenderParty(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
     {
         return isset($this->SenderParty) ? $this->SenderParty : null;
     }
@@ -408,20 +420,21 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $senderParty
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setSenderParty(\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $senderParty = null)
+    public function setSenderParty(?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $senderParty = null): self
     {
         if (is_null($senderParty) || (is_array($senderParty) && empty($senderParty))) {
             unset($this->SenderParty);
         } else {
             $this->SenderParty = $senderParty;
         }
+        
         return $this;
     }
     /**
      * Get TestDataIndicator value
      * @return bool|null
      */
-    public function getTestDataIndicator()
+    public function getTestDataIndicator(): ?bool
     {
         return $this->TestDataIndicator;
     }
@@ -430,13 +443,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param bool $testDataIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setTestDataIndicator($testDataIndicator = null)
+    public function setTestDataIndicator(?bool $testDataIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($testDataIndicator) && !is_bool($testDataIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($testDataIndicator, true), gettype($testDataIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($testDataIndicator, true), gettype($testDataIndicator)), __LINE__);
         }
         $this->TestDataIndicator = $testDataIndicator;
+        
         return $this;
     }
     /**
@@ -446,7 +460,7 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UUID|null
      */
-    public function getUUID()
+    public function getUUID(): ?\Randock\PostNL\BulkMailApi\StructType\UUID
     {
         return isset($this->UUID) ? $this->UUID : null;
     }
@@ -457,13 +471,14 @@ class BusinessDocumentMessageHeader extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\UUID $uUID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeader
      */
-    public function setUUID(\Randock\PostNL\BulkMailApi\StructType\UUID $uUID = null)
+    public function setUUID(?\Randock\PostNL\BulkMailApi\StructType\UUID $uUID = null): self
     {
         if (is_null($uUID) || (is_array($uUID) && empty($uUID))) {
             unset($this->UUID);
         } else {
             $this->UUID = $uUID;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NamePersonType StructType
@@ -18,65 +21,65 @@ class NamePersonType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $FamilyName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $FamilyName = null;
     /**
      * The GivenName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $GivenName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $GivenName = null;
     /**
      * The MaidenName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $MaidenName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $MaidenName = null;
     /**
      * The MiddleName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $MiddleName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $MiddleName = null;
     /**
      * The NickName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $NickName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $NickName = null;
     /**
      * The SalutationPreferredName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType|null
      */
-    public $SalutationPreferredName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType $SalutationPreferredName = null;
     /**
      * The SuffixName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $SuffixName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $SuffixName = null;
     /**
      * The Title
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public $Title;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $Title = null;
     /**
      * Constructor method for NamePersonType
      * @uses NamePersonType::setFamilyName()
@@ -96,7 +99,7 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $suffixName
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $familyName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $givenName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $maidenName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $middleName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $nickName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType $salutationPreferredName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $suffixName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $familyName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $givenName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $maidenName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $middleName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $nickName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType $salutationPreferredName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $suffixName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null)
     {
         $this
             ->setFamilyName($familyName)
@@ -115,7 +118,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getFamilyName()
+    public function getFamilyName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->FamilyName) ? $this->FamilyName : null;
     }
@@ -126,13 +129,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $familyName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setFamilyName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $familyName = null)
+    public function setFamilyName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $familyName = null): self
     {
         if (is_null($familyName) || (is_array($familyName) && empty($familyName))) {
             unset($this->FamilyName);
         } else {
             $this->FamilyName = $familyName;
         }
+        
         return $this;
     }
     /**
@@ -142,7 +146,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getGivenName()
+    public function getGivenName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->GivenName) ? $this->GivenName : null;
     }
@@ -153,13 +157,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $givenName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setGivenName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $givenName = null)
+    public function setGivenName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $givenName = null): self
     {
         if (is_null($givenName) || (is_array($givenName) && empty($givenName))) {
             unset($this->GivenName);
         } else {
             $this->GivenName = $givenName;
         }
+        
         return $this;
     }
     /**
@@ -169,7 +174,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getMaidenName()
+    public function getMaidenName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->MaidenName) ? $this->MaidenName : null;
     }
@@ -180,13 +185,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $maidenName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setMaidenName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $maidenName = null)
+    public function setMaidenName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $maidenName = null): self
     {
         if (is_null($maidenName) || (is_array($maidenName) && empty($maidenName))) {
             unset($this->MaidenName);
         } else {
             $this->MaidenName = $maidenName;
         }
+        
         return $this;
     }
     /**
@@ -196,7 +202,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getMiddleName()
+    public function getMiddleName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->MiddleName) ? $this->MiddleName : null;
     }
@@ -207,13 +213,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $middleName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setMiddleName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $middleName = null)
+    public function setMiddleName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $middleName = null): self
     {
         if (is_null($middleName) || (is_array($middleName) && empty($middleName))) {
             unset($this->MiddleName);
         } else {
             $this->MiddleName = $middleName;
         }
+        
         return $this;
     }
     /**
@@ -223,7 +230,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getNickName()
+    public function getNickName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->NickName) ? $this->NickName : null;
     }
@@ -234,13 +241,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $nickName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setNickName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $nickName = null)
+    public function setNickName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $nickName = null): self
     {
         if (is_null($nickName) || (is_array($nickName) && empty($nickName))) {
             unset($this->NickName);
         } else {
             $this->NickName = $nickName;
         }
+        
         return $this;
     }
     /**
@@ -250,7 +258,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType|null
      */
-    public function getSalutationPreferredName()
+    public function getSalutationPreferredName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType
     {
         return isset($this->SalutationPreferredName) ? $this->SalutationPreferredName : null;
     }
@@ -261,13 +269,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType $salutationPreferredName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setSalutationPreferredName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType $salutationPreferredName = null)
+    public function setSalutationPreferredName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferredNameType $salutationPreferredName = null): self
     {
         if (is_null($salutationPreferredName) || (is_array($salutationPreferredName) && empty($salutationPreferredName))) {
             unset($this->SalutationPreferredName);
         } else {
             $this->SalutationPreferredName = $salutationPreferredName;
         }
+        
         return $this;
     }
     /**
@@ -277,7 +286,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getSuffixName()
+    public function getSuffixName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->SuffixName) ? $this->SuffixName : null;
     }
@@ -288,13 +297,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $suffixName
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setSuffixName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $suffixName = null)
+    public function setSuffixName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $suffixName = null): self
     {
         if (is_null($suffixName) || (is_array($suffixName) && empty($suffixName))) {
             unset($this->SuffixName);
         } else {
             $this->SuffixName = $suffixName;
         }
+        
         return $this;
     }
     /**
@@ -304,7 +314,7 @@ class NamePersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public function getTitle()
+    public function getTitle(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
     {
         return isset($this->Title) ? $this->Title : null;
     }
@@ -315,13 +325,14 @@ class NamePersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType
      */
-    public function setTitle(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null)
+    public function setTitle(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $title = null): self
     {
         if (is_null($title) || (is_array($title) && empty($title))) {
             unset($this->Title);
         } else {
             $this->Title = $title;
         }
+        
         return $this;
     }
 }

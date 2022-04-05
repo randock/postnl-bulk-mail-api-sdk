@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf241de74705904eea01965875abe8a8e
+class ComposerStaticInit75042fedd3e75b46fb892cddf55ff449
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
@@ -36,6 +36,7 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfBusinessScope' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfBusinessScope.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfCharacteristicType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfCharacteristicType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfCodeType1' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfCodeType1.php',
+        'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfCommercialServiceType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfCommercialServiceType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfConsignmentAdministrativeReferencesType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfConsignmentAdministrativeReferencesType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfConsignmentType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfConsignmentType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfContactPersonType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfContactPersonType.php',
@@ -58,6 +59,7 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfPhoneNumber' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfPhoneNumber.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfPreferenceType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfPreferenceType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfPreferredNameType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfPreferredNameType.php',
+        'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfProductItemType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfProductItemType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfResult' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfResult.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfSequencedTextType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfSequencedTextType.php',
         'Randock\\PostNL\\BulkMailApi\\ArrayType\\ArrayOfStatusType' => __DIR__ . '/../..' . '/src/ArrayType/ArrayOfStatusType.php',
@@ -79,6 +81,7 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\StructType\\AddressAttachmentType' => __DIR__ . '/../..' . '/src/StructType/AddressAttachmentType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\AddressBaseType' => __DIR__ . '/../..' . '/src/StructType/AddressBaseType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\AddressType' => __DIR__ . '/../..' . '/src/StructType/AddressType.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\AddressType1' => __DIR__ . '/../..' . '/src/StructType/AddressType1.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\AddressTypeType' => __DIR__ . '/../..' . '/src/StructType/AddressTypeType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\AttachmentBaseType' => __DIR__ . '/../..' . '/src/StructType/AttachmentBaseType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\B2BAddressContainerV1' => __DIR__ . '/../..' . '/src/StructType/B2BAddressContainerV1.php',
@@ -98,6 +101,8 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\StructType\\CharacteristicType' => __DIR__ . '/../..' . '/src/StructType/CharacteristicType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\CodeType' => __DIR__ . '/../..' . '/src/StructType/CodeType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\CodeType1' => __DIR__ . '/../..' . '/src/StructType/CodeType1.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\CommercialProductType' => __DIR__ . '/../..' . '/src/StructType/CommercialProductType.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\CommercialServiceType' => __DIR__ . '/../..' . '/src/StructType/CommercialServiceType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentAdministrativeReferencesType' => __DIR__ . '/../..' . '/src/StructType/ConsignmentAdministrativeReferencesType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentContractType' => __DIR__ . '/../..' . '/src/StructType/ConsignmentContractType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\ConsignmentDeliveryWeekType' => __DIR__ . '/../..' . '/src/StructType/ConsignmentDeliveryWeekType.php',
@@ -108,6 +113,7 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\StructType\\ContactPersonInternalID' => __DIR__ . '/../..' . '/src/StructType/ContactPersonInternalID.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\ContactPersonType' => __DIR__ . '/../..' . '/src/StructType/ContactPersonType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\ContactType' => __DIR__ . '/../..' . '/src/StructType/ContactType.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\ContactType1' => __DIR__ . '/../..' . '/src/StructType/ContactType1.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\CoordinateBaseType' => __DIR__ . '/../..' . '/src/StructType/CoordinateBaseType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\CoordinateType' => __DIR__ . '/../..' . '/src/StructType/CoordinateType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\CountryCodeType' => __DIR__ . '/../..' . '/src/StructType/CountryCodeType.php',
@@ -132,6 +138,7 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\StructType\\ItemIDType' => __DIR__ . '/../..' . '/src/StructType/ItemIDType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\LocationABIEType' => __DIR__ . '/../..' . '/src/StructType/LocationABIEType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\LocationType' => __DIR__ . '/../..' . '/src/StructType/LocationType.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\LocationType1' => __DIR__ . '/../..' . '/src/StructType/LocationType1.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\MEDIUM_Name' => __DIR__ . '/../..' . '/src/StructType/MEDIUM_Name.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\MeasureType' => __DIR__ . '/../..' . '/src/StructType/MeasureType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\MeasureType1' => __DIR__ . '/../..' . '/src/StructType/MeasureType1.php',
@@ -153,12 +160,15 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
         'Randock\\PostNL\\BulkMailApi\\StructType\\PreferenceABIEType' => __DIR__ . '/../..' . '/src/StructType/PreferenceABIEType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\PreferenceType' => __DIR__ . '/../..' . '/src/StructType/PreferenceType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\PreferredNameType' => __DIR__ . '/../..' . '/src/StructType/PreferredNameType.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\ProductItemType' => __DIR__ . '/../..' . '/src/StructType/ProductItemType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\QuantityType' => __DIR__ . '/../..' . '/src/StructType/QuantityType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\QuantityType1' => __DIR__ . '/../..' . '/src/StructType/QuantityType1.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\Result' => __DIR__ . '/../..' . '/src/StructType/Result.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\ReturnToPartyType' => __DIR__ . '/../..' . '/src/StructType/ReturnToPartyType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\SemanticAttachmentType' => __DIR__ . '/../..' . '/src/StructType/SemanticAttachmentType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\SemanticContactType' => __DIR__ . '/../..' . '/src/StructType/SemanticContactType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\SequencedTextType' => __DIR__ . '/../..' . '/src/StructType/SequencedTextType.php',
+        'Randock\\PostNL\\BulkMailApi\\StructType\\ServiceLevelType' => __DIR__ . '/../..' . '/src/StructType/ServiceLevelType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\ShippingPartyType' => __DIR__ . '/../..' . '/src/StructType/ShippingPartyType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\StatusABIEType' => __DIR__ . '/../..' . '/src/StructType/StatusABIEType.php',
         'Randock\\PostNL\\BulkMailApi\\StructType\\StatusBasisType' => __DIR__ . '/../..' . '/src/StructType/StatusBasisType.php',
@@ -195,9 +205,9 @@ class ComposerStaticInitf241de74705904eea01965875abe8a8e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf241de74705904eea01965875abe8a8e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf241de74705904eea01965875abe8a8e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitf241de74705904eea01965875abe8a8e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit75042fedd3e75b46fb892cddf55ff449::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit75042fedd3e75b46fb892cddf55ff449::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit75042fedd3e75b46fb892cddf55ff449::$classMap;
 
         }, null, ClassLoader::class);
     }

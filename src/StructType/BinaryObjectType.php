@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BinaryObjectType StructType
@@ -18,49 +21,49 @@ class BinaryObjectType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The characterSetCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $characterSetCode;
+    protected ?string $characterSetCode = null;
     /**
      * The filename
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $filename;
+    protected ?string $filename = null;
     /**
      * The format
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $format;
+    protected ?string $format = null;
     /**
      * The mimeCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $mimeCode;
+    protected ?string $mimeCode = null;
     /**
      * The uri
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $uri;
+    protected ?string $uri = null;
     /**
      * Constructor method for BinaryObjectType
      * @uses BinaryObjectType::setValue()
@@ -76,7 +79,7 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $mimeCode
      * @param string $uri
      */
-    public function __construct($value = null, $characterSetCode = null, $filename = null, $format = null, $mimeCode = null, $uri = null)
+    public function __construct(?string $value = null, ?string $characterSetCode = null, ?string $filename = null, ?string $format = null, ?string $mimeCode = null, ?string $uri = null)
     {
         $this
             ->setValue($value)
@@ -93,7 +96,7 @@ class BinaryObjectType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -104,17 +107,18 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $value
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
@@ -124,7 +128,7 @@ class BinaryObjectType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getCharacterSetCode()
+    public function getCharacterSetCode(): ?string
     {
         return isset($this->characterSetCode) ? $this->characterSetCode : null;
     }
@@ -135,17 +139,18 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $characterSetCode
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType
      */
-    public function setCharacterSetCode($characterSetCode = null)
+    public function setCharacterSetCode(?string $characterSetCode = null): self
     {
         // validation for constraint: string
         if (!is_null($characterSetCode) && !is_string($characterSetCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($characterSetCode, true), gettype($characterSetCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($characterSetCode, true), gettype($characterSetCode)), __LINE__);
         }
         if (is_null($characterSetCode) || (is_array($characterSetCode) && empty($characterSetCode))) {
             unset($this->characterSetCode);
         } else {
             $this->characterSetCode = $characterSetCode;
         }
+        
         return $this;
     }
     /**
@@ -155,7 +160,7 @@ class BinaryObjectType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFilename()
+    public function getFilename(): ?string
     {
         return isset($this->filename) ? $this->filename : null;
     }
@@ -166,17 +171,18 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $filename
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType
      */
-    public function setFilename($filename = null)
+    public function setFilename(?string $filename = null): self
     {
         // validation for constraint: string
         if (!is_null($filename) && !is_string($filename)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($filename, true), gettype($filename)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($filename, true), gettype($filename)), __LINE__);
         }
         if (is_null($filename) || (is_array($filename) && empty($filename))) {
             unset($this->filename);
         } else {
             $this->filename = $filename;
         }
+        
         return $this;
     }
     /**
@@ -186,7 +192,7 @@ class BinaryObjectType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getFormat()
+    public function getFormat(): ?string
     {
         return isset($this->format) ? $this->format : null;
     }
@@ -197,17 +203,18 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $format
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType
      */
-    public function setFormat($format = null)
+    public function setFormat(?string $format = null): self
     {
         // validation for constraint: string
         if (!is_null($format) && !is_string($format)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($format, true), gettype($format)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($format, true), gettype($format)), __LINE__);
         }
         if (is_null($format) || (is_array($format) && empty($format))) {
             unset($this->format);
         } else {
             $this->format = $format;
         }
+        
         return $this;
     }
     /**
@@ -217,7 +224,7 @@ class BinaryObjectType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMimeCode()
+    public function getMimeCode(): ?string
     {
         return isset($this->mimeCode) ? $this->mimeCode : null;
     }
@@ -228,17 +235,18 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $mimeCode
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType
      */
-    public function setMimeCode($mimeCode = null)
+    public function setMimeCode(?string $mimeCode = null): self
     {
         // validation for constraint: string
         if (!is_null($mimeCode) && !is_string($mimeCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mimeCode, true), gettype($mimeCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mimeCode, true), gettype($mimeCode)), __LINE__);
         }
         if (is_null($mimeCode) || (is_array($mimeCode) && empty($mimeCode))) {
             unset($this->mimeCode);
         } else {
             $this->mimeCode = $mimeCode;
         }
+        
         return $this;
     }
     /**
@@ -248,7 +256,7 @@ class BinaryObjectType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return isset($this->uri) ? $this->uri : null;
     }
@@ -259,17 +267,18 @@ class BinaryObjectType extends AbstractStructBase
      * @param string $uri
      * @return \Randock\PostNL\BulkMailApi\StructType\BinaryObjectType
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri = null): self
     {
         // validation for constraint: string
         if (!is_null($uri) && !is_string($uri)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uri, true), gettype($uri)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uri, true), gettype($uri)), __LINE__);
         }
         if (is_null($uri) || (is_array($uri) && empty($uri))) {
             unset($this->uri);
         } else {
             $this->uri = $uri;
         }
+        
         return $this;
     }
 }

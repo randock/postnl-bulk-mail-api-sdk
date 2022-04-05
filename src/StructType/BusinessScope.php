@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BusinessScope StructType
@@ -18,25 +21,25 @@ class BusinessScope extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessScopeID
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessScopeID|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeID $ID = null;
     /**
      * The InstanceID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID|null
      */
-    public $InstanceID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $InstanceID = null;
     /**
      * The TypeCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode|null
      */
-    public $TypeCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $TypeCode = null;
     /**
      * Constructor method for BusinessScope
      * @uses BusinessScope::setID()
@@ -46,7 +49,7 @@ class BusinessScope extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $instanceID
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $typeCode
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\BusinessScopeID $iD = null, \Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $instanceID = null, \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $typeCode = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeID $iD = null, ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $instanceID = null, ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $typeCode = null)
     {
         $this
             ->setID($iD)
@@ -60,7 +63,7 @@ class BusinessScope extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeID|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeID
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -71,13 +74,14 @@ class BusinessScope extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessScopeID $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScope
      */
-    public function setID(\Randock\PostNL\BulkMailApi\StructType\BusinessScopeID $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeID $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
     /**
@@ -87,7 +91,7 @@ class BusinessScope extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID|null
      */
-    public function getInstanceID()
+    public function getInstanceID(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID
     {
         return isset($this->InstanceID) ? $this->InstanceID : null;
     }
@@ -98,13 +102,14 @@ class BusinessScope extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $instanceID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScope
      */
-    public function setInstanceID(\Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $instanceID = null)
+    public function setInstanceID(?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeInstanceID $instanceID = null): self
     {
         if (is_null($instanceID) || (is_array($instanceID) && empty($instanceID))) {
             unset($this->InstanceID);
         } else {
             $this->InstanceID = $instanceID;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class BusinessScope extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode|null
      */
-    public function getTypeCode()
+    public function getTypeCode(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode
     {
         return isset($this->TypeCode) ? $this->TypeCode : null;
     }
@@ -125,13 +130,14 @@ class BusinessScope extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $typeCode
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessScope
      */
-    public function setTypeCode(\Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $typeCode = null)
+    public function setTypeCode(?\Randock\PostNL\BulkMailApi\StructType\BusinessScopeTypeCode $typeCode = null): self
     {
         if (is_null($typeCode) || (is_array($typeCode) && empty($typeCode))) {
             unset($this->TypeCode);
         } else {
             $this->TypeCode = $typeCode;
         }
+        
         return $this;
     }
 }

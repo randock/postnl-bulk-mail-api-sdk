@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PreAdviceBulkMailOrderV2Response StructType
@@ -15,15 +18,15 @@ class PreAdviceBulkMailOrderV2Response extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
+     * @var \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public $PreAdviceBulkMailOrderV2Result;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $PreAdviceBulkMailOrderV2Result = null;
     /**
      * Constructor method for PreAdviceBulkMailOrderV2Response
      * @uses PreAdviceBulkMailOrderV2Response::setPreAdviceBulkMailOrderV2Result()
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceBulkMailOrderV2Result
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceBulkMailOrderV2Result = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceBulkMailOrderV2Result = null)
     {
         $this
             ->setPreAdviceBulkMailOrderV2Result($preAdviceBulkMailOrderV2Result);
@@ -35,7 +38,7 @@ class PreAdviceBulkMailOrderV2Response extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2|null
      */
-    public function getPreAdviceBulkMailOrderV2Result()
+    public function getPreAdviceBulkMailOrderV2Result(): ?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
     {
         return isset($this->PreAdviceBulkMailOrderV2Result) ? $this->PreAdviceBulkMailOrderV2Result : null;
     }
@@ -46,13 +49,14 @@ class PreAdviceBulkMailOrderV2Response extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceBulkMailOrderV2Result
      * @return \Randock\PostNL\BulkMailApi\StructType\PreAdviceBulkMailOrderV2Response
      */
-    public function setPreAdviceBulkMailOrderV2Result(\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceBulkMailOrderV2Result = null)
+    public function setPreAdviceBulkMailOrderV2Result(?\Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2 $preAdviceBulkMailOrderV2Result = null): self
     {
         if (is_null($preAdviceBulkMailOrderV2Result) || (is_array($preAdviceBulkMailOrderV2Result) && empty($preAdviceBulkMailOrderV2Result))) {
             unset($this->PreAdviceBulkMailOrderV2Result);
         } else {
             $this->PreAdviceBulkMailOrderV2Result = $preAdviceBulkMailOrderV2Result;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PreferenceABIEType StructType
@@ -18,31 +21,31 @@ class PreferenceABIEType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TimePeriodType
+     * @var \Randock\PostNL\BulkMailApi\StructType\TimePeriodType|null
      */
-    public $EffectiveTimePeriod;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $EffectiveTimePeriod = null;
     /**
      * The Indicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Indicator;
+    protected ?bool $Indicator = null;
     /**
      * The IndicatorSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IndicatorSpecified;
+    protected ?bool $IndicatorSpecified = null;
     /**
      * The Sequence
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Sequence;
+    protected ?string $Sequence = null;
     /**
      * Constructor method for PreferenceABIEType
      * @uses PreferenceABIEType::setEffectiveTimePeriod()
@@ -54,7 +57,7 @@ class PreferenceABIEType extends AbstractStructBase
      * @param bool $indicatorSpecified
      * @param string $sequence
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $effectiveTimePeriod = null, $indicator = null, $indicatorSpecified = null, $sequence = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $effectiveTimePeriod = null, ?bool $indicator = null, ?bool $indicatorSpecified = null, ?string $sequence = null)
     {
         $this
             ->setEffectiveTimePeriod($effectiveTimePeriod)
@@ -69,7 +72,7 @@ class PreferenceABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TimePeriodType|null
      */
-    public function getEffectiveTimePeriod()
+    public function getEffectiveTimePeriod(): ?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType
     {
         return isset($this->EffectiveTimePeriod) ? $this->EffectiveTimePeriod : null;
     }
@@ -80,20 +83,21 @@ class PreferenceABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TimePeriodType $effectiveTimePeriod
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceABIEType
      */
-    public function setEffectiveTimePeriod(\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $effectiveTimePeriod = null)
+    public function setEffectiveTimePeriod(?\Randock\PostNL\BulkMailApi\StructType\TimePeriodType $effectiveTimePeriod = null): self
     {
         if (is_null($effectiveTimePeriod) || (is_array($effectiveTimePeriod) && empty($effectiveTimePeriod))) {
             unset($this->EffectiveTimePeriod);
         } else {
             $this->EffectiveTimePeriod = $effectiveTimePeriod;
         }
+        
         return $this;
     }
     /**
      * Get Indicator value
      * @return bool|null
      */
-    public function getIndicator()
+    public function getIndicator(): ?bool
     {
         return $this->Indicator;
     }
@@ -102,20 +106,21 @@ class PreferenceABIEType extends AbstractStructBase
      * @param bool $indicator
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceABIEType
      */
-    public function setIndicator($indicator = null)
+    public function setIndicator(?bool $indicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($indicator) && !is_bool($indicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($indicator, true), gettype($indicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($indicator, true), gettype($indicator)), __LINE__);
         }
         $this->Indicator = $indicator;
+        
         return $this;
     }
     /**
      * Get IndicatorSpecified value
      * @return bool|null
      */
-    public function getIndicatorSpecified()
+    public function getIndicatorSpecified(): ?bool
     {
         return $this->IndicatorSpecified;
     }
@@ -124,13 +129,14 @@ class PreferenceABIEType extends AbstractStructBase
      * @param bool $indicatorSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceABIEType
      */
-    public function setIndicatorSpecified($indicatorSpecified = null)
+    public function setIndicatorSpecified(?bool $indicatorSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($indicatorSpecified) && !is_bool($indicatorSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($indicatorSpecified, true), gettype($indicatorSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($indicatorSpecified, true), gettype($indicatorSpecified)), __LINE__);
         }
         $this->IndicatorSpecified = $indicatorSpecified;
+        
         return $this;
     }
     /**
@@ -140,7 +146,7 @@ class PreferenceABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSequence()
+    public function getSequence(): ?string
     {
         return isset($this->Sequence) ? $this->Sequence : null;
     }
@@ -151,17 +157,18 @@ class PreferenceABIEType extends AbstractStructBase
      * @param string $sequence
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceABIEType
      */
-    public function setSequence($sequence = null)
+    public function setSequence(?string $sequence = null): self
     {
         // validation for constraint: string
         if (!is_null($sequence) && !is_string($sequence)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sequence, true), gettype($sequence)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sequence, true), gettype($sequence)), __LINE__);
         }
         if (is_null($sequence) || (is_array($sequence) && empty($sequence))) {
             unset($this->Sequence);
         } else {
             $this->Sequence = $sequence;
         }
+        
         return $this;
     }
 }

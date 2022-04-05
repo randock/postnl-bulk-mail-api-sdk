@@ -2,28 +2,30 @@
     "packages": [
         {
             "name": "wsdltophp/packagebase",
-            "version": "2.2.0",
-            "version_normalized": "2.2.0.0",
+            "version": "5.0.1",
+            "version_normalized": "5.0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WsdlToPhp/PackageBase.git",
-                "reference": "3acde5c5b6c8c85293e077e3910b7990dfac64ca"
+                "reference": "3575e50d3163dd76641bbb5398d356e310170724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WsdlToPhp/PackageBase/zipball/3acde5c5b6c8c85293e077e3910b7990dfac64ca",
-                "reference": "3acde5c5b6c8c85293e077e3910b7990dfac64ca",
+                "url": "https://api.github.com/repos/WsdlToPhp/PackageBase/zipball/3575e50d3163dd76641bbb5398d356e310170724",
+                "reference": "3575e50d3163dd76641bbb5398d356e310170724",
                 "shasum": ""
             },
             "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
                 "ext-soap": "*",
-                "php": ">=5.4"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "~2.0",
-                "phpunit/phpunit": "^4.8 || ^6.0"
+                "phpunit/phpunit": "^9"
             },
-            "time": "2020-09-11T08:37:47+00:00",
+            "time": "2021-02-09T14:01:25+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -80,7 +82,7 @@
             "support": {
                 "email": "contact@wsdltophp.com",
                 "issues": "https://github.com/WsdlToPhp/PackageBase/issues",
-                "source": "https://github.com/WsdlToPhp/PackageBase/tree/2.2.0"
+                "source": "https://github.com/WsdlToPhp/PackageBase/tree/5.0.1"
             },
             "install-path": "../wsdltophp/packagebase"
         }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfConsignmentType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\ConsignmentType[]
      */
-    public $ConsignmentType;
+    protected ?array $ConsignmentType = null;
     /**
      * Constructor method for ArrayOfConsignmentType
      * @uses ArrayOfConsignmentType::setConsignmentType()
      * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentType[] $consignmentType
      */
-    public function __construct(array $consignmentType = array())
+    public function __construct(?array $consignmentType = null)
     {
         $this
             ->setConsignmentType($consignmentType);
@@ -37,9 +40,9 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType[]
      */
-    public function getConsignmentType()
+    public function getConsignmentType(): ?array
     {
         return isset($this->ConsignmentType) ? $this->ConsignmentType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateConsignmentTypeForArrayConstraintsFromSetConsignmentType(array $values = array())
+    public static function validateConsignmentTypeForArrayConstraintsFromSetConsignmentType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfConsignmentTypeConsignmentTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
             $message = sprintf('The ConsignmentType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\ConsignmentType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ConsignmentType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentType[] $consignmentType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
      */
-    public function setConsignmentType(array $consignmentType = array())
+    public function setConsignmentType(?array $consignmentType = null): self
     {
         // validation for constraint: array
         if ('' !== ($consignmentTypeArrayErrorMessage = self::validateConsignmentTypeForArrayConstraintsFromSetConsignmentType($consignmentType))) {
-            throw new \InvalidArgumentException($consignmentTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($consignmentTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($consignmentType) || (is_array($consignmentType) && empty($consignmentType))) {
             unset($this->ConsignmentType);
         } else {
             $this->ConsignmentType = $consignmentType;
         }
-        return $this;
-    }
-    /**
-     * Add item to ConsignmentType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
-     */
-    public function addToConsignmentType(\Randock\PostNL\BulkMailApi\StructType\ConsignmentType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\ConsignmentType) {
-            throw new \InvalidArgumentException(sprintf('The ConsignmentType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\ConsignmentType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ConsignmentType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfConsignmentType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\ConsignmentType) {
+            throw new InvalidArgumentException(sprintf('The ConsignmentType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\ConsignmentType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ConsignmentType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ConsignmentType';
     }

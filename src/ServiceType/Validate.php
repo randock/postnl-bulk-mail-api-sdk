@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ServiceType;
 
-use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
+use SoapFault;
+use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * This class stands for Validate ServiceType
@@ -14,7 +17,6 @@ class Validate extends AbstractSoapClientBase
      * Method to call the operation originally named ValidateAddressAttachmentV1
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \Randock\PostNL\BulkMailApi\StructType\ValidateAddressAttachmentV1 $parameters
      * @return \Randock\PostNL\BulkMailApi\StructType\ValidateAddressAttachmentV1Response|bool
@@ -22,12 +24,14 @@ class Validate extends AbstractSoapClientBase
     public function ValidateAddressAttachmentV1(\Randock\PostNL\BulkMailApi\StructType\ValidateAddressAttachmentV1 $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('ValidateAddressAttachmentV1', array(
+            $this->setResult($resultValidateAddressAttachmentV1 = $this->getSoapClient()->__soapCall('ValidateAddressAttachmentV1', [
                 $parameters,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultValidateAddressAttachmentV1;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -35,7 +39,6 @@ class Validate extends AbstractSoapClientBase
      * Method to call the operation originally named ValidateAndSortAddressAttachmentV1
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \Randock\PostNL\BulkMailApi\StructType\ValidateAndSortAddressAttachmentV1 $parameters
      * @return \Randock\PostNL\BulkMailApi\StructType\ValidateAndSortAddressAttachmentV1Response|bool
@@ -43,12 +46,14 @@ class Validate extends AbstractSoapClientBase
     public function ValidateAndSortAddressAttachmentV1(\Randock\PostNL\BulkMailApi\StructType\ValidateAndSortAddressAttachmentV1 $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('ValidateAndSortAddressAttachmentV1', array(
+            $this->setResult($resultValidateAndSortAddressAttachmentV1 = $this->getSoapClient()->__soapCall('ValidateAndSortAddressAttachmentV1', [
                 $parameters,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultValidateAndSortAddressAttachmentV1;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }

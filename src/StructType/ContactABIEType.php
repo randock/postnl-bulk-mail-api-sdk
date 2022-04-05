@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactABIEType StructType
@@ -18,153 +21,153 @@ class ContactABIEType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType|null
      */
-    public $Address;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType $Address = null;
     /**
      * The DepartmentName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $DepartmentName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $DepartmentName = null;
     /**
      * The EMailAddressCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType|null
      */
-    public $EMailAddressCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType $EMailAddressCommunication = null;
     /**
      * The FaxTelephoneCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public $FaxTelephoneCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $FaxTelephoneCommunication = null;
     /**
      * The ID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $ID = null;
     /**
      * The InstantMessageCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType|null
      */
-    public $InstantMessageCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $InstantMessageCommunication = null;
     /**
      * The InternetAddressCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType|null
      */
-    public $InternetAddressCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $InternetAddressCommunication = null;
     /**
      * The JobTitle
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $JobTitle;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $JobTitle = null;
     /**
      * The MobileTelephoneCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public $MobileTelephoneCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $MobileTelephoneCommunication = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $Name;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $Name = null;
     /**
      * The PagerTelephoneCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public $PagerTelephoneCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $PagerTelephoneCommunication = null;
     /**
      * The Preference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\PreferenceType
+     * @var \Randock\PostNL\BulkMailApi\StructType\PreferenceType|null
      */
-    public $Preference;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\PreferenceType $Preference = null;
     /**
      * The PreferredCommunicationChannel
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1|null
      */
-    public $PreferredCommunicationChannel;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $PreferredCommunicationChannel = null;
     /**
      * The Responsibility
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public $Responsibility;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $Responsibility = null;
     /**
      * The SocialNetworkCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType|null
      */
-    public $SocialNetworkCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $SocialNetworkCommunication = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\StatusType
+     * @var \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public $Status;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\StatusType $Status = null;
     /**
      * The TelephoneCommNoAnswer
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public $TelephoneCommNoAnswer;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $TelephoneCommNoAnswer = null;
     /**
      * The TelephoneCommunication
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public $TelephoneCommunication;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $TelephoneCommunication = null;
     /**
      * The Type
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $Type;
+    protected $Type = null;
     /**
      * Constructor method for ContactABIEType
      * @uses ContactABIEType::setAddress()
@@ -206,7 +209,7 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommunication
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType $address = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $departmentName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType $eMailAddressCommunication = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $faxTelephoneCommunication = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $instantMessageCommunication = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $internetAddressCommunication = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $jobTitle = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $mobileTelephoneCommunication = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $name = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $pagerTelephoneCommunication = null, \Randock\PostNL\BulkMailApi\StructType\PreferenceType $preference = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $preferredCommunicationChannel = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $responsibility = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $socialNetworkCommunication = null, \Randock\PostNL\BulkMailApi\StructType\StatusType $status = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommNoAnswer = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommunication = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType $address = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $departmentName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType $eMailAddressCommunication = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $faxTelephoneCommunication = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $instantMessageCommunication = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $internetAddressCommunication = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $jobTitle = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $mobileTelephoneCommunication = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $name = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $pagerTelephoneCommunication = null, ?\Randock\PostNL\BulkMailApi\StructType\PreferenceType $preference = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $preferredCommunicationChannel = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $responsibility = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $socialNetworkCommunication = null, ?\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommNoAnswer = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommunication = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null)
     {
         $this
             ->setAddress($address)
@@ -236,7 +239,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType|null
      */
-    public function getAddress()
+    public function getAddress(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType
     {
         return isset($this->Address) ? $this->Address : null;
     }
@@ -247,13 +250,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType $address
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setAddress(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType $address = null)
+    public function setAddress(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfAddressType $address = null): self
     {
         if (is_null($address) || (is_array($address) && empty($address))) {
             unset($this->Address);
         } else {
             $this->Address = $address;
         }
+        
         return $this;
     }
     /**
@@ -263,7 +267,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getDepartmentName()
+    public function getDepartmentName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->DepartmentName) ? $this->DepartmentName : null;
     }
@@ -274,13 +278,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $departmentName
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setDepartmentName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $departmentName = null)
+    public function setDepartmentName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $departmentName = null): self
     {
         if (is_null($departmentName) || (is_array($departmentName) && empty($departmentName))) {
             unset($this->DepartmentName);
         } else {
             $this->DepartmentName = $departmentName;
         }
+        
         return $this;
     }
     /**
@@ -290,7 +295,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType|null
      */
-    public function getEMailAddressCommunication()
+    public function getEMailAddressCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType
     {
         return isset($this->EMailAddressCommunication) ? $this->EMailAddressCommunication : null;
     }
@@ -301,13 +306,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType $eMailAddressCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setEMailAddressCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType $eMailAddressCommunication = null)
+    public function setEMailAddressCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfEMailAddressCommunicationType $eMailAddressCommunication = null): self
     {
         if (is_null($eMailAddressCommunication) || (is_array($eMailAddressCommunication) && empty($eMailAddressCommunication))) {
             unset($this->EMailAddressCommunication);
         } else {
             $this->EMailAddressCommunication = $eMailAddressCommunication;
         }
+        
         return $this;
     }
     /**
@@ -317,7 +323,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public function getFaxTelephoneCommunication()
+    public function getFaxTelephoneCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
     {
         return isset($this->FaxTelephoneCommunication) ? $this->FaxTelephoneCommunication : null;
     }
@@ -328,13 +334,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $faxTelephoneCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setFaxTelephoneCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $faxTelephoneCommunication = null)
+    public function setFaxTelephoneCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $faxTelephoneCommunication = null): self
     {
         if (is_null($faxTelephoneCommunication) || (is_array($faxTelephoneCommunication) && empty($faxTelephoneCommunication))) {
             unset($this->FaxTelephoneCommunication);
         } else {
             $this->FaxTelephoneCommunication = $faxTelephoneCommunication;
         }
+        
         return $this;
     }
     /**
@@ -344,7 +351,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -355,13 +362,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setID(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
     /**
@@ -371,7 +379,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType|null
      */
-    public function getInstantMessageCommunication()
+    public function getInstantMessageCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType
     {
         return isset($this->InstantMessageCommunication) ? $this->InstantMessageCommunication : null;
     }
@@ -382,13 +390,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $instantMessageCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setInstantMessageCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $instantMessageCommunication = null)
+    public function setInstantMessageCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $instantMessageCommunication = null): self
     {
         if (is_null($instantMessageCommunication) || (is_array($instantMessageCommunication) && empty($instantMessageCommunication))) {
             unset($this->InstantMessageCommunication);
         } else {
             $this->InstantMessageCommunication = $instantMessageCommunication;
         }
+        
         return $this;
     }
     /**
@@ -398,7 +407,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType|null
      */
-    public function getInternetAddressCommunication()
+    public function getInternetAddressCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType
     {
         return isset($this->InternetAddressCommunication) ? $this->InternetAddressCommunication : null;
     }
@@ -409,13 +418,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $internetAddressCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setInternetAddressCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $internetAddressCommunication = null)
+    public function setInternetAddressCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $internetAddressCommunication = null): self
     {
         if (is_null($internetAddressCommunication) || (is_array($internetAddressCommunication) && empty($internetAddressCommunication))) {
             unset($this->InternetAddressCommunication);
         } else {
             $this->InternetAddressCommunication = $internetAddressCommunication;
         }
+        
         return $this;
     }
     /**
@@ -425,7 +435,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getJobTitle()
+    public function getJobTitle(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->JobTitle) ? $this->JobTitle : null;
     }
@@ -436,13 +446,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $jobTitle
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setJobTitle(\Randock\PostNL\BulkMailApi\StructType\TextType1 $jobTitle = null)
+    public function setJobTitle(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $jobTitle = null): self
     {
         if (is_null($jobTitle) || (is_array($jobTitle) && empty($jobTitle))) {
             unset($this->JobTitle);
         } else {
             $this->JobTitle = $jobTitle;
         }
+        
         return $this;
     }
     /**
@@ -452,7 +463,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public function getMobileTelephoneCommunication()
+    public function getMobileTelephoneCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
     {
         return isset($this->MobileTelephoneCommunication) ? $this->MobileTelephoneCommunication : null;
     }
@@ -463,13 +474,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $mobileTelephoneCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setMobileTelephoneCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $mobileTelephoneCommunication = null)
+    public function setMobileTelephoneCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $mobileTelephoneCommunication = null): self
     {
         if (is_null($mobileTelephoneCommunication) || (is_array($mobileTelephoneCommunication) && empty($mobileTelephoneCommunication))) {
             unset($this->MobileTelephoneCommunication);
         } else {
             $this->MobileTelephoneCommunication = $mobileTelephoneCommunication;
         }
+        
         return $this;
     }
     /**
@@ -479,7 +491,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getName()
+    public function getName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->Name) ? $this->Name : null;
     }
@@ -490,13 +502,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $name
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $name = null)
+    public function setName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $name = null): self
     {
         if (is_null($name) || (is_array($name) && empty($name))) {
             unset($this->Name);
         } else {
             $this->Name = $name;
         }
+        
         return $this;
     }
     /**
@@ -506,7 +519,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public function getPagerTelephoneCommunication()
+    public function getPagerTelephoneCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
     {
         return isset($this->PagerTelephoneCommunication) ? $this->PagerTelephoneCommunication : null;
     }
@@ -517,13 +530,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $pagerTelephoneCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setPagerTelephoneCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $pagerTelephoneCommunication = null)
+    public function setPagerTelephoneCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $pagerTelephoneCommunication = null): self
     {
         if (is_null($pagerTelephoneCommunication) || (is_array($pagerTelephoneCommunication) && empty($pagerTelephoneCommunication))) {
             unset($this->PagerTelephoneCommunication);
         } else {
             $this->PagerTelephoneCommunication = $pagerTelephoneCommunication;
         }
+        
         return $this;
     }
     /**
@@ -533,7 +547,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\PreferenceType|null
      */
-    public function getPreference()
+    public function getPreference(): ?\Randock\PostNL\BulkMailApi\StructType\PreferenceType
     {
         return isset($this->Preference) ? $this->Preference : null;
     }
@@ -544,13 +558,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\PreferenceType $preference
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setPreference(\Randock\PostNL\BulkMailApi\StructType\PreferenceType $preference = null)
+    public function setPreference(?\Randock\PostNL\BulkMailApi\StructType\PreferenceType $preference = null): self
     {
         if (is_null($preference) || (is_array($preference) && empty($preference))) {
             unset($this->Preference);
         } else {
             $this->Preference = $preference;
         }
+        
         return $this;
     }
     /**
@@ -560,7 +575,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1|null
      */
-    public function getPreferredCommunicationChannel()
+    public function getPreferredCommunicationChannel(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
     {
         return isset($this->PreferredCommunicationChannel) ? $this->PreferredCommunicationChannel : null;
     }
@@ -571,13 +586,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $preferredCommunicationChannel
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setPreferredCommunicationChannel(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $preferredCommunicationChannel = null)
+    public function setPreferredCommunicationChannel(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $preferredCommunicationChannel = null): self
     {
         if (is_null($preferredCommunicationChannel) || (is_array($preferredCommunicationChannel) && empty($preferredCommunicationChannel))) {
             unset($this->PreferredCommunicationChannel);
         } else {
             $this->PreferredCommunicationChannel = $preferredCommunicationChannel;
         }
+        
         return $this;
     }
     /**
@@ -587,7 +603,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1|null
      */
-    public function getResponsibility()
+    public function getResponsibility(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1
     {
         return isset($this->Responsibility) ? $this->Responsibility : null;
     }
@@ -598,13 +614,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $responsibility
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setResponsibility(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $responsibility = null)
+    public function setResponsibility(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTextType1 $responsibility = null): self
     {
         if (is_null($responsibility) || (is_array($responsibility) && empty($responsibility))) {
             unset($this->Responsibility);
         } else {
             $this->Responsibility = $responsibility;
         }
+        
         return $this;
     }
     /**
@@ -614,7 +631,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType|null
      */
-    public function getSocialNetworkCommunication()
+    public function getSocialNetworkCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType
     {
         return isset($this->SocialNetworkCommunication) ? $this->SocialNetworkCommunication : null;
     }
@@ -625,13 +642,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $socialNetworkCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setSocialNetworkCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $socialNetworkCommunication = null)
+    public function setSocialNetworkCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfElectronicCommunicationType $socialNetworkCommunication = null): self
     {
         if (is_null($socialNetworkCommunication) || (is_array($socialNetworkCommunication) && empty($socialNetworkCommunication))) {
             unset($this->SocialNetworkCommunication);
         } else {
             $this->SocialNetworkCommunication = $socialNetworkCommunication;
         }
+        
         return $this;
     }
     /**
@@ -641,7 +659,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function getStatus()
+    public function getStatus(): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return isset($this->Status) ? $this->Status : null;
     }
@@ -652,13 +670,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\StatusType $status
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setStatus(\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null)
+    public function setStatus(?\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null): self
     {
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->Status);
         } else {
             $this->Status = $status;
         }
+        
         return $this;
     }
     /**
@@ -668,7 +687,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public function getTelephoneCommNoAnswer()
+    public function getTelephoneCommNoAnswer(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
     {
         return isset($this->TelephoneCommNoAnswer) ? $this->TelephoneCommNoAnswer : null;
     }
@@ -679,13 +698,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommNoAnswer
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setTelephoneCommNoAnswer(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommNoAnswer = null)
+    public function setTelephoneCommNoAnswer(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommNoAnswer = null): self
     {
         if (is_null($telephoneCommNoAnswer) || (is_array($telephoneCommNoAnswer) && empty($telephoneCommNoAnswer))) {
             unset($this->TelephoneCommNoAnswer);
         } else {
             $this->TelephoneCommNoAnswer = $telephoneCommNoAnswer;
         }
+        
         return $this;
     }
     /**
@@ -695,7 +715,7 @@ class ContactABIEType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType|null
      */
-    public function getTelephoneCommunication()
+    public function getTelephoneCommunication(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType
     {
         return isset($this->TelephoneCommunication) ? $this->TelephoneCommunication : null;
     }
@@ -706,13 +726,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommunication
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setTelephoneCommunication(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommunication = null)
+    public function setTelephoneCommunication(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfTelephoneCommunicationType $telephoneCommunication = null): self
     {
         if (is_null($telephoneCommunication) || (is_array($telephoneCommunication) && empty($telephoneCommunication))) {
             unset($this->TelephoneCommunication);
         } else {
             $this->TelephoneCommunication = $telephoneCommunication;
         }
+        
         return $this;
     }
     /**
@@ -733,13 +754,14 @@ class ContactABIEType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactABIEType
      */
-    public function setType(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null)
+    public function setType($type = null): self
     {
         if (is_null($type) || (is_array($type) && empty($type))) {
             unset($this->Type);
         } else {
             $this->Type = $type;
         }
+        
         return $this;
     }
 }

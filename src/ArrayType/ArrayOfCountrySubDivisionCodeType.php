@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCountrySubDivisionCodeType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType[]
      */
-    public $CountrySubDivisionCodeType;
+    protected ?array $CountrySubDivisionCodeType = null;
     /**
      * Constructor method for ArrayOfCountrySubDivisionCodeType
      * @uses ArrayOfCountrySubDivisionCodeType::setCountrySubDivisionCodeType()
      * @param \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType[] $countrySubDivisionCodeType
      */
-    public function __construct(array $countrySubDivisionCodeType = array())
+    public function __construct(?array $countrySubDivisionCodeType = null)
     {
         $this
             ->setCountrySubDivisionCodeType($countrySubDivisionCodeType);
@@ -37,9 +40,9 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType[]
      */
-    public function getCountrySubDivisionCodeType()
+    public function getCountrySubDivisionCodeType(): ?array
     {
         return isset($this->CountrySubDivisionCodeType) ? $this->CountrySubDivisionCodeType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCountrySubDivisionCodeTypeForArrayConstraintsFromSetCountrySubDivisionCodeType(array $values = array())
+    public static function validateCountrySubDivisionCodeTypeForArrayConstraintsFromSetCountrySubDivisionCodeType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfCountrySubDivisionCodeTypeCountrySubDivisionCodeTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
             $message = sprintf('The CountrySubDivisionCodeType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set CountrySubDivisionCodeType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType[] $countrySubDivisionCodeType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType
      */
-    public function setCountrySubDivisionCodeType(array $countrySubDivisionCodeType = array())
+    public function setCountrySubDivisionCodeType(?array $countrySubDivisionCodeType = null): self
     {
         // validation for constraint: array
         if ('' !== ($countrySubDivisionCodeTypeArrayErrorMessage = self::validateCountrySubDivisionCodeTypeForArrayConstraintsFromSetCountrySubDivisionCodeType($countrySubDivisionCodeType))) {
-            throw new \InvalidArgumentException($countrySubDivisionCodeTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($countrySubDivisionCodeTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($countrySubDivisionCodeType) || (is_array($countrySubDivisionCodeType) && empty($countrySubDivisionCodeType))) {
             unset($this->CountrySubDivisionCodeType);
         } else {
             $this->CountrySubDivisionCodeType = $countrySubDivisionCodeType;
         }
-        return $this;
-    }
-    /**
-     * Add item to CountrySubDivisionCodeType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType
-     */
-    public function addToCountrySubDivisionCodeType(\Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType) {
-            throw new \InvalidArgumentException(sprintf('The CountrySubDivisionCodeType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->CountrySubDivisionCodeType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfCountrySubDivisionCodeType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType) {
+            throw new InvalidArgumentException(sprintf('The CountrySubDivisionCodeType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\CountrySubDivisionCodeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CountrySubDivisionCodeType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CountrySubDivisionCodeType';
     }

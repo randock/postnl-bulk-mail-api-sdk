@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ElectronicCommunicationType StructType
@@ -18,33 +21,33 @@ class ElectronicCommunicationType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ID = null;
     /**
      * The Preference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public $Preference;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $Preference = null;
     /**
      * The UseCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $UseCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $UseCode = null;
     /**
      * The UserArea
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType
+     * @var \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public $UserArea;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $UserArea = null;
     /**
      * Constructor method for ElectronicCommunicationType
      * @uses ElectronicCommunicationType::setID()
@@ -56,7 +59,7 @@ class ElectronicCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null, \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null, ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
     {
         $this
             ->setID($iD)
@@ -71,7 +74,7 @@ class ElectronicCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -82,13 +85,14 @@ class ElectronicCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\ElectronicCommunicationType
      */
-    public function setID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
     /**
@@ -98,7 +102,7 @@ class ElectronicCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public function getPreference()
+    public function getPreference(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
     {
         return isset($this->Preference) ? $this->Preference : null;
     }
@@ -109,13 +113,14 @@ class ElectronicCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference
      * @return \Randock\PostNL\BulkMailApi\StructType\ElectronicCommunicationType
      */
-    public function setPreference(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null)
+    public function setPreference(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null): self
     {
         if (is_null($preference) || (is_array($preference) && empty($preference))) {
             unset($this->Preference);
         } else {
             $this->Preference = $preference;
         }
+        
         return $this;
     }
     /**
@@ -125,7 +130,7 @@ class ElectronicCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getUseCode()
+    public function getUseCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->UseCode) ? $this->UseCode : null;
     }
@@ -136,13 +141,14 @@ class ElectronicCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode
      * @return \Randock\PostNL\BulkMailApi\StructType\ElectronicCommunicationType
      */
-    public function setUseCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null)
+    public function setUseCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $useCode = null): self
     {
         if (is_null($useCode) || (is_array($useCode) && empty($useCode))) {
             unset($this->UseCode);
         } else {
             $this->UseCode = $useCode;
         }
+        
         return $this;
     }
     /**
@@ -152,7 +158,7 @@ class ElectronicCommunicationType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\UserAreaType|null
      */
-    public function getUserArea()
+    public function getUserArea(): ?\Randock\PostNL\BulkMailApi\StructType\UserAreaType
     {
         return isset($this->UserArea) ? $this->UserArea : null;
     }
@@ -163,13 +169,14 @@ class ElectronicCommunicationType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea
      * @return \Randock\PostNL\BulkMailApi\StructType\ElectronicCommunicationType
      */
-    public function setUserArea(\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null)
+    public function setUserArea(?\Randock\PostNL\BulkMailApi\StructType\UserAreaType $userArea = null): self
     {
         if (is_null($userArea) || (is_array($userArea) && empty($userArea))) {
             unset($this->UserArea);
         } else {
             $this->UserArea = $userArea;
         }
+        
         return $this;
     }
 }

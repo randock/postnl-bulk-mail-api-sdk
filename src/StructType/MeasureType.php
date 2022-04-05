@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeasureType StructType
@@ -17,17 +20,17 @@ class MeasureType extends AbstractStructBase
      * The Value
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Value;
+    protected ?float $Value = null;
     /**
      * The unitCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $unitCode;
+    protected ?string $unitCode = null;
     /**
      * Constructor method for MeasureType
      * @uses MeasureType::setValue()
@@ -35,7 +38,7 @@ class MeasureType extends AbstractStructBase
      * @param float $value
      * @param string $unitCode
      */
-    public function __construct($value = null, $unitCode = null)
+    public function __construct(?float $value = null, ?string $unitCode = null)
     {
         $this
             ->setValue($value)
@@ -45,7 +48,7 @@ class MeasureType extends AbstractStructBase
      * Get Value value
      * @return float|null
      */
-    public function getValue()
+    public function getValue(): ?float
     {
         return $this->Value;
     }
@@ -54,13 +57,14 @@ class MeasureType extends AbstractStructBase
      * @param float $value
      * @return \Randock\PostNL\BulkMailApi\StructType\MeasureType
      */
-    public function setValue($value = null)
+    public function setValue(?float $value = null): self
     {
         // validation for constraint: float
         if (!is_null($value) && !(is_float($value) || is_numeric($value))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
     /**
@@ -70,7 +74,7 @@ class MeasureType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getUnitCode()
+    public function getUnitCode(): ?string
     {
         return isset($this->unitCode) ? $this->unitCode : null;
     }
@@ -81,17 +85,18 @@ class MeasureType extends AbstractStructBase
      * @param string $unitCode
      * @return \Randock\PostNL\BulkMailApi\StructType\MeasureType
      */
-    public function setUnitCode($unitCode = null)
+    public function setUnitCode(?string $unitCode = null): self
     {
         // validation for constraint: string
         if (!is_null($unitCode) && !is_string($unitCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unitCode, true), gettype($unitCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unitCode, true), gettype($unitCode)), __LINE__);
         }
         if (is_null($unitCode) || (is_array($unitCode) && empty($unitCode))) {
             unset($this->unitCode);
         } else {
             $this->unitCode = $unitCode;
         }
+        
         return $this;
     }
 }

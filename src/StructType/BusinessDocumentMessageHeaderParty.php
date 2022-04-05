@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BusinessDocumentMessageHeaderParty StructType
@@ -18,25 +21,25 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
+     * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson|null
      */
-    public $ContactPerson;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson $ContactPerson = null;
     /**
      * The InternalID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\PartyInternalID
+     * @var \Randock\PostNL\BulkMailApi\StructType\PartyInternalID|null
      */
-    public $InternalID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\PartyInternalID $InternalID = null;
     /**
      * The StandardID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID|null
      */
-    public $StandardID;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $StandardID = null;
     /**
      * Constructor method for BusinessDocumentMessageHeaderParty
      * @uses BusinessDocumentMessageHeaderParty::setContactPerson()
@@ -46,7 +49,7 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\PartyInternalID $internalID
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $standardID
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson $contactPerson = null, \Randock\PostNL\BulkMailApi\StructType\PartyInternalID $internalID = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $standardID = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson $contactPerson = null, ?\Randock\PostNL\BulkMailApi\StructType\PartyInternalID $internalID = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $standardID = null)
     {
         $this
             ->setContactPerson($contactPerson)
@@ -60,7 +63,7 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson|null
      */
-    public function getContactPerson()
+    public function getContactPerson(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson
     {
         return isset($this->ContactPerson) ? $this->ContactPerson : null;
     }
@@ -71,13 +74,14 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson $contactPerson
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
      */
-    public function setContactPerson(\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson $contactPerson = null)
+    public function setContactPerson(?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderPartyContactPerson $contactPerson = null): self
     {
         if (is_null($contactPerson) || (is_array($contactPerson) && empty($contactPerson))) {
             unset($this->ContactPerson);
         } else {
             $this->ContactPerson = $contactPerson;
         }
+        
         return $this;
     }
     /**
@@ -87,7 +91,7 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyInternalID|null
      */
-    public function getInternalID()
+    public function getInternalID(): ?\Randock\PostNL\BulkMailApi\StructType\PartyInternalID
     {
         return isset($this->InternalID) ? $this->InternalID : null;
     }
@@ -98,13 +102,14 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\PartyInternalID $internalID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
      */
-    public function setInternalID(\Randock\PostNL\BulkMailApi\StructType\PartyInternalID $internalID = null)
+    public function setInternalID(?\Randock\PostNL\BulkMailApi\StructType\PartyInternalID $internalID = null): self
     {
         if (is_null($internalID) || (is_array($internalID) && empty($internalID))) {
             unset($this->InternalID);
         } else {
             $this->InternalID = $internalID;
         }
+        
         return $this;
     }
     /**
@@ -114,7 +119,7 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID|null
      */
-    public function getStandardID()
+    public function getStandardID(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID
     {
         return isset($this->StandardID) ? $this->StandardID : null;
     }
@@ -125,13 +130,14 @@ class BusinessDocumentMessageHeaderParty extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $standardID
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
      */
-    public function setStandardID(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $standardID = null)
+    public function setStandardID(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPartyStandardID $standardID = null): self
     {
         if (is_null($standardID) || (is_array($standardID) && empty($standardID))) {
             unset($this->StandardID);
         } else {
             $this->StandardID = $standardID;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PartyStandardID StructType
@@ -18,17 +21,17 @@ class PartyStandardID extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The schemeAgencyID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $schemeAgencyID;
+    protected ?string $schemeAgencyID = null;
     /**
      * Constructor method for PartyStandardID
      * @uses PartyStandardID::setValue()
@@ -36,7 +39,7 @@ class PartyStandardID extends AbstractStructBase
      * @param string $value
      * @param string $schemeAgencyID
      */
-    public function __construct($value = null, $schemeAgencyID = null)
+    public function __construct(?string $value = null, ?string $schemeAgencyID = null)
     {
         $this
             ->setValue($value)
@@ -49,7 +52,7 @@ class PartyStandardID extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -60,17 +63,18 @@ class PartyStandardID extends AbstractStructBase
      * @param string $value
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyStandardID
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
@@ -80,7 +84,7 @@ class PartyStandardID extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getSchemeAgencyID()
+    public function getSchemeAgencyID(): ?string
     {
         return isset($this->schemeAgencyID) ? $this->schemeAgencyID : null;
     }
@@ -91,17 +95,18 @@ class PartyStandardID extends AbstractStructBase
      * @param string $schemeAgencyID
      * @return \Randock\PostNL\BulkMailApi\StructType\PartyStandardID
      */
-    public function setSchemeAgencyID($schemeAgencyID = null)
+    public function setSchemeAgencyID(?string $schemeAgencyID = null): self
     {
         // validation for constraint: string
         if (!is_null($schemeAgencyID) && !is_string($schemeAgencyID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($schemeAgencyID, true), gettype($schemeAgencyID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($schemeAgencyID, true), gettype($schemeAgencyID)), __LINE__);
         }
         if (is_null($schemeAgencyID) || (is_array($schemeAgencyID) && empty($schemeAgencyID))) {
             unset($this->schemeAgencyID);
         } else {
             $this->schemeAgencyID = $schemeAgencyID;
         }
+        
         return $this;
     }
 }

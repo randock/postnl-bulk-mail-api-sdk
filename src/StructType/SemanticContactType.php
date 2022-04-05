@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SemanticContactType StructType
@@ -18,15 +21,15 @@ class SemanticContactType extends ContactABIEType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $languageCode;
+    protected ?string $languageCode = null;
     /**
      * Constructor method for SemanticContactType
      * @uses SemanticContactType::setLanguageCode()
      * @param string $languageCode
      */
-    public function __construct($languageCode = null)
+    public function __construct(?string $languageCode = null)
     {
         $this
             ->setLanguageCode($languageCode);
@@ -38,7 +41,7 @@ class SemanticContactType extends ContactABIEType
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLanguageCode()
+    public function getLanguageCode(): ?string
     {
         return isset($this->languageCode) ? $this->languageCode : null;
     }
@@ -49,17 +52,18 @@ class SemanticContactType extends ContactABIEType
      * @param string $languageCode
      * @return \Randock\PostNL\BulkMailApi\StructType\SemanticContactType
      */
-    public function setLanguageCode($languageCode = null)
+    public function setLanguageCode(?string $languageCode = null): self
     {
         // validation for constraint: string
         if (!is_null($languageCode) && !is_string($languageCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageCode, true), gettype($languageCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageCode, true), gettype($languageCode)), __LINE__);
         }
         if (is_null($languageCode) || (is_array($languageCode) && empty($languageCode))) {
             unset($this->languageCode);
         } else {
             $this->languageCode = $languageCode;
         }
+        
         return $this;
     }
 }

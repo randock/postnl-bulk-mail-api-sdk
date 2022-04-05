@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfLocationType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\LocationType[]
      */
-    public $LocationType;
+    protected ?array $LocationType = null;
     /**
      * Constructor method for ArrayOfLocationType
      * @uses ArrayOfLocationType::setLocationType()
      * @param \Randock\PostNL\BulkMailApi\StructType\LocationType[] $locationType
      */
-    public function __construct(array $locationType = array())
+    public function __construct(?array $locationType = null)
     {
         $this
             ->setLocationType($locationType);
@@ -37,9 +40,9 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\LocationType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\LocationType[]
      */
-    public function getLocationType()
+    public function getLocationType(): ?array
     {
         return isset($this->LocationType) ? $this->LocationType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateLocationTypeForArrayConstraintsFromSetLocationType(array $values = array())
+    public static function validateLocationTypeForArrayConstraintsFromSetLocationType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfLocationTypeLocationTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfLocationType extends AbstractStructArrayBase
             $message = sprintf('The LocationType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\LocationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set LocationType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\LocationType[] $locationType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType
      */
-    public function setLocationType(array $locationType = array())
+    public function setLocationType(?array $locationType = null): self
     {
         // validation for constraint: array
         if ('' !== ($locationTypeArrayErrorMessage = self::validateLocationTypeForArrayConstraintsFromSetLocationType($locationType))) {
-            throw new \InvalidArgumentException($locationTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($locationTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($locationType) || (is_array($locationType) && empty($locationType))) {
             unset($this->LocationType);
         } else {
             $this->LocationType = $locationType;
         }
-        return $this;
-    }
-    /**
-     * Add item to LocationType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\LocationType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType
-     */
-    public function addToLocationType(\Randock\PostNL\BulkMailApi\StructType\LocationType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\LocationType) {
-            throw new \InvalidArgumentException(sprintf('The LocationType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\LocationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->LocationType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\LocationType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\LocationType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\LocationType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\LocationType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\LocationType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\LocationType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\LocationType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\LocationType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfLocationType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\LocationType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\LocationType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\LocationType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfLocationType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\LocationType) {
+            throw new InvalidArgumentException(sprintf('The LocationType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\LocationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string LocationType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'LocationType';
     }

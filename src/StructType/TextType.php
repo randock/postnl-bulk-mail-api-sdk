@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TextType StructType
@@ -18,25 +21,25 @@ class TextType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The languageCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $languageCode;
+    protected ?string $languageCode = null;
     /**
      * The markupLanguageCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $markupLanguageCode;
+    protected ?string $markupLanguageCode = null;
     /**
      * Constructor method for TextType
      * @uses TextType::setValue()
@@ -46,7 +49,7 @@ class TextType extends AbstractStructBase
      * @param string $languageCode
      * @param string $markupLanguageCode
      */
-    public function __construct($value = null, $languageCode = null, $markupLanguageCode = null)
+    public function __construct(?string $value = null, ?string $languageCode = null, ?string $markupLanguageCode = null)
     {
         $this
             ->setValue($value)
@@ -60,7 +63,7 @@ class TextType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -71,17 +74,18 @@ class TextType extends AbstractStructBase
      * @param string $value
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
@@ -91,7 +95,7 @@ class TextType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLanguageCode()
+    public function getLanguageCode(): ?string
     {
         return isset($this->languageCode) ? $this->languageCode : null;
     }
@@ -102,17 +106,18 @@ class TextType extends AbstractStructBase
      * @param string $languageCode
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType
      */
-    public function setLanguageCode($languageCode = null)
+    public function setLanguageCode(?string $languageCode = null): self
     {
         // validation for constraint: string
         if (!is_null($languageCode) && !is_string($languageCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageCode, true), gettype($languageCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageCode, true), gettype($languageCode)), __LINE__);
         }
         if (is_null($languageCode) || (is_array($languageCode) && empty($languageCode))) {
             unset($this->languageCode);
         } else {
             $this->languageCode = $languageCode;
         }
+        
         return $this;
     }
     /**
@@ -122,7 +127,7 @@ class TextType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getMarkupLanguageCode()
+    public function getMarkupLanguageCode(): ?string
     {
         return isset($this->markupLanguageCode) ? $this->markupLanguageCode : null;
     }
@@ -133,17 +138,18 @@ class TextType extends AbstractStructBase
      * @param string $markupLanguageCode
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType
      */
-    public function setMarkupLanguageCode($markupLanguageCode = null)
+    public function setMarkupLanguageCode(?string $markupLanguageCode = null): self
     {
         // validation for constraint: string
         if (!is_null($markupLanguageCode) && !is_string($markupLanguageCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($markupLanguageCode, true), gettype($markupLanguageCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($markupLanguageCode, true), gettype($markupLanguageCode)), __LINE__);
         }
         if (is_null($markupLanguageCode) || (is_array($markupLanguageCode) && empty($markupLanguageCode))) {
             unset($this->markupLanguageCode);
         } else {
             $this->markupLanguageCode = $markupLanguageCode;
         }
+        
         return $this;
     }
 }

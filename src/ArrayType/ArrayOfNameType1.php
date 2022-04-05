@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfNameType1 ArrayType
@@ -21,13 +24,13 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\NameType1[]
      */
-    public $NameType1;
+    protected ?array $NameType1 = null;
     /**
      * Constructor method for ArrayOfNameType1
      * @uses ArrayOfNameType1::setNameType1()
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1[] $nameType1
      */
-    public function __construct(array $nameType1 = array())
+    public function __construct(?array $nameType1 = null)
     {
         $this
             ->setNameType1($nameType1);
@@ -37,9 +40,9 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\NameType1[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\NameType1[]
      */
-    public function getNameType1()
+    public function getNameType1(): ?array
     {
         return isset($this->NameType1) ? $this->NameType1 : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateNameType1ForArrayConstraintsFromSetNameType1(array $values = array())
+    public static function validateNameType1ForArrayConstraintsFromSetNameType1(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfNameType1NameType1Item) {
@@ -63,42 +69,29 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
             $message = sprintf('The NameType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\NameType1, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set NameType1 value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1[] $nameType1
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
      */
-    public function setNameType1(array $nameType1 = array())
+    public function setNameType1(?array $nameType1 = null): self
     {
         // validation for constraint: array
         if ('' !== ($nameType1ArrayErrorMessage = self::validateNameType1ForArrayConstraintsFromSetNameType1($nameType1))) {
-            throw new \InvalidArgumentException($nameType1ArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($nameType1ArrayErrorMessage, __LINE__);
         }
         if (is_null($nameType1) || (is_array($nameType1) && empty($nameType1))) {
             unset($this->NameType1);
         } else {
             $this->NameType1 = $nameType1;
         }
-        return $this;
-    }
-    /**
-     * Add item to NameType1 value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
-     */
-    public function addToNameType1(\Randock\PostNL\BulkMailApi\StructType\NameType1 $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\NameType1) {
-            throw new \InvalidArgumentException(sprintf('The NameType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\NameType1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->NameType1[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfNameType1 extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\NameType1) {
+            throw new InvalidArgumentException(sprintf('The NameType1 property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\NameType1, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string NameType1
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'NameType1';
     }

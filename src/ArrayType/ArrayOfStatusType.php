@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfStatusType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\StatusType[]
      */
-    public $StatusType;
+    protected ?array $StatusType = null;
     /**
      * Constructor method for ArrayOfStatusType
      * @uses ArrayOfStatusType::setStatusType()
      * @param \Randock\PostNL\BulkMailApi\StructType\StatusType[] $statusType
      */
-    public function __construct(array $statusType = array())
+    public function __construct(?array $statusType = null)
     {
         $this
             ->setStatusType($statusType);
@@ -37,9 +40,9 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\StatusType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\StatusType[]
      */
-    public function getStatusType()
+    public function getStatusType(): ?array
     {
         return isset($this->StatusType) ? $this->StatusType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateStatusTypeForArrayConstraintsFromSetStatusType(array $values = array())
+    public static function validateStatusTypeForArrayConstraintsFromSetStatusType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfStatusTypeStatusTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfStatusType extends AbstractStructArrayBase
             $message = sprintf('The StatusType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\StatusType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set StatusType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\StatusType[] $statusType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
      */
-    public function setStatusType(array $statusType = array())
+    public function setStatusType(?array $statusType = null): self
     {
         // validation for constraint: array
         if ('' !== ($statusTypeArrayErrorMessage = self::validateStatusTypeForArrayConstraintsFromSetStatusType($statusType))) {
-            throw new \InvalidArgumentException($statusTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($statusTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($statusType) || (is_array($statusType) && empty($statusType))) {
             unset($this->StatusType);
         } else {
             $this->StatusType = $statusType;
         }
-        return $this;
-    }
-    /**
-     * Add item to StatusType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\StatusType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
-     */
-    public function addToStatusType(\Randock\PostNL\BulkMailApi\StructType\StatusType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\StatusType) {
-            throw new \InvalidArgumentException(sprintf('The StatusType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\StatusType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->StatusType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfStatusType extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\StatusType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\StatusType) {
+            throw new InvalidArgumentException(sprintf('The StatusType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\StatusType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string StatusType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'StatusType';
     }

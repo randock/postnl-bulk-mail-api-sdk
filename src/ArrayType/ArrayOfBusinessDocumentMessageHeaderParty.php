@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfBusinessDocumentMessageHeaderParty ArrayType
@@ -21,13 +24,13 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty[]
      */
-    public $BusinessDocumentMessageHeaderParty;
+    protected ?array $BusinessDocumentMessageHeaderParty = null;
     /**
      * Constructor method for ArrayOfBusinessDocumentMessageHeaderParty
      * @uses ArrayOfBusinessDocumentMessageHeaderParty::setBusinessDocumentMessageHeaderParty()
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty[] $businessDocumentMessageHeaderParty
      */
-    public function __construct(array $businessDocumentMessageHeaderParty = array())
+    public function __construct(?array $businessDocumentMessageHeaderParty = null)
     {
         $this
             ->setBusinessDocumentMessageHeaderParty($businessDocumentMessageHeaderParty);
@@ -37,9 +40,9 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty[]
      */
-    public function getBusinessDocumentMessageHeaderParty()
+    public function getBusinessDocumentMessageHeaderParty(): ?array
     {
         return isset($this->BusinessDocumentMessageHeaderParty) ? $this->BusinessDocumentMessageHeaderParty : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateBusinessDocumentMessageHeaderPartyForArrayConstraintsFromSetBusinessDocumentMessageHeaderParty(array $values = array())
+    public static function validateBusinessDocumentMessageHeaderPartyForArrayConstraintsFromSetBusinessDocumentMessageHeaderParty(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfBusinessDocumentMessageHeaderPartyBusinessDocumentMessageHeaderPartyItem) {
@@ -63,42 +69,29 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
             $message = sprintf('The BusinessDocumentMessageHeaderParty property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set BusinessDocumentMessageHeaderParty value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty[] $businessDocumentMessageHeaderParty
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty
      */
-    public function setBusinessDocumentMessageHeaderParty(array $businessDocumentMessageHeaderParty = array())
+    public function setBusinessDocumentMessageHeaderParty(?array $businessDocumentMessageHeaderParty = null): self
     {
         // validation for constraint: array
         if ('' !== ($businessDocumentMessageHeaderPartyArrayErrorMessage = self::validateBusinessDocumentMessageHeaderPartyForArrayConstraintsFromSetBusinessDocumentMessageHeaderParty($businessDocumentMessageHeaderParty))) {
-            throw new \InvalidArgumentException($businessDocumentMessageHeaderPartyArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($businessDocumentMessageHeaderPartyArrayErrorMessage, __LINE__);
         }
         if (is_null($businessDocumentMessageHeaderParty) || (is_array($businessDocumentMessageHeaderParty) && empty($businessDocumentMessageHeaderParty))) {
             unset($this->BusinessDocumentMessageHeaderParty);
         } else {
             $this->BusinessDocumentMessageHeaderParty = $businessDocumentMessageHeaderParty;
         }
-        return $this;
-    }
-    /**
-     * Add item to BusinessDocumentMessageHeaderParty value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty
-     */
-    public function addToBusinessDocumentMessageHeaderParty(\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty) {
-            throw new \InvalidArgumentException(sprintf('The BusinessDocumentMessageHeaderParty property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->BusinessDocumentMessageHeaderParty[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfBusinessDocumentMessageHeaderParty extends AbstractStructArrayBase
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBusinessDocumentMessageHeaderParty
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty) {
+            throw new InvalidArgumentException(sprintf('The BusinessDocumentMessageHeaderParty property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\BusinessDocumentMessageHeaderParty, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string BusinessDocumentMessageHeaderParty
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'BusinessDocumentMessageHeaderParty';
     }

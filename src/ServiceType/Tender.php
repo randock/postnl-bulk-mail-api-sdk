@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ServiceType;
 
-use \WsdlToPhp\PackageBase\AbstractSoapClientBase;
+use SoapFault;
+use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * This class stands for Tender ServiceType
@@ -14,7 +17,6 @@ class Tender extends AbstractSoapClientBase
      * Method to call the operation originally named TenderBulkMailOrderV2
      * @uses AbstractSoapClientBase::getSoapClient()
      * @uses AbstractSoapClientBase::setResult()
-     * @uses AbstractSoapClientBase::getResult()
      * @uses AbstractSoapClientBase::saveLastError()
      * @param \Randock\PostNL\BulkMailApi\StructType\TenderBulkMailOrderV2 $parameters
      * @return \Randock\PostNL\BulkMailApi\StructType\TenderBulkMailOrderV2Response|bool
@@ -22,12 +24,14 @@ class Tender extends AbstractSoapClientBase
     public function TenderBulkMailOrderV2(\Randock\PostNL\BulkMailApi\StructType\TenderBulkMailOrderV2 $parameters)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('TenderBulkMailOrderV2', array(
+            $this->setResult($resultTenderBulkMailOrderV2 = $this->getSoapClient()->__soapCall('TenderBulkMailOrderV2', [
                 $parameters,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultTenderBulkMailOrderV2;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }

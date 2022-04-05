@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Business2BusinessContainerV2 StructType
@@ -18,17 +21,17 @@ class Business2BusinessContainerV2 extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType|null
      */
-    public $BulkMailOrders;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $BulkMailOrders = null;
     /**
      * The MessageHeader
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType
+     * @var \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType|null
      */
-    public $MessageHeader;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $MessageHeader = null;
     /**
      * Constructor method for Business2BusinessContainerV2
      * @uses Business2BusinessContainerV2::setBulkMailOrders()
@@ -36,7 +39,7 @@ class Business2BusinessContainerV2 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $bulkMailOrders
      * @param \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $bulkMailOrders = null, \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $bulkMailOrders = null, ?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null)
     {
         $this
             ->setBulkMailOrders($bulkMailOrders)
@@ -49,7 +52,7 @@ class Business2BusinessContainerV2 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType|null
      */
-    public function getBulkMailOrders()
+    public function getBulkMailOrders(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType
     {
         return isset($this->BulkMailOrders) ? $this->BulkMailOrders : null;
     }
@@ -60,13 +63,14 @@ class Business2BusinessContainerV2 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $bulkMailOrders
      * @return \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
      */
-    public function setBulkMailOrders(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $bulkMailOrders = null)
+    public function setBulkMailOrders(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfBulkmailOrderType $bulkMailOrders = null): self
     {
         if (is_null($bulkMailOrders) || (is_array($bulkMailOrders) && empty($bulkMailOrders))) {
             unset($this->BulkMailOrders);
         } else {
             $this->BulkMailOrders = $bulkMailOrders;
         }
+        
         return $this;
     }
     /**
@@ -76,7 +80,7 @@ class Business2BusinessContainerV2 extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType|null
      */
-    public function getMessageHeader()
+    public function getMessageHeader(): ?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType
     {
         return isset($this->MessageHeader) ? $this->MessageHeader : null;
     }
@@ -87,13 +91,14 @@ class Business2BusinessContainerV2 extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader
      * @return \Randock\PostNL\BulkMailApi\StructType\Business2BusinessContainerV2
      */
-    public function setMessageHeader(\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null)
+    public function setMessageHeader(?\Randock\PostNL\BulkMailApi\StructType\MessageHeaderType $messageHeader = null): self
     {
         if (is_null($messageHeader) || (is_array($messageHeader) && empty($messageHeader))) {
             unset($this->MessageHeader);
         } else {
             $this->MessageHeader = $messageHeader;
         }
+        
         return $this;
     }
 }

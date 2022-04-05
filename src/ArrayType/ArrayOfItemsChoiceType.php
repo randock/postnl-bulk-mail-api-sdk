@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfItemsChoiceType ArrayType
@@ -20,22 +23,22 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $ItemsChoiceType;
+    protected ?array $ItemsChoiceType = null;
     /**
      * Constructor method for ArrayOfItemsChoiceType
      * @uses ArrayOfItemsChoiceType::setItemsChoiceType()
      * @param string[] $itemsChoiceType
      */
-    public function __construct(array $itemsChoiceType = array())
+    public function __construct(?array $itemsChoiceType = null)
     {
         $this
             ->setItemsChoiceType($itemsChoiceType);
     }
     /**
      * Get ItemsChoiceType value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getItemsChoiceType()
+    public function getItemsChoiceType(): ?array
     {
         return $this->ItemsChoiceType;
     }
@@ -45,8 +48,11 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateItemsChoiceTypeForArrayConstraintsFromSetItemsChoiceType(array $values = array())
+    public static function validateItemsChoiceTypeForArrayConstraintsFromSetItemsChoiceType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfItemsChoiceTypeItemsChoiceTypeItem) {
@@ -59,40 +65,25 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
             $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ItemsChoiceType value
      * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::valueIsValid()
      * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $itemsChoiceType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType
      */
-    public function setItemsChoiceType(array $itemsChoiceType = array())
+    public function setItemsChoiceType(?array $itemsChoiceType = null): self
     {
         // validation for constraint: array
         if ('' !== ($itemsChoiceTypeArrayErrorMessage = self::validateItemsChoiceTypeForArrayConstraintsFromSetItemsChoiceType($itemsChoiceType))) {
-            throw new \InvalidArgumentException($itemsChoiceTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemsChoiceTypeArrayErrorMessage, __LINE__);
         }
         $this->ItemsChoiceType = $itemsChoiceType;
-        return $this;
-    }
-    /**
-     * Add item to ItemsChoiceType value
-     * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::valueIsValid()
-     * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType
-     */
-    public function addToItemsChoiceType($item)
-    {
-        // validation for constraint: enumeration
-        if (!\Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::getValidValues())), __LINE__);
-        }
-        $this->ItemsChoiceType[] = $item;
+        
         return $this;
     }
     /**
@@ -100,7 +91,7 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -110,7 +101,7 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -119,7 +110,7 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -128,7 +119,7 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -138,23 +129,22 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType
      */
-    public function add($item)
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::getValidValues())), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Randock\PostNL\BulkMailApi\EnumType\ItemsChoiceType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -163,7 +153,7 @@ class ArrayOfItemsChoiceType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ItemsChoiceType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ItemsChoiceType';
     }

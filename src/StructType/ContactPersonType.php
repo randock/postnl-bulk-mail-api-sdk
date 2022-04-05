@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactPersonType StructType
@@ -18,33 +21,33 @@ class ContactPersonType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\ContactType
+     * @var \Randock\PostNL\BulkMailApi\StructType\ContactType|null
      */
-    public $Contact;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\ContactType $Contact = null;
     /**
      * The ContactPersonID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $ContactPersonID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $ContactPersonID = null;
     /**
      * The NamePerson
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NamePersonType
+     * @var \Randock\PostNL\BulkMailApi\StructType\NamePersonType|null
      */
-    public $NamePerson;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NamePersonType $NamePerson = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\StatusType
+     * @var \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public $Status;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\StatusType $Status = null;
     /**
      * Constructor method for ContactPersonType
      * @uses ContactPersonType::setContact()
@@ -56,7 +59,7 @@ class ContactPersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NamePersonType $namePerson
      * @param \Randock\PostNL\BulkMailApi\StructType\StatusType $status
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\ContactType $contact = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contactPersonID = null, \Randock\PostNL\BulkMailApi\StructType\NamePersonType $namePerson = null, \Randock\PostNL\BulkMailApi\StructType\StatusType $status = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\ContactType $contact = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contactPersonID = null, ?\Randock\PostNL\BulkMailApi\StructType\NamePersonType $namePerson = null, ?\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null)
     {
         $this
             ->setContact($contact)
@@ -71,7 +74,7 @@ class ContactPersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactType|null
      */
-    public function getContact()
+    public function getContact(): ?\Randock\PostNL\BulkMailApi\StructType\ContactType
     {
         return isset($this->Contact) ? $this->Contact : null;
     }
@@ -82,13 +85,14 @@ class ContactPersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\ContactType $contact
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactPersonType
      */
-    public function setContact(\Randock\PostNL\BulkMailApi\StructType\ContactType $contact = null)
+    public function setContact(?\Randock\PostNL\BulkMailApi\StructType\ContactType $contact = null): self
     {
         if (is_null($contact) || (is_array($contact) && empty($contact))) {
             unset($this->Contact);
         } else {
             $this->Contact = $contact;
         }
+        
         return $this;
     }
     /**
@@ -98,7 +102,7 @@ class ContactPersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getContactPersonID()
+    public function getContactPersonID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->ContactPersonID) ? $this->ContactPersonID : null;
     }
@@ -109,13 +113,14 @@ class ContactPersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contactPersonID
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactPersonType
      */
-    public function setContactPersonID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contactPersonID = null)
+    public function setContactPersonID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $contactPersonID = null): self
     {
         if (is_null($contactPersonID) || (is_array($contactPersonID) && empty($contactPersonID))) {
             unset($this->ContactPersonID);
         } else {
             $this->ContactPersonID = $contactPersonID;
         }
+        
         return $this;
     }
     /**
@@ -125,7 +130,7 @@ class ContactPersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NamePersonType|null
      */
-    public function getNamePerson()
+    public function getNamePerson(): ?\Randock\PostNL\BulkMailApi\StructType\NamePersonType
     {
         return isset($this->NamePerson) ? $this->NamePerson : null;
     }
@@ -136,13 +141,14 @@ class ContactPersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NamePersonType $namePerson
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactPersonType
      */
-    public function setNamePerson(\Randock\PostNL\BulkMailApi\StructType\NamePersonType $namePerson = null)
+    public function setNamePerson(?\Randock\PostNL\BulkMailApi\StructType\NamePersonType $namePerson = null): self
     {
         if (is_null($namePerson) || (is_array($namePerson) && empty($namePerson))) {
             unset($this->NamePerson);
         } else {
             $this->NamePerson = $namePerson;
         }
+        
         return $this;
     }
     /**
@@ -152,7 +158,7 @@ class ContactPersonType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function getStatus()
+    public function getStatus(): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return isset($this->Status) ? $this->Status : null;
     }
@@ -163,13 +169,14 @@ class ContactPersonType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\StatusType $status
      * @return \Randock\PostNL\BulkMailApi\StructType\ContactPersonType
      */
-    public function setStatus(\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null)
+    public function setStatus(?\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null): self
     {
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->Status);
         } else {
             $this->Status = $status;
         }
+        
         return $this;
     }
 }

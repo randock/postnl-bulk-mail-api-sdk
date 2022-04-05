@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PayerPartyBaseType StructType
@@ -18,15 +21,15 @@ class PayerPartyBaseType extends PartyBaseType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\BankAccountType
+     * @var \Randock\PostNL\BulkMailApi\StructType\BankAccountType|null
      */
-    public $BankAccount;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\BankAccountType $BankAccount = null;
     /**
      * Constructor method for PayerPartyBaseType
      * @uses PayerPartyBaseType::setBankAccount()
      * @param \Randock\PostNL\BulkMailApi\StructType\BankAccountType $bankAccount
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\BankAccountType $bankAccount = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\BankAccountType $bankAccount = null)
     {
         $this
             ->setBankAccount($bankAccount);
@@ -38,7 +41,7 @@ class PayerPartyBaseType extends PartyBaseType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\BankAccountType|null
      */
-    public function getBankAccount()
+    public function getBankAccount(): ?\Randock\PostNL\BulkMailApi\StructType\BankAccountType
     {
         return isset($this->BankAccount) ? $this->BankAccount : null;
     }
@@ -49,13 +52,14 @@ class PayerPartyBaseType extends PartyBaseType
      * @param \Randock\PostNL\BulkMailApi\StructType\BankAccountType $bankAccount
      * @return \Randock\PostNL\BulkMailApi\StructType\PayerPartyBaseType
      */
-    public function setBankAccount(\Randock\PostNL\BulkMailApi\StructType\BankAccountType $bankAccount = null)
+    public function setBankAccount(?\Randock\PostNL\BulkMailApi\StructType\BankAccountType $bankAccount = null): self
     {
         if (is_null($bankAccount) || (is_array($bankAccount) && empty($bankAccount))) {
             unset($this->BankAccount);
         } else {
             $this->BankAccount = $bankAccount;
         }
+        
         return $this;
     }
 }

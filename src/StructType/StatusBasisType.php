@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for StatusBasisType StructType
@@ -18,41 +21,41 @@ class StatusBasisType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $Code;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $Code = null;
     /**
      * The Description
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\DescriptionType
+     * @var \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public $Description;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType $Description = null;
     /**
      * The EffectiveDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $EffectiveDateTime;
+    protected ?string $EffectiveDateTime = null;
     /**
      * The Reason
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType|null
      */
-    public $Reason;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $Reason = null;
     /**
      * The ReasonCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $ReasonCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $ReasonCode = null;
     /**
      * Constructor method for StatusBasisType
      * @uses StatusBasisType::setCode()
@@ -66,7 +69,7 @@ class StatusBasisType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $reason
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $reasonCode
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $code = null, \Randock\PostNL\BulkMailApi\StructType\DescriptionType $description = null, $effectiveDateTime = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $reason = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $reasonCode = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $code = null, ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType $description = null, ?string $effectiveDateTime = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $reason = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $reasonCode = null)
     {
         $this
             ->setCode($code)
@@ -82,7 +85,7 @@ class StatusBasisType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getCode()
+    public function getCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->Code) ? $this->Code : null;
     }
@@ -93,13 +96,14 @@ class StatusBasisType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $code
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusBasisType
      */
-    public function setCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $code = null)
+    public function setCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $code = null): self
     {
         if (is_null($code) || (is_array($code) && empty($code))) {
             unset($this->Code);
         } else {
             $this->Code = $code;
         }
+        
         return $this;
     }
     /**
@@ -109,7 +113,7 @@ class StatusBasisType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\DescriptionType|null
      */
-    public function getDescription()
+    public function getDescription(): ?\Randock\PostNL\BulkMailApi\StructType\DescriptionType
     {
         return isset($this->Description) ? $this->Description : null;
     }
@@ -120,13 +124,14 @@ class StatusBasisType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\DescriptionType $description
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusBasisType
      */
-    public function setDescription(\Randock\PostNL\BulkMailApi\StructType\DescriptionType $description = null)
+    public function setDescription(?\Randock\PostNL\BulkMailApi\StructType\DescriptionType $description = null): self
     {
         if (is_null($description) || (is_array($description) && empty($description))) {
             unset($this->Description);
         } else {
             $this->Description = $description;
         }
+        
         return $this;
     }
     /**
@@ -136,7 +141,7 @@ class StatusBasisType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getEffectiveDateTime()
+    public function getEffectiveDateTime(): ?string
     {
         return isset($this->EffectiveDateTime) ? $this->EffectiveDateTime : null;
     }
@@ -147,17 +152,18 @@ class StatusBasisType extends AbstractStructBase
      * @param string $effectiveDateTime
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusBasisType
      */
-    public function setEffectiveDateTime($effectiveDateTime = null)
+    public function setEffectiveDateTime(?string $effectiveDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($effectiveDateTime) && !is_string($effectiveDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($effectiveDateTime, true), gettype($effectiveDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($effectiveDateTime, true), gettype($effectiveDateTime)), __LINE__);
         }
         if (is_null($effectiveDateTime) || (is_array($effectiveDateTime) && empty($effectiveDateTime))) {
             unset($this->EffectiveDateTime);
         } else {
             $this->EffectiveDateTime = $effectiveDateTime;
         }
+        
         return $this;
     }
     /**
@@ -167,7 +173,7 @@ class StatusBasisType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType|null
      */
-    public function getReason()
+    public function getReason(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType
     {
         return isset($this->Reason) ? $this->Reason : null;
     }
@@ -178,13 +184,14 @@ class StatusBasisType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $reason
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusBasisType
      */
-    public function setReason(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $reason = null)
+    public function setReason(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfSequencedTextType $reason = null): self
     {
         if (is_null($reason) || (is_array($reason) && empty($reason))) {
             unset($this->Reason);
         } else {
             $this->Reason = $reason;
         }
+        
         return $this;
     }
     /**
@@ -194,7 +201,7 @@ class StatusBasisType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getReasonCode()
+    public function getReasonCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->ReasonCode) ? $this->ReasonCode : null;
     }
@@ -205,13 +212,14 @@ class StatusBasisType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $reasonCode
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusBasisType
      */
-    public function setReasonCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $reasonCode = null)
+    public function setReasonCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $reasonCode = null): self
     {
         if (is_null($reasonCode) || (is_array($reasonCode) && empty($reasonCode))) {
             unset($this->ReasonCode);
         } else {
             $this->ReasonCode = $reasonCode;
         }
+        
         return $this;
     }
 }

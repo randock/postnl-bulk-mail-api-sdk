@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NameType StructType
@@ -18,17 +21,17 @@ class NameType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The languageID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $languageID;
+    protected ?string $languageID = null;
     /**
      * Constructor method for NameType
      * @uses NameType::setValue()
@@ -36,7 +39,7 @@ class NameType extends AbstractStructBase
      * @param string $value
      * @param string $languageID
      */
-    public function __construct($value = null, $languageID = null)
+    public function __construct(?string $value = null, ?string $languageID = null)
     {
         $this
             ->setValue($value)
@@ -49,7 +52,7 @@ class NameType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -60,17 +63,18 @@ class NameType extends AbstractStructBase
      * @param string $value
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
@@ -80,7 +84,7 @@ class NameType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLanguageID()
+    public function getLanguageID(): ?string
     {
         return isset($this->languageID) ? $this->languageID : null;
     }
@@ -91,17 +95,18 @@ class NameType extends AbstractStructBase
      * @param string $languageID
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType
      */
-    public function setLanguageID($languageID = null)
+    public function setLanguageID(?string $languageID = null): self
     {
         // validation for constraint: string
         if (!is_null($languageID) && !is_string($languageID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageID, true), gettype($languageID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageID, true), gettype($languageID)), __LINE__);
         }
         if (is_null($languageID) || (is_array($languageID) && empty($languageID))) {
             unset($this->languageID);
         } else {
             $this->languageID = $languageID;
         }
+        
         return $this;
     }
 }

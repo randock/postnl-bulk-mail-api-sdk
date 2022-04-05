@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\ArrayType;
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfConsignmentAdministrativeReferencesType ArrayType
@@ -21,13 +24,13 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * - nillable: true
      * @var \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType[]
      */
-    public $ConsignmentAdministrativeReferencesType;
+    protected ?array $ConsignmentAdministrativeReferencesType = null;
     /**
      * Constructor method for ArrayOfConsignmentAdministrativeReferencesType
      * @uses ArrayOfConsignmentAdministrativeReferencesType::setConsignmentAdministrativeReferencesType()
      * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType[] $consignmentAdministrativeReferencesType
      */
-    public function __construct(array $consignmentAdministrativeReferencesType = array())
+    public function __construct(?array $consignmentAdministrativeReferencesType = null)
     {
         $this
             ->setConsignmentAdministrativeReferencesType($consignmentAdministrativeReferencesType);
@@ -37,9 +40,9 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType[]|null
+     * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType[]
      */
-    public function getConsignmentAdministrativeReferencesType()
+    public function getConsignmentAdministrativeReferencesType(): ?array
     {
         return isset($this->ConsignmentAdministrativeReferencesType) ? $this->ConsignmentAdministrativeReferencesType : null;
     }
@@ -49,8 +52,11 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateConsignmentAdministrativeReferencesTypeForArrayConstraintsFromSetConsignmentAdministrativeReferencesType(array $values = array())
+    public static function validateConsignmentAdministrativeReferencesTypeForArrayConstraintsFromSetConsignmentAdministrativeReferencesType(?array $values = []): string
     {
+        if (!is_array($values)) {
+            return '';
+        }
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfConsignmentAdministrativeReferencesTypeConsignmentAdministrativeReferencesTypeItem) {
@@ -63,42 +69,29 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
             $message = sprintf('The ConsignmentAdministrativeReferencesType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ConsignmentAdministrativeReferencesType value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType[] $consignmentAdministrativeReferencesType
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType
      */
-    public function setConsignmentAdministrativeReferencesType(array $consignmentAdministrativeReferencesType = array())
+    public function setConsignmentAdministrativeReferencesType(?array $consignmentAdministrativeReferencesType = null): self
     {
         // validation for constraint: array
         if ('' !== ($consignmentAdministrativeReferencesTypeArrayErrorMessage = self::validateConsignmentAdministrativeReferencesTypeForArrayConstraintsFromSetConsignmentAdministrativeReferencesType($consignmentAdministrativeReferencesType))) {
-            throw new \InvalidArgumentException($consignmentAdministrativeReferencesTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($consignmentAdministrativeReferencesTypeArrayErrorMessage, __LINE__);
         }
         if (is_null($consignmentAdministrativeReferencesType) || (is_array($consignmentAdministrativeReferencesType) && empty($consignmentAdministrativeReferencesType))) {
             unset($this->ConsignmentAdministrativeReferencesType);
         } else {
             $this->ConsignmentAdministrativeReferencesType = $consignmentAdministrativeReferencesType;
         }
-        return $this;
-    }
-    /**
-     * Add item to ConsignmentAdministrativeReferencesType value
-     * @throws \InvalidArgumentException
-     * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType $item
-     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType
-     */
-    public function addToConsignmentAdministrativeReferencesType(\Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType) {
-            throw new \InvalidArgumentException(sprintf('The ConsignmentAdministrativeReferencesType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ConsignmentAdministrativeReferencesType[] = $item;
+        
         return $this;
     }
     /**
@@ -106,7 +99,7 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * @see AbstractStructArrayBase::current()
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType|null
      */
-    public function current()
+    public function current(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
     {
         return parent::current();
     }
@@ -116,7 +109,7 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * @param int $index
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType|null
      */
-    public function item($index)
+    public function item($index): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
     {
         return parent::item($index);
     }
@@ -125,7 +118,7 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * @see AbstractStructArrayBase::first()
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType|null
      */
-    public function first()
+    public function first(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
     {
         return parent::first();
     }
@@ -134,7 +127,7 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * @see AbstractStructArrayBase::last()
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType|null
      */
-    public function last()
+    public function last(): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
     {
         return parent::last();
     }
@@ -144,16 +137,31 @@ class ArrayOfConsignmentAdministrativeReferencesType extends AbstractStructArray
      * @param int $offset
      * @return \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType $item
+     * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentAdministrativeReferencesType
+     */
+    public function add($item): self
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType) {
+            throw new InvalidArgumentException(sprintf('The ConsignmentAdministrativeReferencesType property can only contain items of type \Randock\PostNL\BulkMailApi\StructType\ConsignmentAdministrativeReferencesType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ConsignmentAdministrativeReferencesType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ConsignmentAdministrativeReferencesType';
     }

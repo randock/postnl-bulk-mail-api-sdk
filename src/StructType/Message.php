@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Message StructType
@@ -18,16 +21,16 @@ class Message extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult|null
      */
-    public $ErrorMessages;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $ErrorMessages = null;
     /**
      * The IsTestOrder
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsTestOrder;
+    protected ?bool $IsTestOrder = null;
     /**
      * Constructor method for Message
      * @uses Message::setErrorMessages()
@@ -35,7 +38,7 @@ class Message extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $errorMessages
      * @param bool $isTestOrder
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $errorMessages = null, $isTestOrder = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $errorMessages = null, ?bool $isTestOrder = null)
     {
         $this
             ->setErrorMessages($errorMessages)
@@ -48,7 +51,7 @@ class Message extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult|null
      */
-    public function getErrorMessages()
+    public function getErrorMessages(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult
     {
         return isset($this->ErrorMessages) ? $this->ErrorMessages : null;
     }
@@ -59,20 +62,21 @@ class Message extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $errorMessages
      * @return \Randock\PostNL\BulkMailApi\StructType\Message
      */
-    public function setErrorMessages(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $errorMessages = null)
+    public function setErrorMessages(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfResult $errorMessages = null): self
     {
         if (is_null($errorMessages) || (is_array($errorMessages) && empty($errorMessages))) {
             unset($this->ErrorMessages);
         } else {
             $this->ErrorMessages = $errorMessages;
         }
+        
         return $this;
     }
     /**
      * Get IsTestOrder value
      * @return bool|null
      */
-    public function getIsTestOrder()
+    public function getIsTestOrder(): ?bool
     {
         return $this->IsTestOrder;
     }
@@ -81,13 +85,14 @@ class Message extends AbstractStructBase
      * @param bool $isTestOrder
      * @return \Randock\PostNL\BulkMailApi\StructType\Message
      */
-    public function setIsTestOrder($isTestOrder = null)
+    public function setIsTestOrder(?bool $isTestOrder = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isTestOrder) && !is_bool($isTestOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTestOrder, true), gettype($isTestOrder)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTestOrder, true), gettype($isTestOrder)), __LINE__);
         }
         $this->IsTestOrder = $isTestOrder;
+        
         return $this;
     }
 }

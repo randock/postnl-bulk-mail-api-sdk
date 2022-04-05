@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetValidationAndSortingResultV1Response StructType
@@ -15,15 +18,15 @@ class GetValidationAndSortingResultV1Response extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
+     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public $GetValidationAndSortingResultV1Result;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $GetValidationAndSortingResultV1Result = null;
     /**
      * Constructor method for GetValidationAndSortingResultV1Response
      * @uses GetValidationAndSortingResultV1Response::setGetValidationAndSortingResultV1Result()
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationAndSortingResultV1Result
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationAndSortingResultV1Result = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationAndSortingResultV1Result = null)
     {
         $this
             ->setGetValidationAndSortingResultV1Result($getValidationAndSortingResultV1Result);
@@ -35,7 +38,7 @@ class GetValidationAndSortingResultV1Response extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public function getGetValidationAndSortingResultV1Result()
+    public function getGetValidationAndSortingResultV1Result(): ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
     {
         return isset($this->GetValidationAndSortingResultV1Result) ? $this->GetValidationAndSortingResultV1Result : null;
     }
@@ -46,13 +49,14 @@ class GetValidationAndSortingResultV1Response extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationAndSortingResultV1Result
      * @return \Randock\PostNL\BulkMailApi\StructType\GetValidationAndSortingResultV1Response
      */
-    public function setGetValidationAndSortingResultV1Result(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationAndSortingResultV1Result = null)
+    public function setGetValidationAndSortingResultV1Result(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationAndSortingResultV1Result = null): self
     {
         if (is_null($getValidationAndSortingResultV1Result) || (is_array($getValidationAndSortingResultV1Result) && empty($getValidationAndSortingResultV1Result))) {
             unset($this->GetValidationAndSortingResultV1Result);
         } else {
             $this->GetValidationAndSortingResultV1Result = $getValidationAndSortingResultV1Result;
         }
+        
         return $this;
     }
 }

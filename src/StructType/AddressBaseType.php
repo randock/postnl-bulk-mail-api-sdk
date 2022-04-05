@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddressBaseType StructType
@@ -18,193 +21,193 @@ class AddressBaseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $AttentionOfName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $AttentionOfName = null;
     /**
      * The CareOfName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $CareOfName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $CareOfName = null;
     /**
      * The CityName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $CityName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $CityName = null;
     /**
      * The CitySubDivisionName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public $CitySubDivisionName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $CitySubDivisionName = null;
     /**
      * The CountryCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CountryCodeType
+     * @var \Randock\PostNL\BulkMailApi\StructType\CountryCodeType|null
      */
-    public $CountryCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $CountryCode = null;
     /**
      * The CountryName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $CountryName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $CountryName = null;
     /**
      * The CountrySubDivisionCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType|null
      */
-    public $CountrySubDivisionCode;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType $CountrySubDivisionCode = null;
     /**
      * The DeliveryPointDescription
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $DeliveryPointDescription;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $DeliveryPointDescription = null;
     /**
      * The DeliveryPointType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $DeliveryPointType;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $DeliveryPointType = null;
     /**
      * The FormatCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $FormatCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $FormatCode = null;
     /**
      * The FormatDescription
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public $FormatDescription;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $FormatDescription = null;
     /**
      * The ID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1|null
      */
-    public $ID;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $ID = null;
     /**
      * The Items
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType|null
      */
-    public $Items;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $Items = null;
     /**
      * The ItemsElementName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1|null
      */
-    public $ItemsElementName;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1 $ItemsElementName = null;
     /**
      * The MunicipalityCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $MunicipalityCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $MunicipalityCode = null;
     /**
      * The MunicipalityName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public $MunicipalityName;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $MunicipalityName = null;
     /**
      * The POBoxPostalCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $POBoxPostalCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $POBoxPostalCode = null;
     /**
      * The PostalCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $PostalCode;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $PostalCode = null;
     /**
      * The Preference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public $Preference;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $Preference = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\StatusType
+     * @var \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public $Status;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\StatusType $Status = null;
     /**
      * The TaxJurisdicationCodes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1|null
      */
-    public $TaxJurisdicationCodes;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $TaxJurisdicationCodes = null;
     /**
      * The Type
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public $Type;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $Type = null;
     /**
      * The languageCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $languageCode;
+    protected ?string $languageCode = null;
     /**
      * The type
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var string
+     * @var string|null
      */
-    public $type;
+    protected ?string $type = null;
     /**
      * Constructor method for AddressBaseType
      * @uses AddressBaseType::setAttentionOfName()
@@ -256,7 +259,7 @@ class AddressBaseType extends AbstractStructBase
      * @param string $languageCode
      * @param string $type
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $attentionOfName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $careOfName = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $cityName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $citySubDivisionName = null, \Randock\PostNL\BulkMailApi\StructType\CountryCodeType $countryCode = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $countryName = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType $countrySubDivisionCode = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $deliveryPointDescription = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $deliveryPointType = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $formatCode = null, \Randock\PostNL\BulkMailApi\StructType\TextType1 $formatDescription = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1 $itemsElementName = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $municipalityCode = null, \Randock\PostNL\BulkMailApi\StructType\NameType1 $municipalityName = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $pOBoxPostalCode = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $postalCode = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, \Randock\PostNL\BulkMailApi\StructType\StatusType $status = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $taxJurisdicationCodes = null, \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null, $languageCode = null, $type_1 = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $attentionOfName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $careOfName = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $cityName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $citySubDivisionName = null, ?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $countryCode = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $countryName = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType $countrySubDivisionCode = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $deliveryPointDescription = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $deliveryPointType = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $formatCode = null, ?\Randock\PostNL\BulkMailApi\StructType\TextType1 $formatDescription = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1 $itemsElementName = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $municipalityCode = null, ?\Randock\PostNL\BulkMailApi\StructType\NameType1 $municipalityName = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $pOBoxPostalCode = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $postalCode = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null, ?\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $taxJurisdicationCodes = null, ?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null, ?string $languageCode = null, ?string $type_1 = null)
     {
         $this
             ->setAttentionOfName($attentionOfName)
@@ -291,7 +294,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getAttentionOfName()
+    public function getAttentionOfName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->AttentionOfName) ? $this->AttentionOfName : null;
     }
@@ -302,13 +305,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $attentionOfName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setAttentionOfName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $attentionOfName = null)
+    public function setAttentionOfName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $attentionOfName = null): self
     {
         if (is_null($attentionOfName) || (is_array($attentionOfName) && empty($attentionOfName))) {
             unset($this->AttentionOfName);
         } else {
             $this->AttentionOfName = $attentionOfName;
         }
+        
         return $this;
     }
     /**
@@ -318,7 +322,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getCareOfName()
+    public function getCareOfName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->CareOfName) ? $this->CareOfName : null;
     }
@@ -329,13 +333,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $careOfName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setCareOfName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $careOfName = null)
+    public function setCareOfName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $careOfName = null): self
     {
         if (is_null($careOfName) || (is_array($careOfName) && empty($careOfName))) {
             unset($this->CareOfName);
         } else {
             $this->CareOfName = $careOfName;
         }
+        
         return $this;
     }
     /**
@@ -345,7 +350,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getCityName()
+    public function getCityName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->CityName) ? $this->CityName : null;
     }
@@ -356,13 +361,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $cityName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setCityName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $cityName = null)
+    public function setCityName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $cityName = null): self
     {
         if (is_null($cityName) || (is_array($cityName) && empty($cityName))) {
             unset($this->CityName);
         } else {
             $this->CityName = $cityName;
         }
+        
         return $this;
     }
     /**
@@ -372,7 +378,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1|null
      */
-    public function getCitySubDivisionName()
+    public function getCitySubDivisionName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1
     {
         return isset($this->CitySubDivisionName) ? $this->CitySubDivisionName : null;
     }
@@ -383,13 +389,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $citySubDivisionName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setCitySubDivisionName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $citySubDivisionName = null)
+    public function setCitySubDivisionName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfNameType1 $citySubDivisionName = null): self
     {
         if (is_null($citySubDivisionName) || (is_array($citySubDivisionName) && empty($citySubDivisionName))) {
             unset($this->CitySubDivisionName);
         } else {
             $this->CitySubDivisionName = $citySubDivisionName;
         }
+        
         return $this;
     }
     /**
@@ -399,7 +406,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CountryCodeType|null
      */
-    public function getCountryCode()
+    public function getCountryCode(): ?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType
     {
         return isset($this->CountryCode) ? $this->CountryCode : null;
     }
@@ -410,13 +417,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CountryCodeType $countryCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setCountryCode(\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $countryCode = null)
+    public function setCountryCode(?\Randock\PostNL\BulkMailApi\StructType\CountryCodeType $countryCode = null): self
     {
         if (is_null($countryCode) || (is_array($countryCode) && empty($countryCode))) {
             unset($this->CountryCode);
         } else {
             $this->CountryCode = $countryCode;
         }
+        
         return $this;
     }
     /**
@@ -426,7 +434,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getCountryName()
+    public function getCountryName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->CountryName) ? $this->CountryName : null;
     }
@@ -437,13 +445,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $countryName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setCountryName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $countryName = null)
+    public function setCountryName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $countryName = null): self
     {
         if (is_null($countryName) || (is_array($countryName) && empty($countryName))) {
             unset($this->CountryName);
         } else {
             $this->CountryName = $countryName;
         }
+        
         return $this;
     }
     /**
@@ -453,7 +462,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType|null
      */
-    public function getCountrySubDivisionCode()
+    public function getCountrySubDivisionCode(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType
     {
         return isset($this->CountrySubDivisionCode) ? $this->CountrySubDivisionCode : null;
     }
@@ -464,13 +473,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType $countrySubDivisionCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setCountrySubDivisionCode(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType $countrySubDivisionCode = null)
+    public function setCountrySubDivisionCode(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCountrySubDivisionCodeType $countrySubDivisionCode = null): self
     {
         if (is_null($countrySubDivisionCode) || (is_array($countrySubDivisionCode) && empty($countrySubDivisionCode))) {
             unset($this->CountrySubDivisionCode);
         } else {
             $this->CountrySubDivisionCode = $countrySubDivisionCode;
         }
+        
         return $this;
     }
     /**
@@ -480,7 +490,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getDeliveryPointDescription()
+    public function getDeliveryPointDescription(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->DeliveryPointDescription) ? $this->DeliveryPointDescription : null;
     }
@@ -491,13 +501,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $deliveryPointDescription
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setDeliveryPointDescription(\Randock\PostNL\BulkMailApi\StructType\TextType1 $deliveryPointDescription = null)
+    public function setDeliveryPointDescription(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $deliveryPointDescription = null): self
     {
         if (is_null($deliveryPointDescription) || (is_array($deliveryPointDescription) && empty($deliveryPointDescription))) {
             unset($this->DeliveryPointDescription);
         } else {
             $this->DeliveryPointDescription = $deliveryPointDescription;
         }
+        
         return $this;
     }
     /**
@@ -507,7 +518,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getDeliveryPointType()
+    public function getDeliveryPointType(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->DeliveryPointType) ? $this->DeliveryPointType : null;
     }
@@ -518,13 +529,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $deliveryPointType
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setDeliveryPointType(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $deliveryPointType = null)
+    public function setDeliveryPointType(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $deliveryPointType = null): self
     {
         if (is_null($deliveryPointType) || (is_array($deliveryPointType) && empty($deliveryPointType))) {
             unset($this->DeliveryPointType);
         } else {
             $this->DeliveryPointType = $deliveryPointType;
         }
+        
         return $this;
     }
     /**
@@ -534,7 +546,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getFormatCode()
+    public function getFormatCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->FormatCode) ? $this->FormatCode : null;
     }
@@ -545,13 +557,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $formatCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setFormatCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $formatCode = null)
+    public function setFormatCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $formatCode = null): self
     {
         if (is_null($formatCode) || (is_array($formatCode) && empty($formatCode))) {
             unset($this->FormatCode);
         } else {
             $this->FormatCode = $formatCode;
         }
+        
         return $this;
     }
     /**
@@ -561,7 +574,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\TextType1|null
      */
-    public function getFormatDescription()
+    public function getFormatDescription(): ?\Randock\PostNL\BulkMailApi\StructType\TextType1
     {
         return isset($this->FormatDescription) ? $this->FormatDescription : null;
     }
@@ -572,13 +585,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\TextType1 $formatDescription
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setFormatDescription(\Randock\PostNL\BulkMailApi\StructType\TextType1 $formatDescription = null)
+    public function setFormatDescription(?\Randock\PostNL\BulkMailApi\StructType\TextType1 $formatDescription = null): self
     {
         if (is_null($formatDescription) || (is_array($formatDescription) && empty($formatDescription))) {
             unset($this->FormatDescription);
         } else {
             $this->FormatDescription = $formatDescription;
         }
+        
         return $this;
     }
     /**
@@ -588,7 +602,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1|null
      */
-    public function getID()
+    public function getID(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1
     {
         return isset($this->ID) ? $this->ID : null;
     }
@@ -599,13 +613,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setID(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null)
+    public function setID(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfIdentifierType1 $iD = null): self
     {
         if (is_null($iD) || (is_array($iD) && empty($iD))) {
             unset($this->ID);
         } else {
             $this->ID = $iD;
         }
+        
         return $this;
     }
     /**
@@ -615,7 +630,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType|null
      */
-    public function getItems()
+    public function getItems(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType
     {
         return isset($this->Items) ? $this->Items : null;
     }
@@ -626,13 +641,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setItems(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null)
+    public function setItems(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfanyType $items = null): self
     {
         if (is_null($items) || (is_array($items) && empty($items))) {
             unset($this->Items);
         } else {
             $this->Items = $items;
         }
+        
         return $this;
     }
     /**
@@ -642,7 +658,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1|null
      */
-    public function getItemsElementName()
+    public function getItemsElementName(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1
     {
         return isset($this->ItemsElementName) ? $this->ItemsElementName : null;
     }
@@ -653,13 +669,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1 $itemsElementName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setItemsElementName(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1 $itemsElementName = null)
+    public function setItemsElementName(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfItemsChoiceType1 $itemsElementName = null): self
     {
         if (is_null($itemsElementName) || (is_array($itemsElementName) && empty($itemsElementName))) {
             unset($this->ItemsElementName);
         } else {
             $this->ItemsElementName = $itemsElementName;
         }
+        
         return $this;
     }
     /**
@@ -669,7 +686,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getMunicipalityCode()
+    public function getMunicipalityCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->MunicipalityCode) ? $this->MunicipalityCode : null;
     }
@@ -680,13 +697,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $municipalityCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setMunicipalityCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $municipalityCode = null)
+    public function setMunicipalityCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $municipalityCode = null): self
     {
         if (is_null($municipalityCode) || (is_array($municipalityCode) && empty($municipalityCode))) {
             unset($this->MunicipalityCode);
         } else {
             $this->MunicipalityCode = $municipalityCode;
         }
+        
         return $this;
     }
     /**
@@ -696,7 +714,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\NameType1|null
      */
-    public function getMunicipalityName()
+    public function getMunicipalityName(): ?\Randock\PostNL\BulkMailApi\StructType\NameType1
     {
         return isset($this->MunicipalityName) ? $this->MunicipalityName : null;
     }
@@ -707,13 +725,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\NameType1 $municipalityName
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setMunicipalityName(\Randock\PostNL\BulkMailApi\StructType\NameType1 $municipalityName = null)
+    public function setMunicipalityName(?\Randock\PostNL\BulkMailApi\StructType\NameType1 $municipalityName = null): self
     {
         if (is_null($municipalityName) || (is_array($municipalityName) && empty($municipalityName))) {
             unset($this->MunicipalityName);
         } else {
             $this->MunicipalityName = $municipalityName;
         }
+        
         return $this;
     }
     /**
@@ -723,7 +742,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getPOBoxPostalCode()
+    public function getPOBoxPostalCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->POBoxPostalCode) ? $this->POBoxPostalCode : null;
     }
@@ -734,13 +753,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $pOBoxPostalCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setPOBoxPostalCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $pOBoxPostalCode = null)
+    public function setPOBoxPostalCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $pOBoxPostalCode = null): self
     {
         if (is_null($pOBoxPostalCode) || (is_array($pOBoxPostalCode) && empty($pOBoxPostalCode))) {
             unset($this->POBoxPostalCode);
         } else {
             $this->POBoxPostalCode = $pOBoxPostalCode;
         }
+        
         return $this;
     }
     /**
@@ -750,7 +770,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getPostalCode()
+    public function getPostalCode(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->PostalCode) ? $this->PostalCode : null;
     }
@@ -761,13 +781,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $postalCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setPostalCode(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $postalCode = null)
+    public function setPostalCode(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $postalCode = null): self
     {
         if (is_null($postalCode) || (is_array($postalCode) && empty($postalCode))) {
             unset($this->PostalCode);
         } else {
             $this->PostalCode = $postalCode;
         }
+        
         return $this;
     }
     /**
@@ -777,7 +798,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType|null
      */
-    public function getPreference()
+    public function getPreference(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType
     {
         return isset($this->Preference) ? $this->Preference : null;
     }
@@ -788,13 +809,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setPreference(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null)
+    public function setPreference(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfPreferenceType $preference = null): self
     {
         if (is_null($preference) || (is_array($preference) && empty($preference))) {
             unset($this->Preference);
         } else {
             $this->Preference = $preference;
         }
+        
         return $this;
     }
     /**
@@ -804,7 +826,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\StatusType|null
      */
-    public function getStatus()
+    public function getStatus(): ?\Randock\PostNL\BulkMailApi\StructType\StatusType
     {
         return isset($this->Status) ? $this->Status : null;
     }
@@ -815,13 +837,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\StatusType $status
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setStatus(\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null)
+    public function setStatus(?\Randock\PostNL\BulkMailApi\StructType\StatusType $status = null): self
     {
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->Status);
         } else {
             $this->Status = $status;
         }
+        
         return $this;
     }
     /**
@@ -831,7 +854,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1|null
      */
-    public function getTaxJurisdicationCodes()
+    public function getTaxJurisdicationCodes(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1
     {
         return isset($this->TaxJurisdicationCodes) ? $this->TaxJurisdicationCodes : null;
     }
@@ -842,13 +865,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $taxJurisdicationCodes
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setTaxJurisdicationCodes(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $taxJurisdicationCodes = null)
+    public function setTaxJurisdicationCodes(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfCodeType1 $taxJurisdicationCodes = null): self
     {
         if (is_null($taxJurisdicationCodes) || (is_array($taxJurisdicationCodes) && empty($taxJurisdicationCodes))) {
             unset($this->TaxJurisdicationCodes);
         } else {
             $this->TaxJurisdicationCodes = $taxJurisdicationCodes;
         }
+        
         return $this;
     }
     /**
@@ -858,7 +882,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getType()
+    public function getType(): ?\Randock\PostNL\BulkMailApi\StructType\CodeType1
     {
         return isset($this->Type) ? $this->Type : null;
     }
@@ -869,13 +893,14 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setType(\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null)
+    public function setType(?\Randock\PostNL\BulkMailApi\StructType\CodeType1 $type = null): self
     {
         if (is_null($type) || (is_array($type) && empty($type))) {
             unset($this->Type);
         } else {
             $this->Type = $type;
         }
+        
         return $this;
     }
     /**
@@ -885,7 +910,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return string|null
      */
-    public function getLanguageCode()
+    public function getLanguageCode(): ?string
     {
         return isset($this->languageCode) ? $this->languageCode : null;
     }
@@ -896,17 +921,18 @@ class AddressBaseType extends AbstractStructBase
      * @param string $languageCode
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setLanguageCode($languageCode = null)
+    public function setLanguageCode(?string $languageCode = null): self
     {
         // validation for constraint: string
         if (!is_null($languageCode) && !is_string($languageCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageCode, true), gettype($languageCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($languageCode, true), gettype($languageCode)), __LINE__);
         }
         if (is_null($languageCode) || (is_array($languageCode) && empty($languageCode))) {
             unset($this->languageCode);
         } else {
             $this->languageCode = $languageCode;
         }
+        
         return $this;
     }
     /**
@@ -916,7 +942,7 @@ class AddressBaseType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CodeType1|null
      */
-    public function getType_1()
+    public function getType_1(): ?string
     {
         return isset($this->type) ? $this->type : null;
     }
@@ -927,17 +953,18 @@ class AddressBaseType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\CodeType1 $type
      * @return \Randock\PostNL\BulkMailApi\StructType\AddressBaseType
      */
-    public function setType_1($type_1 = null)
+    public function setType_1(?string $type_1 = null): self
     {
         // validation for constraint: string
         if (!is_null($type_1) && !is_string($type_1)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type_1, true), gettype($type_1)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type_1, true), gettype($type_1)), __LINE__);
         }
         if (is_null($type_1) || (is_array($type_1) && empty($type_1))) {
             unset($this->type);
         } else {
             $this->type = $type_1;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetValidationResultV1Response StructType
@@ -15,15 +18,15 @@ class GetValidationResultV1Response extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
+     * @var \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public $GetValidationResultV1Result;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $GetValidationResultV1Result = null;
     /**
      * Constructor method for GetValidationResultV1Response
      * @uses GetValidationResultV1Response::setGetValidationResultV1Result()
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationResultV1Result
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationResultV1Result = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationResultV1Result = null)
     {
         $this
             ->setGetValidationResultV1Result($getValidationResultV1Result);
@@ -35,7 +38,7 @@ class GetValidationResultV1Response extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1|null
      */
-    public function getGetValidationResultV1Result()
+    public function getGetValidationResultV1Result(): ?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1
     {
         return isset($this->GetValidationResultV1Result) ? $this->GetValidationResultV1Result : null;
     }
@@ -46,13 +49,14 @@ class GetValidationResultV1Response extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationResultV1Result
      * @return \Randock\PostNL\BulkMailApi\StructType\GetValidationResultV1Response
      */
-    public function setGetValidationResultV1Result(\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationResultV1Result = null)
+    public function setGetValidationResultV1Result(?\Randock\PostNL\BulkMailApi\StructType\B2BAddressContainerV1 $getValidationResultV1Result = null): self
     {
         if (is_null($getValidationResultV1Result) || (is_array($getValidationResultV1Result) && empty($getValidationResultV1Result))) {
             unset($this->GetValidationResultV1Result);
         } else {
             $this->GetValidationResultV1Result = $getValidationResultV1Result;
         }
+        
         return $this;
     }
 }

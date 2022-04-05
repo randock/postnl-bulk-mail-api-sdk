@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BulkmailOrderType StructType
@@ -18,55 +21,55 @@ class BulkmailOrderType extends HeaderType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType|null
      */
-    public $Consignment;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $Consignment = null;
     /**
      * The CustomerParty
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType
+     * @var \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType|null
      */
-    public $CustomerParty;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $CustomerParty = null;
     /**
      * The MergeConsignmentIndicator
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MergeConsignmentIndicator;
+    protected ?bool $MergeConsignmentIndicator = null;
     /**
      * The MergeConsignmentIndicatorSpecified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MergeConsignmentIndicatorSpecified;
+    protected ?bool $MergeConsignmentIndicatorSpecified = null;
     /**
      * The ShippingParty
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\ShippingPartyType
+     * @var \Randock\PostNL\BulkMailApi\StructType\ShippingPartyType|null
      */
-    public $ShippingParty;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\ShippingPartyType $ShippingParty = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
+     * @var \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType|null
      */
-    public $Status;
+    protected ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $Status = null;
     /**
      * The WorkLocation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\WorkLocationType
+     * @var \Randock\PostNL\BulkMailApi\StructType\WorkLocationType|null
      */
-    public $WorkLocation;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationType $WorkLocation = null;
     /**
      * Constructor method for BulkmailOrderType
      * @uses BulkmailOrderType::setConsignment()
@@ -84,7 +87,7 @@ class BulkmailOrderType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status
      * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationType $workLocation
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null, \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null, $mergeConsignmentIndicator = null, $mergeConsignmentIndicatorSpecified = null, \Randock\PostNL\BulkMailApi\StructType\ShippingPartyType $shippingParty = null, \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null, \Randock\PostNL\BulkMailApi\StructType\WorkLocationType $workLocation = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null, ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null, ?bool $mergeConsignmentIndicator = null, ?bool $mergeConsignmentIndicatorSpecified = null, ?\Randock\PostNL\BulkMailApi\StructType\ShippingPartyType $shippingParty = null, ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null, ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationType $workLocation = null)
     {
         $this
             ->setConsignment($consignment)
@@ -102,7 +105,7 @@ class BulkmailOrderType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType|null
      */
-    public function getConsignment()
+    public function getConsignment(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType
     {
         return isset($this->Consignment) ? $this->Consignment : null;
     }
@@ -113,13 +116,14 @@ class BulkmailOrderType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setConsignment(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null)
+    public function setConsignment(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfConsignmentType $consignment = null): self
     {
         if (is_null($consignment) || (is_array($consignment) && empty($consignment))) {
             unset($this->Consignment);
         } else {
             $this->Consignment = $consignment;
         }
+        
         return $this;
     }
     /**
@@ -129,7 +133,7 @@ class BulkmailOrderType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType|null
      */
-    public function getCustomerParty()
+    public function getCustomerParty(): ?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType
     {
         return isset($this->CustomerParty) ? $this->CustomerParty : null;
     }
@@ -140,20 +144,21 @@ class BulkmailOrderType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setCustomerParty(\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null)
+    public function setCustomerParty(?\Randock\PostNL\BulkMailApi\StructType\CustomerPartyType $customerParty = null): self
     {
         if (is_null($customerParty) || (is_array($customerParty) && empty($customerParty))) {
             unset($this->CustomerParty);
         } else {
             $this->CustomerParty = $customerParty;
         }
+        
         return $this;
     }
     /**
      * Get MergeConsignmentIndicator value
      * @return bool|null
      */
-    public function getMergeConsignmentIndicator()
+    public function getMergeConsignmentIndicator(): ?bool
     {
         return $this->MergeConsignmentIndicator;
     }
@@ -162,20 +167,21 @@ class BulkmailOrderType extends HeaderType
      * @param bool $mergeConsignmentIndicator
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setMergeConsignmentIndicator($mergeConsignmentIndicator = null)
+    public function setMergeConsignmentIndicator(?bool $mergeConsignmentIndicator = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mergeConsignmentIndicator) && !is_bool($mergeConsignmentIndicator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mergeConsignmentIndicator, true), gettype($mergeConsignmentIndicator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mergeConsignmentIndicator, true), gettype($mergeConsignmentIndicator)), __LINE__);
         }
         $this->MergeConsignmentIndicator = $mergeConsignmentIndicator;
+        
         return $this;
     }
     /**
      * Get MergeConsignmentIndicatorSpecified value
      * @return bool|null
      */
-    public function getMergeConsignmentIndicatorSpecified()
+    public function getMergeConsignmentIndicatorSpecified(): ?bool
     {
         return $this->MergeConsignmentIndicatorSpecified;
     }
@@ -184,13 +190,14 @@ class BulkmailOrderType extends HeaderType
      * @param bool $mergeConsignmentIndicatorSpecified
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setMergeConsignmentIndicatorSpecified($mergeConsignmentIndicatorSpecified = null)
+    public function setMergeConsignmentIndicatorSpecified(?bool $mergeConsignmentIndicatorSpecified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mergeConsignmentIndicatorSpecified) && !is_bool($mergeConsignmentIndicatorSpecified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mergeConsignmentIndicatorSpecified, true), gettype($mergeConsignmentIndicatorSpecified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mergeConsignmentIndicatorSpecified, true), gettype($mergeConsignmentIndicatorSpecified)), __LINE__);
         }
         $this->MergeConsignmentIndicatorSpecified = $mergeConsignmentIndicatorSpecified;
+        
         return $this;
     }
     /**
@@ -200,7 +207,7 @@ class BulkmailOrderType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\ShippingPartyType|null
      */
-    public function getShippingParty()
+    public function getShippingParty(): ?\Randock\PostNL\BulkMailApi\StructType\ShippingPartyType
     {
         return isset($this->ShippingParty) ? $this->ShippingParty : null;
     }
@@ -211,13 +218,14 @@ class BulkmailOrderType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\StructType\ShippingPartyType $shippingParty
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setShippingParty(\Randock\PostNL\BulkMailApi\StructType\ShippingPartyType $shippingParty = null)
+    public function setShippingParty(?\Randock\PostNL\BulkMailApi\StructType\ShippingPartyType $shippingParty = null): self
     {
         if (is_null($shippingParty) || (is_array($shippingParty) && empty($shippingParty))) {
             unset($this->ShippingParty);
         } else {
             $this->ShippingParty = $shippingParty;
         }
+        
         return $this;
     }
     /**
@@ -227,7 +235,7 @@ class BulkmailOrderType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType|null
      */
-    public function getStatus()
+    public function getStatus(): ?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType
     {
         return isset($this->Status) ? $this->Status : null;
     }
@@ -238,13 +246,14 @@ class BulkmailOrderType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setStatus(\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null)
+    public function setStatus(?\Randock\PostNL\BulkMailApi\ArrayType\ArrayOfStatusType $status = null): self
     {
         if (is_null($status) || (is_array($status) && empty($status))) {
             unset($this->Status);
         } else {
             $this->Status = $status;
         }
+        
         return $this;
     }
     /**
@@ -254,7 +263,7 @@ class BulkmailOrderType extends HeaderType
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\WorkLocationType|null
      */
-    public function getWorkLocation()
+    public function getWorkLocation(): ?\Randock\PostNL\BulkMailApi\StructType\WorkLocationType
     {
         return isset($this->WorkLocation) ? $this->WorkLocation : null;
     }
@@ -265,13 +274,14 @@ class BulkmailOrderType extends HeaderType
      * @param \Randock\PostNL\BulkMailApi\StructType\WorkLocationType $workLocation
      * @return \Randock\PostNL\BulkMailApi\StructType\BulkmailOrderType
      */
-    public function setWorkLocation(\Randock\PostNL\BulkMailApi\StructType\WorkLocationType $workLocation = null)
+    public function setWorkLocation(?\Randock\PostNL\BulkMailApi\StructType\WorkLocationType $workLocation = null): self
     {
         if (is_null($workLocation) || (is_array($workLocation) && empty($workLocation))) {
             unset($this->WorkLocation);
         } else {
             $this->WorkLocation = $workLocation;
         }
+        
         return $this;
     }
 }

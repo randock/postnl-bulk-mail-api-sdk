@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\PostNL\BulkMailApi\StructType;
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TrackingIDRangeType StructType
@@ -18,17 +21,17 @@ class TrackingIDRangeType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $EndTrackingID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $EndTrackingID = null;
     /**
      * The StartTrackingID
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - nillable: true
-     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1
+     * @var \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public $StartTrackingID;
+    protected ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $StartTrackingID = null;
     /**
      * Constructor method for TrackingIDRangeType
      * @uses TrackingIDRangeType::setEndTrackingID()
@@ -36,7 +39,7 @@ class TrackingIDRangeType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $endTrackingID
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $startTrackingID
      */
-    public function __construct(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $endTrackingID = null, \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $startTrackingID = null)
+    public function __construct(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $endTrackingID = null, ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $startTrackingID = null)
     {
         $this
             ->setEndTrackingID($endTrackingID)
@@ -49,7 +52,7 @@ class TrackingIDRangeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getEndTrackingID()
+    public function getEndTrackingID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->EndTrackingID) ? $this->EndTrackingID : null;
     }
@@ -60,13 +63,14 @@ class TrackingIDRangeType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $endTrackingID
      * @return \Randock\PostNL\BulkMailApi\StructType\TrackingIDRangeType
      */
-    public function setEndTrackingID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $endTrackingID = null)
+    public function setEndTrackingID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $endTrackingID = null): self
     {
         if (is_null($endTrackingID) || (is_array($endTrackingID) && empty($endTrackingID))) {
             unset($this->EndTrackingID);
         } else {
             $this->EndTrackingID = $endTrackingID;
         }
+        
         return $this;
     }
     /**
@@ -76,7 +80,7 @@ class TrackingIDRangeType extends AbstractStructBase
      * removable from the request (nillable=true+minOccurs=0)
      * @return \Randock\PostNL\BulkMailApi\StructType\IdentifierType1|null
      */
-    public function getStartTrackingID()
+    public function getStartTrackingID(): ?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1
     {
         return isset($this->StartTrackingID) ? $this->StartTrackingID : null;
     }
@@ -87,13 +91,14 @@ class TrackingIDRangeType extends AbstractStructBase
      * @param \Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $startTrackingID
      * @return \Randock\PostNL\BulkMailApi\StructType\TrackingIDRangeType
      */
-    public function setStartTrackingID(\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $startTrackingID = null)
+    public function setStartTrackingID(?\Randock\PostNL\BulkMailApi\StructType\IdentifierType1 $startTrackingID = null): self
     {
         if (is_null($startTrackingID) || (is_array($startTrackingID) && empty($startTrackingID))) {
             unset($this->StartTrackingID);
         } else {
             $this->StartTrackingID = $startTrackingID;
         }
+        
         return $this;
     }
 }
